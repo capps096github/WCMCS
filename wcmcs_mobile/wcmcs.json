@@ -1,0 +1,9 @@
+{
+    "app_name": "wcmcs",
+    "app_title": "WCMCS",
+    "app_description": "Water Consumption Monitoring Control System",
+    "primary_color_code": "007BFF",
+    "secondary_color_code": "e2e2e2",
+    "background_color_code": "200E32",
+    "has_navbar": true
+  }

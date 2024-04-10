@@ -1,0 +1,7 @@
+
+bricks:
+#a) start here incase the bricks tag is present in the mason.yaml file to add the path to our brick on github
+  xephas_app:
+    git:
+      url: https://github.com/capps096github/Cephas-Bricks.git
+      path: xephas_app
