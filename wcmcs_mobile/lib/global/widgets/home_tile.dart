@@ -5,7 +5,7 @@ class HomeTile extends StatelessWidget {
   /// [HomeTile] constructor
   const HomeTile({
     required this.title,
-    required this.subtitle,
+    this.subtitle,
     this.icon,
     super.key,
     this.onTap,
@@ -18,7 +18,7 @@ class HomeTile extends StatelessWidget {
   final String title;
 
   /// subtitle
-  final String subtitle;
+  final String? subtitle;
 
   /// on tap
   final VoidCallback? onTap;
@@ -60,12 +60,14 @@ class HomeTile extends StatelessWidget {
               color: textColor,
             ),
           ),
-          subtitle: Text(
-            subtitle,
-            style: TextStyle(
-              color: textColor,
-            ),
-          ),
+          subtitle: (subtitle != null)
+              ? Text(
+                  subtitle!,
+                  style: TextStyle(
+                    color: textColor,
+                  ),
+                )
+              : null,
           trailing: iconWidget ?? Icon(icon, color: textColor),
         ),
       ),

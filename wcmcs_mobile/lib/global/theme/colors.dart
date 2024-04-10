@@ -18,6 +18,10 @@ const wcmcsWhite = Color(0xFFFFFFFF);
 /// wcmcs black
 const wcmcsBlack = Color(0xFF000000);
 
+// green
+/// green
+const wcmcsGreen = Color(0xFF228B22);
+
 /// wcmcs transparent
 const wcmcsTransparent = Colors.transparent;
 

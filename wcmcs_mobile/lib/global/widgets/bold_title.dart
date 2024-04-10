@@ -37,3 +37,35 @@ class BoldTitle extends StatelessWidget {
     );
   }
 }
+
+/// bold title and description widget
+class BoldTileWithDescription extends StatelessWidget {
+  /// [BoldTileWithDescription] constructor
+  const BoldTileWithDescription(
+      {required this.boldTitle, required this.description, super.key});
+
+  /// [BoldTitle] tile
+  final BoldTitle boldTitle;
+
+  /// description
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        boldTitle,
+        const Spacing(of: spacing2),
+        // description
+        Text(
+          description,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    );
+  }
+}

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../wcmcs_exporter.dart';
 import '../../intro/intro.dart';
+import '../../tips/tips.dart';
 import 'home_page.dart';
 
 /// This provider checks if the current user is a Calcut Plus user and then returns the respective screens
@@ -23,9 +24,7 @@ final homePagesProvider = StateProvider<List<HomePage>>((ref) {
     HomePage(
       label: 'Water Usage',
       tooltip: 'Water',
-      screenWidget: const AppPlaceholder(
-        title: 'Tips',
-      ),
+      screenWidget: const LevelScreen(),
       routePath: homePath,
     ),
 
@@ -35,9 +34,7 @@ final homePagesProvider = StateProvider<List<HomePage>>((ref) {
       tooltip: 'Water Usage Tips',
       selectedIcon: CupertinoIcons.layers_alt_fill,
       unselectedIcon: CupertinoIcons.layers_alt,
-      screenWidget: const AppPlaceholder(
-        title: 'Tips',
-      ),
+      screenWidget: const TipsScreen(),
       routePath: tipsPath,
     ),
   ];

@@ -11,34 +11,22 @@ class IntroScreen extends StatelessWidget {
       padding: horizontalPadding16,
       children: const [
         Spacing(of: spacing2),
-        BoldTitle(
-          text: 'Hey Cephas',
-          color: wcmcsColor,
-          fontSize: 30,
-        ),
-        Spacing(of: spacing2),
-        // description
-        Text(
-          'Welcome back to Water Warden',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
+        BoldTileWithDescription(
+          boldTitle: BoldTitle(
+            text: 'Hey Cephas',
+            color: wcmcsColor,
+            fontSize: 30,
           ),
+          description: 'Welcome back to Water Warden',
         ),
         Spacing(of: spacing32),
-
-        BoldTitle(
-          text: "You're almost there!",
-          color: wcmcsColor,
-          fontSize: 30,
-        ),
-        // description
-        Text(
-          "Here's a quick guide to help you get started",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
+        BoldTileWithDescription(
+          boldTitle: BoldTitle(
+            text: "You're almost there!",
+            color: wcmcsColor,
+            fontSize: 30,
           ),
+          description: "Here's a quick guide to help you get started",
         ),
         Spacing(of: spacing16),
         HomeTile(
