@@ -9,7 +9,7 @@ void main() {
   // to remove the # from the web url
   usePathUrlStrategy();
 
-  /// this the app home page  here we have what we the main call of the function of the app 
+  /// this the app home page  here we have what we the main call of the function of the app
   runApp(
     const ProviderScope(
       child: Wcmcs(),

@@ -1,27 +1,26 @@
-// Project imports:
-
 import '../../wcmcs_exporter.dart';
 
-///this is a horizontal divider
+///this is a thick horizontal divider
 class ThickHorizontalDivider extends StatelessWidget {
+  /// a thick horizontal divider
   const ThickHorizontalDivider({
     super.key,
     this.dividerColor = wcmcsColor,
-    this.thickness = kDividerThickness,
-    this.dividerWidth = kHorizontalDividerWidth,
+    this.thickness = 6.0,
+    this.dividerWidth = 70,
     this.margin = const EdgeInsets.symmetric(vertical: 16),
   });
 
-//color of the divider
+  /// color of the divider
   final Color dividerColor;
 
-  // divider width
+  /// divider width
   final double dividerWidth;
 
   /// divider height
   final double thickness;
 
-  // margin
+  /// margin
   final EdgeInsetsGeometry? margin;
 
   @override
@@ -38,62 +37,28 @@ class ThickHorizontalDivider extends StatelessWidget {
   }
 }
 
-///this is a horizontal divider
-class SliverThickHorizontalDivider extends StatelessWidget {
-  const SliverThickHorizontalDivider({
-    super.key,
-    this.dividerColor = wcmcsColor,
-    this.thickness = kDividerThickness,
-    this.dividerWidth = kHorizontalDividerWidth,
-    this.margin = const EdgeInsets.symmetric(vertical: 16),
-  });
-
-//color of the divider
-  final Color dividerColor;
-
-  // divider width
-  final double dividerWidth;
-
-  /// divider height
-  final double thickness;
-
-  // margin
-  final EdgeInsetsGeometry margin;
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: ThickHorizontalDivider(
-        margin: margin,
-        thickness: thickness,
-        dividerWidth: dividerWidth,
-        dividerColor: dividerColor,
-      ),
-    );
-  }
-}
-
 ///this is a vertical divider
 class ThickVerticalDivider extends StatelessWidget {
+  /// thich vertical divider
   const ThickVerticalDivider({
     super.key,
     this.dividerColor = wcmcsColor,
-    this.thickness = kDividerThickness,
-    this.dividerHeight = kVerticalDividerHeight,
+    this.thickness = 6.0,
+    this.dividerHeight = 150,
     this.margin = const EdgeInsets.symmetric(vertical: 16),
   });
 
-//color of the divider
+  ///  color of the divider
   final Color dividerColor;
 
-  // divider width
+  /// divider width
   final double dividerHeight;
 
   /// divider height
   final double thickness;
 
-  // margin
-  final EdgeInsetsGeometry margin;
+  /// margin
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
@@ -104,40 +69,6 @@ class ThickVerticalDivider extends StatelessWidget {
       decoration: BoxDecoration(
         color: dividerColor,
         borderRadius: BorderRadius.circular(thickness / 2),
-      ),
-    );
-  }
-}
-
-class SliverThickVerticalDivider extends StatelessWidget {
-  const SliverThickVerticalDivider({
-    super.key,
-    this.dividerColor = wcmcsColor,
-    this.thickness = kDividerThickness,
-    this.dividerHeight = kVerticalDividerHeight,
-    this.margin = const EdgeInsets.symmetric(vertical: 16),
-  });
-
-//color of the divider
-  final Color dividerColor;
-
-  // divider width
-  final double dividerHeight;
-
-  /// divider height
-  final double thickness;
-
-  // margin
-  final EdgeInsetsGeometry margin;
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: ThickVerticalDivider(
-        margin: margin,
-        dividerHeight: dividerHeight,
-        thickness: thickness,
-        dividerColor: dividerColor,
       ),
     );
   }

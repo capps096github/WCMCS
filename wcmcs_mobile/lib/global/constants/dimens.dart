@@ -13,5 +13,11 @@ const double kButtonHeight = 42;
 /// desktop button height
 const double kDesktopButtonHeight = 56;
 
-// Height of the Nav Bar
+/// Height of the Nav Bar
 const double kNavbarHeight = 60;
+
+/// calcut button height
+const double wcmcsButtonHeight = 44;
+
+/// max width for the app auth screens
+const double maxAuthWidth = 500;

@@ -21,7 +21,7 @@ class ErrorText extends StatelessWidget {
       padding: padding16,
       child: Column(
         children: [
-          Text(
+          const Text(
             'ERROR',
             textAlign: TextAlign.center,
             style: TextStyle(

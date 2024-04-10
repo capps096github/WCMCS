@@ -5,6 +5,9 @@ final wcmcsThemeProvider = Provider<ThemeData>((ref) {
   return WcmcsTheme.light;
 });
 
+/// font
+final wcmcsFontFamily = GoogleFonts.montserrat().fontFamily;
+
 /// This is the default theme for the app
 class WcmcsTheme {
   /// light theme

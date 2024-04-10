@@ -1,82 +1,77 @@
 import '../../../wcmcs_exporter.dart';
 import 'button_body.dart';
 
-class AppButton extends StatefulWidget {
+/// Official App Button for the app
+class AppButton extends StatelessWidget {
+  /// App Button constructor
   const AppButton({
-    required this.text, required this.onTap, required this.textColor, required this.buttonColor, super.key,
+    required this.text,
+    required this.onTap,
+    required this.textColor,
+    required this.buttonColor,
+    super.key,
     this.icon,
     this.iconWidget,
     this.toolTip,
     this.isSmallButton = false,
   });
 
-  const AppButton.small({
-    required this.text, required this.onTap, required this.textColor, required this.buttonColor, super.key,
-    this.icon,
-    this.toolTip,
-    this.iconWidget,
-    this.isSmallButton = true,
-  });
+  /// small size of this [AppButton]
+  static Widget small({
+    required String text,
+    required VoidCallback onTap,
+    required Color textColor,
+    required Color buttonColor,
+    IconData? icon,
+    Widget? iconWidget,
+    String? toolTip,
+  }) =>
+      AppButton(
+        text: text,
+        onTap: onTap,
+        textColor: textColor,
+        buttonColor: buttonColor,
+        icon: icon,
+        iconWidget: iconWidget,
+        toolTip: toolTip,
+        isSmallButton: true,
+      );
 
   ///Wether the button is small or not
   final bool isSmallButton;
+
+  /// text label
   final String text;
+
+  /// widget to be used as icon
   final Widget? iconWidget;
-  final VoidCallback onTap;
+
+  /// callback function when button is tapped
+  final VoidCallback? onTap;
+
+  /// color of the text
   final Color textColor;
+
+  /// color of the button
   final Color buttonColor;
+
+  /// icon to be used
   final IconData? icon;
+
+  /// tooltip for the button
   final String? toolTip;
 
   @override
-  State<AppButton> createState() => _AppButtonState();
-}
-
-class _AppButtonState extends State<AppButton> {
-  bool isHovered = false;
-
-  @override
   Widget build(BuildContext context) {
-    final platform = Theme.of(context).platform;
-
-    ///This variable declares that if we are on phone
-    ///, no mouse region, else we gat a mouse region
-    final isPhone = !isWcmcsWeb &&
-        (TargetPlatform.android == platform || TargetPlatform.iOS == platform);
-
-    return isPhone
-        ? ButtonBody(
-            buttonColor: widget.buttonColor,
-            toolTip: widget.toolTip,
-            text: widget.text,
-            textColor: widget.textColor,
-            iconData: widget.icon,
-            iconWidget: widget.iconWidget,
-            onTap: widget.onTap,
-            isHovered: isHovered,
-            isSmallButton: widget.isSmallButton,
-          )
-        : MouseRegion(
-            onHover: (_) => setState(() => isHovered = true),
-            onExit: (_) => setState(() => isHovered = false),
-            child: ButtonBody(
-              buttonColor: widget.buttonColor,
-              toolTip: widget.toolTip,
-              text: widget.text,
-              textColor: widget.textColor,
-              iconData: widget.icon,
-              iconWidget: widget.iconWidget,
-              onTap: () {
-                // disable hovering
-                setState(() => isHovered = false);
-                
-                // call onTap
-                widget.onTap();
-              },
-              isHovered: isHovered,
-              isSmallButton: widget.isSmallButton,
-            ),
-          );
+    return ButtonBody(
+      buttonColor: buttonColor,
+      toolTip: toolTip,
+      text: text,
+      textColor: textColor,
+      iconData: icon,
+      iconWidget: iconWidget,
+      onTap: onTap,
+      isSmallButton: isSmallButton,
+    );
   }
 }
-

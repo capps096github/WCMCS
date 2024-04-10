@@ -1,8 +1,8 @@
 import '../../global/functions/sample_future.dart';
 import '../../wcmcs_exporter.dart';
 import 'home_screens.dart';
-import 'navbar/water_fab.dart';
 import 'navbar/navbar.dart';
+import 'navbar/water_fab.dart';
 
 /// home page of the WCMS app
 class WcmcsHome extends ConsumerWidget {

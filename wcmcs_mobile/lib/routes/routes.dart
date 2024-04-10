@@ -33,8 +33,10 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       //TODO if the user is logged in, don't redirect to any page just continue with the initial path
       return null;
     },
-    errorBuilder: (context, state) => WcmcsErrorScreen(error: state.error),
-    // log diagnostic info for your routes
+    onException: (context, state, _) => ErrorDisplay(
+      error: state.error.toString(),
+      stackTrace: StackTrace.current,
+    ), // log diagnostic info for your routes
     debugLogDiagnostics: true,
   );
 });

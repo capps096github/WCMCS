@@ -19,6 +19,5 @@ const userPath = '/user';
 /// settings path
 const settingsPath = '/settings';
 
-
 /// tips path
 const tipsPath = '/tips';

@@ -8,6 +8,6 @@ Future<void> linkLauncher(String link) async {
       mode: LaunchMode.externalApplication,
     );
   } else {
-    printer ('Could not launch $link');
+    printer('Could not launch $link');
   }
 }

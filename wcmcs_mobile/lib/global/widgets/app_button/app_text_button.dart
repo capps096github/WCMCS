@@ -1,27 +1,39 @@
 import '../../../wcmcs_exporter.dart';
 
+/// Official Text Button for the app
+
 class AppTextButton extends StatelessWidget {
+  /// [AppTextButton] constructor
   const AppTextButton({
-    required this.onTap, required this.textColor, required this.buttonColor, required this.text, super.key,
+    required this.onTap,
+    required this.textColor,
+    required this.buttonColor,
+    required this.text,
+    super.key,
     this.toolTip,
   });
 
+  /// callback function when button is tapped
   final VoidCallback onTap;
+
+  /// color of the text
   final Color textColor;
+
+  /// color of the button
   final Color buttonColor;
 
-  // text: The text to be displayed on the button
+  /// text: The text to be displayed on the button
   final String text;
 
-// tooltip: The tooltip to show when the user hovers over the button.
+  /// tooltip: The tooltip to show when the user hovers over the button.
   final String? toolTip;
 
   @override
   Widget build(BuildContext context) {
-    final buttonTextStyle = TextStyle(
-      color: textColor,
-      fontSize: 16,
-    );
+    final buttonTextStyle = Theme.of(context).textTheme.bodyMedium!.copyWith(
+          color: textColor,
+          fontSize: 16,
+        );
 
     final density = Theme.of(context).visualDensity;
 
@@ -30,7 +42,7 @@ class AppTextButton extends StatelessWidget {
       textStyle: TextStyle(color: buttonColor),
       decoration: BoxDecoration(
         color: textColor,
-        borderRadius: borderRadius4,
+        borderRadius: BorderRadius.circular(4),
       ),
       child: TextButton(
         onPressed: onTap,

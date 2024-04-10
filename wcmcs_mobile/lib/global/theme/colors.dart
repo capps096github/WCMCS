@@ -1,4 +1,3 @@
-
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -12,7 +11,6 @@ const wcmcsSecondaryColor = Color(0xFFE2E2E2);
 /// wcmcs background
 // const wcmcsBackground = Color(0xFF200E32);
 const wcmcsBackground = Color(0xFFEDF1F4);
-
 
 /// wcmcs white
 const wcmcsWhite = Color(0xFFFFFFFF);
@@ -33,4 +31,3 @@ const errorYellow = Color(0xFFFFFF00);
 
 /// error color
 const errorColor = Color(0xFF8A0301);
-

@@ -1,9 +1,8 @@
 import '../../wcmcs_exporter.dart';
 
-
 /// This class will be used to provide all responsiveness needed in the app
 class WcmcsResponsive {
-
+  /// Constructor for the WcmcsResponsive class
   WcmcsResponsive({required this.context});
 // context
   final BuildContext context;

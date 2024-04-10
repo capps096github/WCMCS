@@ -1,21 +1,46 @@
 import '../../../wcmcs_exporter.dart';
 
+/// A button that shows a circular progress indicator when tapped
 class CircularProgressAppButton extends StatelessWidget {
+  /// [CircularProgressAppButton] constructor
   const CircularProgressAppButton({
-    required this.isTapped, required this.onTap, required this.text, required this.textColor, required this.buttonColor, super.key,
+    required this.isTapped,
+    required this.onTap,
+    required this.text,
+    required this.textColor,
+    required this.buttonColor,
+    super.key,
     this.icon,
     this.toolTip,
+    this.shape,
     this.iconWidget,
   });
+
+  /// whether the button is tapped or not
   final bool isTapped;
+
+  /// callback function when button is tapped
   final VoidCallback onTap;
+
+  /// text label for this button
   final String text;
+
+  /// color of the text
   final Color textColor;
+
+  /// color of the button
   final Color buttonColor;
+
+  /// icon to be used
   final IconData? icon;
+
+  /// tooltip for the button
   final String? toolTip;
 
-  // this will be rendered incase the icon is not provided
+  /// shape of the button
+  final OutlinedBorder? shape;
+
+  /// this will be rendered incase the icon is not provided
   final Widget? iconWidget;
 
   @override

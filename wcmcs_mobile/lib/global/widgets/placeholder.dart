@@ -9,10 +9,9 @@ class AppPlaceholder extends StatelessWidget {
 
   /// title text for the screen
   final String title;
-  
+
   @override
   Widget build(BuildContext context) {
-    
     return ColoredBox(
       color: wcmcsRandomColor,
       child: Column(

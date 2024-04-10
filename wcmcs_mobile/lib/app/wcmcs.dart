@@ -7,7 +7,7 @@ class Wcmcs extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final goRouter = ref.watch(goRouterProvider);
-  
+
     final wcmcsTheme = ref.watch(wcmcsThemeProvider);
 
     return MaterialApp.router(
