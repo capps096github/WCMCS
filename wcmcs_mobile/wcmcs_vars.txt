@@ -1,0 +1,21 @@
+--------------------
+This file is auto-generated after you create your app using mason cli
+ 
+App Template Variables *As Entered By You
+--------------------
+
+
+- App Name:  wcmcs
+
+- App Description: Water Consumption Monitoring Control System
+
+- App Title: WCMCS
+
+- Primary Color: 007BFF
+
+- Secondary Color: e2e2e2
+
+- Background Color: 200E32
+
+
+Run the command `flutter pub run build_runner watch -d` to generate riverpod files and finish the setup.
