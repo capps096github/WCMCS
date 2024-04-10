@@ -10,11 +10,11 @@ final bool isWcmcsAndroid = (defaultTargetPlatform == TargetPlatform.android);
 final bool isWcmcsiOs = (defaultTargetPlatform == TargetPlatform.iOS);
 
 /// check if the current platform is Windows or Web
-const bool isWcmcsWeb = (kIsWeb);
+const bool isWcmcsWeb = kIsWeb;
 
 /// check if the current platform is Windows or Web
-final bool isWcmcsWebOrWindows = (isWcmcsWindows || isWcmcsWeb);
+final bool isWcmcsWebOrWindows = isWcmcsWindows || isWcmcsWeb;
 
 ///This variable declares that if we are on phone
 ///, no mouse region, else we gat a mouse region
-final isPhone = (isWcmcsAndroid || isWcmcsiOs);
+final isPhone = isWcmcsAndroid || isWcmcsiOs;

@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 
 import '../../wcmcs_exporter.dart';
 
-class WcmcsPlaceholder extends StatelessWidget {
+/// a place holder widget to render blank sample screens in the app
+class AppPlaceholder extends StatelessWidget {
   ///This is a placeholder widget used to render blank sample screens in the app
-  const WcmcsPlaceholder({super.key, required this.title});
+  const AppPlaceholder({required this.title, super.key});
 
   /// title text for the screen
   final String title;
@@ -12,7 +13,7 @@ class WcmcsPlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return Container(
+    return ColoredBox(
       color: wcmcsRandomColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -25,7 +26,7 @@ class WcmcsPlaceholder extends StatelessWidget {
             ),
           ),
 
-          const VerticalSpace(of: spacing16),
+          const Spacing(of: spacing16),
 
           // title
           Text(

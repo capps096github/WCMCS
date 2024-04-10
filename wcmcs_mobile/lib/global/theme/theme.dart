@@ -1,4 +1,3 @@
-
 import '../../wcmcs_exporter.dart';
 
 ///* this provides the default theme for the app
@@ -6,17 +5,16 @@ final wcmcsThemeProvider = Provider<ThemeData>((ref) {
   return WcmcsTheme.light;
 });
 
+/// This is the default theme for the app
 class WcmcsTheme {
-  
-    static ThemeData get light {
+  /// light theme
+  static ThemeData get light {
+    // text theme
+    final textTheme = ThemeData.light().textTheme;
 
-      // text theme
-      final TextTheme textTheme = ThemeData.light().textTheme;
+    const textStyleFunction = GoogleFonts.montserrat;
 
-      // TODO put app font here, default is Lato
-      const textStyleFunction = GoogleFonts.lato;
-
-      return ThemeData(
+    return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
       colorSchemeSeed: wcmcsColor,
@@ -27,21 +25,21 @@ class WcmcsTheme {
       //* -- Appbar
       appBarTheme: AppBarTheme(
         centerTitle: true,
-        // backgroundColor: wcmcsColor,
-      // TODO put app font here, default is Lato
-        titleTextStyle: GoogleFonts.lato(
-          fontSize: 20,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        titleTextStyle: GoogleFonts.montserrat(
+          fontSize: 25,
           fontWeight: FontWeight.w700,
           color: wcmcsWhite,
         ),
       ),
 
       //* -- tooltip
-      tooltipTheme:const TooltipThemeData(
-        textStyle:  TextStyle(color: wcmcsColor),
+      tooltipTheme: const TooltipThemeData(
+        textStyle: TextStyle(color: wcmcsColor),
         decoration: BoxDecoration(
           color: wcmcsSecondaryColor,
-          borderRadius:borderRadius4,
+          borderRadius: borderRadius4,
         ),
       ),
 
@@ -49,7 +47,7 @@ class WcmcsTheme {
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           padding: MaterialStateProperty.all(
-           padding16
+            padding16,
           ),
         ),
       ),
@@ -73,5 +71,5 @@ class WcmcsTheme {
         labelSmall: textStyleFunction(textStyle: textTheme.labelSmall),
       ),
     );
-    }
+  }
 }

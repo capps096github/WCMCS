@@ -1,7 +1,10 @@
 export 'app_button/exporter.dart';
+export 'bold_title.dart';
 export 'disclaimer.dart';
 export 'dividers.dart';
 export 'dot.dart';
 export 'entrance_fader.dart';
+export 'home_tile.dart';
+export 'logo.dart';
 export 'placeholder.dart';
-export 'spaces.dart';
+export 'spacing.dart';

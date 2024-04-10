@@ -3,8 +3,9 @@ import 'package:flutter/gestures.dart';
 import '../../wcmcs_exporter.dart';
 
 class WcmcsDisclaimer extends StatelessWidget {
-  const WcmcsDisclaimer({super.key,
-  this.continuingColor = wcmcsColor,
+  const WcmcsDisclaimer({
+    super.key,
+    this.continuingColor = wcmcsColor,
     this.termsPrivacycolor = wcmcsSecondaryColor,
   });
 
@@ -13,11 +14,10 @@ class WcmcsDisclaimer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
-   return RichText(
+    return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-        text: 'By continuing, you declare that you accept The Calcut\n',
+        text: 'By continuing, you declare that you accept The wcmcs\n',
         style: TextStyle(color: continuingColor),
         children: <TextSpan>[
           TextSpan(

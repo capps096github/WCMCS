@@ -3,11 +3,7 @@ import 'button_body.dart';
 
 class AppButton extends StatefulWidget {
   const AppButton({
-    super.key,
-    required this.text,
-    required this.onTap,
-    required this.textColor,
-    required this.buttonColor,
+    required this.text, required this.onTap, required this.textColor, required this.buttonColor, super.key,
     this.icon,
     this.iconWidget,
     this.toolTip,
@@ -15,11 +11,7 @@ class AppButton extends StatefulWidget {
   });
 
   const AppButton.small({
-    super.key,
-    required this.text,
-    required this.onTap,
-    required this.textColor,
-    required this.buttonColor,
+    required this.text, required this.onTap, required this.textColor, required this.buttonColor, super.key,
     this.icon,
     this.toolTip,
     this.iconWidget,
@@ -31,7 +23,8 @@ class AppButton extends StatefulWidget {
   final String text;
   final Widget? iconWidget;
   final VoidCallback onTap;
-  final Color textColor, buttonColor;
+  final Color textColor;
+  final Color buttonColor;
   final IconData? icon;
   final String? toolTip;
 
@@ -44,12 +37,12 @@ class _AppButtonState extends State<AppButton> {
 
   @override
   Widget build(BuildContext context) {
-    TargetPlatform platform = Theme.of(context).platform;
+    final platform = Theme.of(context).platform;
 
     ///This variable declares that if we are on phone
     ///, no mouse region, else we gat a mouse region
-    final isPhone = (!isWcmcsWeb &&
-        (TargetPlatform.android == platform || TargetPlatform.iOS == platform));
+    final isPhone = !isWcmcsWeb &&
+        (TargetPlatform.android == platform || TargetPlatform.iOS == platform);
 
     return isPhone
         ? ButtonBody(

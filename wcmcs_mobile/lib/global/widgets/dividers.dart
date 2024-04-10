@@ -9,7 +9,7 @@ class ThickHorizontalDivider extends StatelessWidget {
     this.dividerColor = wcmcsColor,
     this.thickness = kDividerThickness,
     this.dividerWidth = kHorizontalDividerWidth,
-    this.margin = const EdgeInsets.symmetric(vertical: 16.0),
+    this.margin = const EdgeInsets.symmetric(vertical: 16),
   });
 
 //color of the divider
@@ -45,7 +45,7 @@ class SliverThickHorizontalDivider extends StatelessWidget {
     this.dividerColor = wcmcsColor,
     this.thickness = kDividerThickness,
     this.dividerWidth = kHorizontalDividerWidth,
-    this.margin = const EdgeInsets.symmetric(vertical: 16.0),
+    this.margin = const EdgeInsets.symmetric(vertical: 16),
   });
 
 //color of the divider
@@ -80,7 +80,7 @@ class ThickVerticalDivider extends StatelessWidget {
     this.dividerColor = wcmcsColor,
     this.thickness = kDividerThickness,
     this.dividerHeight = kVerticalDividerHeight,
-    this.margin = const EdgeInsets.symmetric(vertical: 16.0),
+    this.margin = const EdgeInsets.symmetric(vertical: 16),
   });
 
 //color of the divider
@@ -115,7 +115,7 @@ class SliverThickVerticalDivider extends StatelessWidget {
     this.dividerColor = wcmcsColor,
     this.thickness = kDividerThickness,
     this.dividerHeight = kVerticalDividerHeight,
-    this.margin = const EdgeInsets.symmetric(vertical: 16.0),
+    this.margin = const EdgeInsets.symmetric(vertical: 16),
   });
 
 //color of the divider

@@ -1,37 +1,56 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import '../../global/functions/sample_future.dart';
 import '../../wcmcs_exporter.dart';
+import 'home_screens.dart';
+import 'navbar/water_fab.dart';
+import 'navbar/navbar.dart';
 
-class WcmcsHome extends StatelessWidget {
+/// home page of the WCMS app
+class WcmcsHome extends ConsumerWidget {
+  /// [WcmcsHome] constructor
   const WcmcsHome({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-  
-      body: Container(
-        padding: const EdgeInsets.all(10),
-        child: ListView(
-          children: const [
-            Icon(Icons.home, color: Colors. blue, size: 100,),
-           Center(
-            child:Column(
-              children: [
-                Text("Welcome to WCMCS", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
-                SizedBox(height: 10),
-                Text("This is the home page of the WCMCS app", style: TextStyle(fontSize: 20),),
-                SizedBox(height: 50),
-                Text("You are almost there", style: TextStyle(fontSize: 30),),
-                SizedBox(height: 10),
-                Text("Here is what Water Consumption Monitoring and Control System can do for you", style: TextStyle(fontSize: 20),),
-                
+  Widget build(BuildContext context, WidgetRef ref) {
+    final userStream = ref.watch(sampleFutureProvider);
 
-              ],
-           ),),
-          ]
-    ),
-    ),
+    /// * Listen to the user stream so that the app user updates automatically
+    return userStream.when(
+      loading: () => const WcmcsSplash(),
+      error: (error, stackTrace) => ErrorDisplay(
+        error: error,
+        stackTrace: stackTrace,
+      ),
+      data: (_) => const AppHomeBody(),
+    );
+  }
+}
+
+/// Home body of the WCMS app
+class AppHomeBody extends StatelessWidget {
+  /// [AppHomeBody] constructor
+  const AppHomeBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: wcmcsBackground,
+      appBar: AppBar(
+        backgroundColor: wcmcsBackground,
+        scrolledUnderElevation: 0,
+        title: const Hero(
+          tag: 'appLogo',
+          child: AppLogo(
+            logoSize: 30,
+          ),
+        ),
+      ),
+      body: const ColoredBox(
+        color: wcmcsBackground,
+        child: HomeScreens(),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: const WaterFAB(),
+      bottomNavigationBar: const HomeNavbar(),
     );
   }
 }

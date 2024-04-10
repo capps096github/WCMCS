@@ -2,16 +2,13 @@ import '../../../wcmcs_exporter.dart';
 
 class AppTextButton extends StatelessWidget {
   const AppTextButton({
-    super.key,
-    required this.onTap,
-    required this.textColor,
-    required this.buttonColor,
-    required this.text,
+    required this.onTap, required this.textColor, required this.buttonColor, required this.text, super.key,
     this.toolTip,
   });
 
   final VoidCallback onTap;
-  final Color textColor, buttonColor;
+  final Color textColor;
+  final Color buttonColor;
 
   // text: The text to be displayed on the button
   final String text;
@@ -26,7 +23,7 @@ class AppTextButton extends StatelessWidget {
       fontSize: 16,
     );
 
-    VisualDensity density = Theme.of(context).visualDensity;
+    final density = Theme.of(context).visualDensity;
 
     return Tooltip(
       message: toolTip ?? text,

@@ -22,6 +22,12 @@ dependencies:
   cached_network_image: ^3.3.1
   flutter_riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
+  flutter_svg: ^2.0.10+1
+  # for scrolling rows and columns
+  flextras: ^1.0.0
+  gap: ^3.0.1
+  restart_app: ^1.2.1
+  responsive_sizer: ^3.3.1
 
 dev_dependencies:
   flutter_test:
@@ -33,5 +39,10 @@ dev_dependencies:
   riverpod_generator: ^2.4.0
   riverpod_lint: ^2.3.10
 
+  very_good_analysis: ^5.1.0
+
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/icons/

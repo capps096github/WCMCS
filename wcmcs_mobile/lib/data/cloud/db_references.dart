@@ -1,1 +1,1 @@
-/// * This contains references to the databases used in the app
+// * This contains references to the databases used in the app

@@ -1,20 +1,24 @@
 // * All paths are defined here for app navigation
 
-// initial path
+/// initial path
 const initialPath = homePath;
 
-// * ------------------------------
-// home path
+/// * ------------------------------
+/// home path
 const homePath = '/';
 
-// * ------------------------------
-// auth path
+/// * ------------------------------
+/// auth path
 const authPath = '/auth';
 
-// * ------------------------------
-// user path
+/// * ------------------------------
+/// user path
 const userPath = '/user';
 
-// * ------------------------------
-// settings path
+/// * ------------------------------
+/// settings path
 const settingsPath = '/settings';
+
+
+/// tips path
+const tipsPath = '/tips';

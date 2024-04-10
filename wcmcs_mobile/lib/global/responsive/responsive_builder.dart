@@ -4,8 +4,7 @@ import '../../wcmcs_exporter.dart';
 class WcmcsResponsiveBuilder extends ConsumerWidget {
   const WcmcsResponsiveBuilder({
     required this.mobile,
-    this.tablet,
-    required this.desktop,
+    required this.desktop, this.tablet,
     super.key,
   });
 

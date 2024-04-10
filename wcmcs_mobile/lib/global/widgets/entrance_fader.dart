@@ -1,12 +1,15 @@
 import '../../wcmcs_exporter.dart';
 
+/// an entrance fader widget for fading in widgets as they enter the screen
+
 class EntranceFader extends StatefulWidget {
+  /// `EntranceFader` constructor
   const EntranceFader({
-    super.key,
     required this.child,
-    this.delay = const Duration(milliseconds: 0),
+    super.key,
+    this.delay = Duration.zero,
     this.duration = halfSeconds,
-    this.offset = const Offset(0.0, 32.0),
+    this.offset = const Offset(0, 32),
   });
 
   /// Child to be animated on entrance
@@ -28,17 +31,17 @@ class EntranceFader extends StatefulWidget {
 class _EntranceFaderState extends State<EntranceFader>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation _dxAnimation;
-  late Animation _dyAnimation;
+  late Animation<double> _dxAnimation;
+  late Animation<double> _dyAnimation;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this, duration: widget.duration);
     _dxAnimation =
-        Tween(begin: widget.offset.dx, end: 0.0).animate(_controller);
+        Tween<double>(begin: widget.offset.dx, end: 0).animate(_controller);
     _dyAnimation =
-        Tween(begin: widget.offset.dy, end: 0.0).animate(_controller);
+        Tween<double>(begin: widget.offset.dy, end: 0).animate(_controller);
     Future.delayed(widget.delay, () {
       if (mounted) {
         _controller.forward();

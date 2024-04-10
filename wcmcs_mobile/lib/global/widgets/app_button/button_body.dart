@@ -2,19 +2,12 @@ import '../../../wcmcs_exporter.dart';
 
 class ButtonBody extends ConsumerWidget {
   const ButtonBody({
-    super.key,
-    required this.buttonColor,
-    required this.toolTip,
-    required this.text,
-    required this.textColor,
-    required this.iconData,
-    required this.onTap,
-    required this.isHovered,
+    required this.buttonColor, required this.toolTip, required this.text, required this.textColor, required this.iconData, required this.onTap, required this.isHovered, required this.isSmallButton, super.key,
     this.iconWidget,
-    required this.isSmallButton,
   });
 
-  final bool isHovered, isSmallButton;
+  final bool isHovered;
+  final bool isSmallButton;
 
   final Color buttonColor;
   final String? toolTip;
@@ -26,10 +19,10 @@ class ButtonBody extends ConsumerWidget {
   final Widget? iconWidget;
 
   @override
-  Widget build(BuildContext context, ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
 
 
-    VisualDensity density = Theme.of(context).visualDensity;
+    final density = Theme.of(context).visualDensity;
 
     final width = MediaQuery.of(context).size.width;
 
@@ -41,7 +34,7 @@ class ButtonBody extends ConsumerWidget {
     /// True if It has an Icon
     final hasIconData = (iconData != null);
     final hasIconWidget = (iconWidget != null);
-    final hasIcon = (hasIconData || hasIconWidget);
+    final hasIcon = hasIconData || hasIconWidget;
 
     // elevation
     final elevation = isHovered ? spacing8 : spacing0;
