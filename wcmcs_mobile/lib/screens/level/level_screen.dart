@@ -1,3 +1,4 @@
+import '../../global/exporter.dart';
 import '../../wcmcs_exporter.dart';
 
 /// This is the water level screen
@@ -41,7 +42,58 @@ class LevelScreen extends StatelessWidget {
           width: 100,
           child: const Center(
             child: Text(
-              '(1000 l)',
+              '(2000 l)',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+        const Spacing(
+          of: 20,
+        ),
+        const BoldTileWithDescription(
+          boldTitle: BoldTitle(
+            text: 'WATER CONSUMED',
+            color: wcmcsColor,
+            fontSize: 30,
+          ),
+          description:
+              'This displays the water consumed per each section in the building',
+        ),
+        const Spacing(
+          of: 10,
+        ),
+
+         const Spacing(of: spacing8),
+        Container(
+          //radius of the container
+          decoration: const BoxDecoration(
+            borderRadius: borderRadius8,
+            color:Colors.red,
+          ),
+
+          height: 100,
+          width: 100,
+          child: const Center(
+            child: Text(
+              'Section A 1000l',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+       
+        const Spacing(of: spacing8),
+        Container(
+          //radius of the container
+          decoration:  BoxDecoration(
+            borderRadius: borderRadius8,
+            color: Colors.amber[900],
+          ),
+
+          height: 100,
+          width: 100,
+          child: const Center(
+            child: Text(
+              'Section B 700ml',
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -66,6 +118,9 @@ class LevelScreen extends StatelessWidget {
           tileColor: wcmcsGreen,
           icon: Icons.lock,
         ),
+        //boxes for the water consumed per section
+        
+      
       ],
     );
   }
