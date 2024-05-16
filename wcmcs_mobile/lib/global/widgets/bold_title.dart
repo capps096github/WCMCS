@@ -42,7 +42,7 @@ class BoldTitle extends StatelessWidget {
 class BoldTileWithDescription extends StatelessWidget {
   /// [BoldTileWithDescription] constructor
   const BoldTileWithDescription(
-      {required this.boldTitle, required this.description, super.key});
+      {required this.boldTitle, required this.description, super.key,});
 
   /// [BoldTitle] tile
   final BoldTitle boldTitle;
