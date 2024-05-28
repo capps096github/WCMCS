@@ -1,6 +1,6 @@
 import '../../global/functions/sample_future.dart';
 import '../../wcmcs_exporter.dart';
-import '../charts/line_chart.dart';
+import 'home_screens.dart';
 import 'navbar/navbar.dart';
 import 'navbar/water_fab.dart';
 
@@ -46,8 +46,8 @@ class AppHomeBody extends StatelessWidget {
       ),
       body: const ColoredBox(
         color: wcmcsBackground,
-        child: ChartScreen(),
-        //HomeScreens(),
+        child: HomeScreens(),
+        
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: const WaterFAB(),

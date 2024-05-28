@@ -1,4 +1,6 @@
+import '../../global/widgets/exporter.dart';
 import '../../wcmcs_exporter.dart';
+import '../charts/line_chart.dart';
 
 /// This is the water level screen
 class LevelScreen extends StatelessWidget {
@@ -63,8 +65,10 @@ class LevelScreen extends StatelessWidget {
         ),
 
          const Spacing(of: spacing8),
+
         Container(
           //radius of the container
+          
           decoration: const BoxDecoration(
             borderRadius: borderRadius8,
             color:Colors.red,
@@ -79,7 +83,24 @@ class LevelScreen extends StatelessWidget {
             ),
           ),
         ),
-       
+       const Spacing(of: spacing2),
+          HomeTile(
+          onTap: (){
+                    // Navigate to second route when tapped.
+                    Navigator.push(
+                      context,
+                      // ignore: inference_failure_on_instance_creation
+                      MaterialPageRoute(builder: (context) => const ChartScreen()),
+                    );
+                  },
+          
+          title:'Section A',
+          textColor: Colors.white,
+          tileColor: Colors.red,
+          
+
+        ),
+
         const Spacing(of: spacing8),
         Container(
           //radius of the container

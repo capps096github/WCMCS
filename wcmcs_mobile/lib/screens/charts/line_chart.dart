@@ -19,6 +19,7 @@ class ChartScreen extends StatelessWidget {
     ];
 
     return Scaffold(
+      
       body: Center(
         child: CustomChart(
           chartData: chartData,
