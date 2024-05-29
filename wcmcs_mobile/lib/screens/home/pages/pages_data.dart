@@ -1,7 +1,7 @@
 //
 import 'package:flutter/cupertino.dart';
 
-import '../../../wcmcs_exporter.dart';
+import '../../../app_exporter.dart';
 import '../../intro/intro.dart';
 import '../../tips/tips.dart';
 import 'home_page.dart';

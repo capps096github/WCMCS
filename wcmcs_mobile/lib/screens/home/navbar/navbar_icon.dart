@@ -1,4 +1,4 @@
-import '../../../wcmcs_exporter.dart';
+import '../../../app_exporter.dart';
 import 'dot.dart';
 
 /// Icon to show in the navbar of the home page
@@ -34,7 +34,7 @@ class NavbarIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const selectedColor = wcmcsWhite;
+    const selectedColor = appWhite;
     final unselectedColor = selectedColor.withOpacity(.6);
 
     return Tooltip(

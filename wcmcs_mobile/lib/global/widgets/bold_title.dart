@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 /// This displays a big heading 1 kind of title on a given page with
 ///  further customizations too
@@ -7,7 +7,7 @@ class BoldTitle extends StatelessWidget {
   const BoldTitle({
     required this.text,
     super.key,
-    this.color = wcmcsWhite,
+    this.color = appWhite,
     this.fontSize = 35,
     this.textAlign = TextAlign.center,
   });
@@ -41,8 +41,11 @@ class BoldTitle extends StatelessWidget {
 /// bold title and description widget
 class BoldTileWithDescription extends StatelessWidget {
   /// [BoldTileWithDescription] constructor
-  const BoldTileWithDescription(
-      {required this.boldTitle, required this.description, super.key,});
+  const BoldTileWithDescription({
+    required this.boldTitle,
+    required this.description,
+    super.key,
+  });
 
   /// [BoldTitle] tile
   final BoldTitle boldTitle;

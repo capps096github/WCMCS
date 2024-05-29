@@ -1,4 +1,4 @@
-import '../../../wcmcs_exporter.dart';
+import '../../../app_exporter.dart';
 
 /// back button to pop off this screen and go to a given screen
 class AppBackButton extends ConsumerWidget {
@@ -6,7 +6,7 @@ class AppBackButton extends ConsumerWidget {
   const AppBackButton({
     super.key,
     this.path,
-    this.iconColor = wcmcsWhite,
+    this.iconColor = appWhite,
   });
 
   /// go to path

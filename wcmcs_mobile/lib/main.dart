@@ -1,7 +1,7 @@
 // ignore: depend_on_referenced_packages
 import 'package:flutter_web_plugins/url_strategy.dart';
 
-import 'wcmcs_exporter.dart';
+import 'app_exporter.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,7 +12,7 @@ void main() {
   /// this the app home page  here we have what we the main call of the function of the app
   runApp(
     const ProviderScope(
-      child: Wcmcs(),
+      child: MainApp(),
     ),
   );
 }

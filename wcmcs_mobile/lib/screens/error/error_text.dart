@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 /// this is used to display error messages in a nice way
 class ErrorText extends StatelessWidget {
@@ -15,7 +15,7 @@ class ErrorText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: wcmcsWhite,
+        color: appWhite,
         borderRadius: borderRadius8,
       ),
       padding: padding16,

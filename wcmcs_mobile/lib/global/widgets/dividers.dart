@@ -1,11 +1,11 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 ///this is a thick horizontal divider
 class ThickHorizontalDivider extends StatelessWidget {
   /// a thick horizontal divider
   const ThickHorizontalDivider({
     super.key,
-    this.dividerColor = wcmcsColor,
+    this.dividerColor = appColor,
     this.thickness = 6.0,
     this.dividerWidth = 70,
     this.margin = const EdgeInsets.symmetric(vertical: 16),
@@ -42,7 +42,7 @@ class ThickVerticalDivider extends StatelessWidget {
   /// thich vertical divider
   const ThickVerticalDivider({
     super.key,
-    this.dividerColor = wcmcsColor,
+    this.dividerColor = appColor,
     this.thickness = 6.0,
     this.dividerHeight = 150,
     this.margin = const EdgeInsets.symmetric(vertical: 16),

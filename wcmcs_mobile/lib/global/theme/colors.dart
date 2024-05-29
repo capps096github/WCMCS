@@ -3,17 +3,20 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 /// wcmcs Color
-const wcmcsColor = Color(0xFF007BFF);
+const appColor = Color(0xFF007BFF);
 
 /// wcmcs secondary color
 const wcmcsSecondaryColor = Color(0xFFE2E2E2);
 
+/// app black
+const appBlack = Color(0xFF000000);
+
 /// wcmcs background
 // const wcmcsBackground = Color(0xFF200E32);
-const wcmcsBackground = Color(0xFFEDF1F4);
+const appBackground = Color(0xFFEDF1F4);
 
 /// wcmcs white
-const wcmcsWhite = Color(0xFFFFFFFF);
+const appWhite = Color(0xFFFFFFFF);
 
 /// wcmcs black
 const wcmcsBlack = Color(0xFF000000);
@@ -23,7 +26,7 @@ const wcmcsBlack = Color(0xFF000000);
 const wcmcsGreen = Color(0xFF228B22);
 
 /// wcmcs transparent
-const wcmcsTransparent = Colors.transparent;
+const appTransparent = Colors.transparent;
 
 /// wcmcs random color
 Color get wcmcsRandomColor =>

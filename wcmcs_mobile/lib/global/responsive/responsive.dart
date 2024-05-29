@@ -1,10 +1,11 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 /// This class will be used to provide all responsiveness needed in the app
-class WcmcsResponsive {
+class AppResponsive {
   /// Constructor for the WcmcsResponsive class
-  WcmcsResponsive({required this.context});
-// context
+  AppResponsive({required this.context});
+
+  /// context
   final BuildContext context;
 
   ///If the `Current Screen Width` is for the `SmallMobile i.e <300`
@@ -41,16 +42,16 @@ class WcmcsResponsive {
 
   /// getter for isMobile or isMediumMobile or isSmallMobile
   bool get isMobileScreen =>
-      WcmcsResponsive.isMobile(context) ||
-      WcmcsResponsive.isMediumMobile(context) ||
-      WcmcsResponsive.isSmallMobile(context);
+      AppResponsive.isMobile(context) ||
+      AppResponsive.isMediumMobile(context) ||
+      AppResponsive.isSmallMobile(context);
 
   /// getter for isTablet or isMediumTablet or isLargeTablet
   bool get isTabletScreen =>
-      WcmcsResponsive.isTablet(context) ||
-      WcmcsResponsive.isMediumTablet(context) ||
-      WcmcsResponsive.isLargeTablet(context);
+      AppResponsive.isTablet(context) ||
+      AppResponsive.isMediumTablet(context) ||
+      AppResponsive.isLargeTablet(context);
 
   /// getter for isDesktop
-  bool get isDesktopScreen => WcmcsResponsive.isDesktop(context);
+  bool get isDesktopScreen => AppResponsive.isDesktop(context);
 }

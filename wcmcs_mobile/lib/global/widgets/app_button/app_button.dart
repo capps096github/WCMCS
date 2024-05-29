@@ -1,4 +1,4 @@
-import '../../../wcmcs_exporter.dart';
+import '../../../app_exporter.dart';
 import 'button_body.dart';
 
 /// Official App Button for the app

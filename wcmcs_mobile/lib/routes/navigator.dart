@@ -1,4 +1,4 @@
-import '../wcmcs_exporter.dart';
+import '../app_exporter.dart';
 
 ///This function navigates to the given screen
 void push(

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 /// a place holder widget to render blank sample screens in the app
 class AppPlaceholder extends StatelessWidget {
@@ -20,7 +20,7 @@ class AppPlaceholder extends StatelessWidget {
           const Center(
             child: Icon(
               CupertinoIcons.circle_grid_hex_fill,
-              color: wcmcsWhite,
+              color: appWhite,
               size: 80,
             ),
           ),
@@ -30,7 +30,7 @@ class AppPlaceholder extends StatelessWidget {
           // title
           Text(
             title + wcmcsRandomColor.toString(),
-            style: const TextStyle(color: wcmcsWhite),
+            style: const TextStyle(color: appWhite),
           ),
         ],
       ),

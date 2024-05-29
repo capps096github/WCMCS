@@ -1,8 +1,9 @@
-import '../wcmcs_exporter.dart';
+import '../app_exporter.dart';
 
-class Wcmcs extends ConsumerWidget {
+/// this is where the app starts
+class MainApp extends ConsumerWidget {
   ///This is the root of our wcmcs app
-  const Wcmcs({super.key});
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -15,7 +16,7 @@ class Wcmcs extends ConsumerWidget {
       routerConfig: goRouter,
 
       // -- Theme --
-      color: wcmcsColor,
+      color: appColor,
       theme: wcmcsTheme,
 
       // -- Title --

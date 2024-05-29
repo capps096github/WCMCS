@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 /// this is screen
 class IntroScreen extends StatelessWidget {
@@ -14,7 +14,7 @@ class IntroScreen extends StatelessWidget {
         BoldTileWithDescription(
           boldTitle: BoldTitle(
             text: 'Hey Cephas',
-            color: wcmcsColor,
+            color: appColor,
             fontSize: 30,
           ),
           description: 'Welcome back to Water Warden',
@@ -23,7 +23,7 @@ class IntroScreen extends StatelessWidget {
         BoldTileWithDescription(
           boldTitle: BoldTitle(
             text: "You're almost there!",
-            color: wcmcsColor,
+            color: appColor,
             fontSize: 30,
           ),
           description: "Here's a quick guide to help you get started",
@@ -34,12 +34,12 @@ class IntroScreen extends StatelessWidget {
           subtitle: 'Get real-time updates on your water usage',
           iconWidget: AppLogo(
             logoSize: 24,
-            logoColor: wcmcsWhite,
+            logoColor: appWhite,
           ),
         ),
         HomeTile(
-          tileColor: wcmcsWhite,
-          textColor: wcmcsColor,
+          tileColor: appWhite,
+          textColor: appColor,
           title: 'Manage Your Water with Ease',
           subtitle: 'Get real-time updates on your water usage',
           iconWidget: AppLogo(

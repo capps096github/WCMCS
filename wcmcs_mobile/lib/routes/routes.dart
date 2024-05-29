@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../app_exporter.dart';
 
 ///* this provides the default router delegate for the app
 final goRouterProvider = Provider<GoRouter>((ref) {
@@ -15,7 +15,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       //* auth
       GoRoute(
         path: authPath,
-        builder: (context, state) => const WcmcsAuth(),
+        builder: (context, state) => const AuthScreen(),
       ),
 
       //* user
@@ -23,15 +23,36 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       // * settings
       GoRoute(
         path: settingsPath,
-        builder: (context, state) => const WcmcsSettings(),
+        builder: (context, state) => const AppSettings(),
       ),
     ],
 
     redirect: (_, state) {
-      //TODO if the user is not logged in, redirect to the auth page
+     //! ** this app user is repeated here, and therefore don't delete it
+        // final appUser = FirebaseAuth.instance.currentUser;
 
-      //TODO if the user is logged in, don't redirect to any page just continue with the initial path
-      return null;
+        /// set the user logged in variable
+        // final loggedIn = (appUser != null);
+
+        /// is authenticating
+        final isAuthenticating = (state.matchedLocation == authPath);
+
+        /// if the user is on the auth Screen or Welcome screen which also has the auth UI
+        final loggingIn = isAuthenticating;
+
+        /// if the user is not logged in, then ...
+        // if (!loggedIn) {
+        //   /// if user is on auth or welcome page then we redirect to the welcome page
+        //   /// else don't redirect to any page since the user is on the login page
+        //   return loggingIn ? null : welcomePath;
+        // }
+
+        /// if the user is logged in but still on the login page, send them to
+        /// the home page
+        if (loggingIn) return homePath;
+
+        /// no need to redirect at all
+        return null;
     },
     onException: (context, state, _) => ErrorDisplay(
       error: state.error.toString(),

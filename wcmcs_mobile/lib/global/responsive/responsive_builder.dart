@@ -1,7 +1,9 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
-class WcmcsResponsiveBuilder extends ConsumerWidget {
-  const WcmcsResponsiveBuilder({
+/// Responsive builder
+class AppResponsiveBuilder extends ConsumerWidget {
+  /// [AppResponsiveBuilder] constructor
+  const AppResponsiveBuilder({
     required this.mobile,
     required this.desktop,
     this.tablet,
@@ -20,7 +22,7 @@ class WcmcsResponsiveBuilder extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // responsiveness
-    final wcmcsResponsive = ref.watch(wcmcsResponsiveProvider(context));
+    final wcmcsResponsive = ref.watch(appResponsiveProvider(context));
 
     final isDesktop = wcmcsResponsive.isDesktopScreen;
     final isTablet = wcmcsResponsive.isTabletScreen;

@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 import 'data/tips_data.dart';
 
 /// this shows tips on how to save water
@@ -19,7 +19,7 @@ class TipsScreen extends StatelessWidget {
         return HomeTile(
           title: waterTip.title,
           subtitle: waterTip.description,
-          tileColor: wcmcsWhite,
+          tileColor: appWhite,
           textColor: wcmcsBlack,
         );
       },

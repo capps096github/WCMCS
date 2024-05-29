@@ -1,15 +1,20 @@
 import 'package:flutter/gestures.dart';
 
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
-class WcmcsDisclaimer extends StatelessWidget {
-  const WcmcsDisclaimer({
+/// This is the disclaimer for the app
+class AppDisclaimer extends StatelessWidget {
+  /// [AppDisclaimer] constructor
+  const AppDisclaimer({
     super.key,
-    this.continuingColor = wcmcsColor,
+    this.continuingColor = appColor,
     this.termsPrivacycolor = wcmcsSecondaryColor,
   });
 
+  /// color for the continuing text
   final Color continuingColor;
+
+  /// color for the terms and privacy policy
   final Color termsPrivacycolor;
 
   @override

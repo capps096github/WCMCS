@@ -1,4 +1,4 @@
-import '../wcmcs_exporter.dart';
+import '../app_exporter.dart';
 
 /// Splash Screen for the app
 class WcmcsSplash extends StatelessWidget {

@@ -1,7 +1,7 @@
 
 // ignore_for_file: public_member_api_docs
 
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 import 'chart_data.dart';
 import 'chart_widget.dart';
 

@@ -1,23 +1,23 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 /// THis is a dot in a bullet=like format
 ///
-
 class Dot extends StatelessWidget {
+  /// [Dot] constructor
   const Dot({
     super.key,
-    this.dotColor = wcmcsColor,
+    this.dotColor = appColor,
     this.dotDiameter = spacing8,
     this.margin = margin4,
   });
 
-  // color of the dot
+  /// color of the dot
   final Color dotColor;
 
-  // diameter of the dot
+  /// diameter of the dot
   final double dotDiameter;
 
-  // margin of the dot
+  /// margin of the dot
   final EdgeInsetsGeometry margin;
 
   @override

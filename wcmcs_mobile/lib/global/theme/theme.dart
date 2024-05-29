@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 ///* this provides the default theme for the app
 final wcmcsThemeProvider = Provider<ThemeData>((ref) {
@@ -20,7 +20,7 @@ class WcmcsTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      colorSchemeSeed: wcmcsColor,
+      colorSchemeSeed: appColor,
 
       //* -- Visual Density
       visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -33,13 +33,13 @@ class WcmcsTheme {
         titleTextStyle: GoogleFonts.montserrat(
           fontSize: 25,
           fontWeight: FontWeight.w700,
-          color: wcmcsWhite,
+          color: appWhite,
         ),
       ),
 
       //* -- tooltip
       tooltipTheme: const TooltipThemeData(
-        textStyle: TextStyle(color: wcmcsColor),
+        textStyle: TextStyle(color: appColor),
         decoration: BoxDecoration(
           color: wcmcsSecondaryColor,
           borderRadius: borderRadius4,
@@ -49,7 +49,7 @@ class WcmcsTheme {
       //* -- text button
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-          padding: MaterialStateProperty.all(
+          padding: WidgetStateProperty.all(
             padding16,
           ),
         ),

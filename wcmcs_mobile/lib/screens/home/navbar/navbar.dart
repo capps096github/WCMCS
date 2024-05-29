@@ -1,7 +1,7 @@
 /// Project imports:
 library;
 
-import '../../../wcmcs_exporter.dart';
+import '../../../app_exporter.dart';
 import '../pages/pages_data.dart';
 import 'navbar_icon.dart';
 import 'navbar_notifier.dart';
@@ -28,7 +28,7 @@ class HomeNavbar extends ConsumerWidget {
 
     return BottomAppBar(
       height: kNavbarHeight,
-      color: wcmcsColor,
+      color: appColor,
       clipBehavior: Clip.antiAlias,
       shape: const CircularNotchedRectangle(),
       padding: const EdgeInsets.symmetric(

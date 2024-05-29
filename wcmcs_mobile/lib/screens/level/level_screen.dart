@@ -1,5 +1,4 @@
-import '../../global/widgets/exporter.dart';
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 import '../charts/line_chart.dart';
 
 /// This is the water level screen
@@ -17,7 +16,7 @@ class LevelScreen extends StatelessWidget {
         const BoldTileWithDescription(
           boldTitle: BoldTitle(
             text: 'Hey Cephas',
-            color: wcmcsColor,
+            color: appColor,
             fontSize: 30,
           ),
           description: 'Welcome back to Water Warden',
@@ -26,7 +25,7 @@ class LevelScreen extends StatelessWidget {
         const BoldTileWithDescription(
           boldTitle: BoldTitle(
             text: 'WATER LEVEL',
-            color: wcmcsColor,
+            color: appColor,
             fontSize: 30,
           ),
           description: 'This is the current amount of water left in your tank',
@@ -36,7 +35,7 @@ class LevelScreen extends StatelessWidget {
           //radius of the container
           decoration: const BoxDecoration(
             borderRadius: borderRadius8,
-            color: wcmcsColor,
+            color: appColor,
           ),
 
           height: 100,
@@ -54,7 +53,7 @@ class LevelScreen extends StatelessWidget {
         const BoldTileWithDescription(
           boldTitle: BoldTitle(
             text: 'WATER CONSUMED',
-            color: wcmcsColor,
+            color: appColor,
             fontSize: 30,
           ),
           description:
@@ -64,14 +63,14 @@ class LevelScreen extends StatelessWidget {
           of: 10,
         ),
 
-         const Spacing(of: spacing8),
+        const Spacing(of: spacing8),
 
         Container(
           //radius of the container
-          
+
           decoration: const BoxDecoration(
             borderRadius: borderRadius8,
-            color:Colors.red,
+            color: Colors.red,
           ),
 
           height: 100,
@@ -83,28 +82,24 @@ class LevelScreen extends StatelessWidget {
             ),
           ),
         ),
-       const Spacing(of: spacing2),
-          HomeTile(
-          onTap: (){
-                    // Navigate to second route when tapped.
-                    Navigator.push(
-                      context,
-                      // ignore: inference_failure_on_instance_creation
-                      MaterialPageRoute(builder: (context) => const ChartScreen()),
-                    );
-                  },
-          
-          title:'Section A',
-          textColor: Colors.white,
+        const Spacing(of: spacing2),
+        HomeTile(
+          onTap: () {
+            // Navigate to second route when tapped.
+            Navigator.push(
+              context,
+              // ignore: inference_failure_on_instance_creation
+              MaterialPageRoute(builder: (context) => const ChartScreen()),
+            );
+          },
+          title: 'Section A',
           tileColor: Colors.red,
-          
-
         ),
 
         const Spacing(of: spacing8),
         Container(
           //radius of the container
-          decoration:  BoxDecoration(
+          decoration: BoxDecoration(
             borderRadius: borderRadius8,
             color: Colors.amber[900],
           ),
@@ -124,7 +119,7 @@ class LevelScreen extends StatelessWidget {
         const BoldTileWithDescription(
           boldTitle: BoldTitle(
             text: 'FETCH WATER',
-            color: wcmcsColor,
+            color: appColor,
             fontSize: 30,
           ),
           description:
@@ -139,8 +134,6 @@ class LevelScreen extends StatelessWidget {
           icon: Icons.lock,
         ),
         //boxes for the water consumed per section
-        
-      
       ],
     );
   }

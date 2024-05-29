@@ -6,12 +6,11 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../global/exporter.dart';
 import 'chart_data.dart';
 
-
 // ignore: public_member_api_docs
 class CustomChart extends StatelessWidget {
-
   const CustomChart({
-    required this.chartData, super.key,
+    required this.chartData,
+    super.key,
     this.titleText = '',
     this.xAxisTitle = '',
     this.yAxisTitle = '',
@@ -30,7 +29,8 @@ class CustomChart extends StatelessWidget {
     return SfCartesianChart(
       borderColor: Colors.blue,
       borderWidth: 2,
-      legend: Legend(isVisible: showLegend, title: LegendTitle(text: legendTitle)),
+      legend:
+          Legend(isVisible: showLegend, title: LegendTitle(text: legendTitle)),
       title: ChartTitle(text: titleText),
       primaryXAxis: CategoryAxis(title: AxisTitle(text: xAxisTitle)),
       primaryYAxis: NumericAxis(title: AxisTitle(text: yAxisTitle)),
@@ -40,14 +40,16 @@ class CustomChart extends StatelessWidget {
           dataSource: chartData,
           xValueMapper: (ChartData data, _) => data.x,
           yValueMapper: (ChartData data, _) => data.y,
-          dataLabelSettings: const DataLabelSettings(isVisible: true, color: wcmcsColor),
+          dataLabelSettings:
+              const DataLabelSettings(isVisible: true, color: appColor),
         ),
         LineSeries<ChartData, String>(
           dataSource: chartData,
           color: wcmcsGreen,
           xValueMapper: (ChartData data, _) => data.x,
           yValueMapper: (ChartData data, _) => data.y1,
-          dataLabelSettings: const DataLabelSettings(isVisible: true, color: wcmcsGreen),
+          dataLabelSettings:
+              const DataLabelSettings(isVisible: true, color: wcmcsGreen),
         ),
       ],
     );

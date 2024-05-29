@@ -1,6 +1,6 @@
 import 'package:restart_app/restart_app.dart';
 
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 import 'error_text.dart';
 import 'stack_trace.dart';
 
@@ -32,7 +32,7 @@ class ErrorDisplay extends StatelessWidget {
         leading: Consumer(
           builder: (_, ref, __) {
             return CloseButton(
-              color: wcmcsWhite,
+              color: appWhite,
               onPressed: () => go(ref, to: homePath),
             );
           },
@@ -53,7 +53,7 @@ class ErrorDisplay extends StatelessWidget {
               "No worries, we'll get right on it. It's probably just a temporary glitch on our end.",
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: wcmcsWhite,
+                color: appWhite,
               ),
             ),
             const Spacing(of: spacing32),
@@ -72,7 +72,7 @@ class ErrorDisplay extends StatelessWidget {
             const ThickHorizontalDivider(
               thickness: 1.5,
               dividerWidth: double.infinity,
-              dividerColor: wcmcsWhite,
+              dividerColor: appWhite,
               margin: margin0,
             ),
             const Spacing(of: spacing8),
@@ -80,8 +80,8 @@ class ErrorDisplay extends StatelessWidget {
             /// go to safety
             AppButton(
               text: 'Go to Safety',
-              buttonColor: wcmcsWhite,
-              textColor: wcmcsColor,
+              buttonColor: appWhite,
+              textColor: appColor,
               iconWidget: const AppLogo(logoSize: 24),
               onTap: () {
                 Restart.restartApp(webOrigin: homePath);

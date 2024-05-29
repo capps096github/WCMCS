@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 ///* Margins following the 8px grid system
 
@@ -19,3 +19,15 @@ const EdgeInsets margin2 = EdgeInsets.all(spacing2);
 
 /// 0 margin
 const EdgeInsets margin0 = EdgeInsets.zero;
+
+/// vertical margin 4
+const EdgeInsets marginV4 = EdgeInsets.symmetric(vertical: 4);
+
+/// vertical margin 8
+const EdgeInsets marginV8 = EdgeInsets.symmetric(vertical: 8);
+
+/// vertical margin 16
+const EdgeInsets marginV16 = EdgeInsets.symmetric(vertical: 16);
+
+/// horizontal margin 8
+const EdgeInsets marginH8 = EdgeInsets.symmetric(horizontal: 8);

@@ -1,11 +1,11 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 /// Small Size of the wcmcs Logo
 class AppLogo extends StatelessWidget {
   /// [AppLogo]  constructor
   const AppLogo({
     super.key,
-    this.logoColor = wcmcsColor,
+    this.logoColor = appColor,
     this.logoSize = 40.0,
   });
 

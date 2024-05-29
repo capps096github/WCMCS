@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 ///This Opens the links in the browser
 Future<void> linkLauncher(String link) async {

@@ -1,3 +1,4 @@
+/// A list of TODOs in the app
 class WcmcsTODO {
   // TODO: Implement the TODO class here for things and features that need to be done in the app, icluding updates too
 

@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 /// this widget displays the stack trace of an error
 class StackTraceWidget extends StatelessWidget {

@@ -1,4 +1,4 @@
-import '../../../wcmcs_exporter.dart';
+import '../../../app_exporter.dart';
 
 /// A button that shows a circular progress indicator when tapped
 class CircularProgressAppButton extends StatelessWidget {

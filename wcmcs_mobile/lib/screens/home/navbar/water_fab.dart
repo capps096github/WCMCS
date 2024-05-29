@@ -1,5 +1,4 @@
-
-import '../../../wcmcs_exporter.dart';
+import '../../../app_exporter.dart';
 import 'navbar_notifier.dart';
 
 /// this is the floating action button for the calculate screen
@@ -15,16 +14,15 @@ class WaterFAB extends ConsumerWidget {
     final isSelected = (navBarIndex == 1);
 
     // colrs
-    const backgroundColor = wcmcsColor;
-    final foregroundColor =
-        isSelected ? wcmcsWhite : wcmcsWhite.withOpacity(.6);
+    const backgroundColor = appColor;
+    final foregroundColor = isSelected ? appWhite : appWhite.withOpacity(.6);
 
     return FloatingActionButton(
       elevation: 0,
       backgroundColor: backgroundColor,
       shape: CircleBorder(
         side: BorderSide(
-          color: wcmcsColor.withOpacity(.1),
+          color: appColor.withOpacity(.1),
         ),
       ),
       onPressed: isSelected

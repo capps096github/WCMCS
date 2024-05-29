@@ -1,4 +1,4 @@
-import '../../../wcmcs_exporter.dart';
+import '../../../app_exporter.dart';
 
 /// This is the page to show on the home screen of the wcmcs app once the user selects from the nav bar
 class HomePage {

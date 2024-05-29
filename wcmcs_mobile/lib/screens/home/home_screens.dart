@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 import 'navbar/navbar_notifier.dart';
 import 'pages/pages_data.dart';
 
@@ -21,7 +21,7 @@ class HomeScreens extends ConsumerWidget {
         return FadeThroughTransition(
           animation: animation,
           secondaryAnimation: secondaryAnimation,
-          fillColor: wcmcsTransparent,
+          fillColor: appTransparent,
           child: child,
         );
       },

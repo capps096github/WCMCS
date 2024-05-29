@@ -1,4 +1,4 @@
-import '../../../wcmcs_exporter.dart';
+import '../../../app_exporter.dart';
 
 /// this is the body of the `AppButton`
 class ButtonBody extends ConsumerWidget {
@@ -45,7 +45,7 @@ class ButtonBody extends ConsumerWidget {
 
     final width = MediaQuery.of(context).size.width;
 
-    final wcmcsResponsive = ref.watch(wcmcsResponsiveProvider(context));
+    final wcmcsResponsive = ref.watch(appResponsiveProvider(context));
 
     final isDesktop = wcmcsResponsive.isDesktopScreen;
     final isMobile = wcmcsResponsive.isMobileScreen;

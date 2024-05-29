@@ -1,7 +1,9 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
-class WcmcsSettings extends ConsumerWidget {
-  const WcmcsSettings({super.key});
+/// App settings
+class AppSettings extends ConsumerWidget {
+  /// [AppSettings] constructor
+  const AppSettings({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

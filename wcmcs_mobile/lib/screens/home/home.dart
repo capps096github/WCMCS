@@ -1,5 +1,5 @@
+import '../../app_exporter.dart';
 import '../../global/functions/sample_future.dart';
-import '../../wcmcs_exporter.dart';
 import 'home_screens.dart';
 import 'navbar/navbar.dart';
 import 'navbar/water_fab.dart';
@@ -33,9 +33,9 @@ class AppHomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: wcmcsBackground,
+      backgroundColor: appBackground,
       appBar: AppBar(
-        backgroundColor: wcmcsBackground,
+        backgroundColor: appBackground,
         scrolledUnderElevation: 0,
         title: const Hero(
           tag: 'appLogo',
@@ -45,9 +45,8 @@ class AppHomeBody extends StatelessWidget {
         ),
       ),
       body: const ColoredBox(
-        color: wcmcsBackground,
+        color: appBackground,
         child: HomeScreens(),
-        
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: const WaterFAB(),

@@ -1,11 +1,11 @@
-import '../../../wcmcs_exporter.dart';
+import '../../../app_exporter.dart';
 
 /// THis is a dot in a bullet=like format
 class CalcutDot extends StatelessWidget {
   /// THis is a dot in a bullet=like format
   const CalcutDot({
     super.key,
-    this.dotColor = wcmcsColor,
+    this.dotColor = appColor,
     this.dotDiameter = 10,
     this.margin = padding4,
   });

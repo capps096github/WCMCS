@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 /// an entrance fader widget for fading in widgets as they enter the screen
 

@@ -1,4 +1,4 @@
-import '../../wcmcs_exporter.dart';
+import '../../app_exporter.dart';
 
 /// this is displayed on the home screen to perform some actions
 class HomeTile extends StatelessWidget {
@@ -9,10 +9,9 @@ class HomeTile extends StatelessWidget {
     this.icon,
     super.key,
     this.onTap,
-    this.textColor = wcmcsWhite,
-    this.tileColor = wcmcsColor,
+    this.textColor = appWhite,
+    this.tileColor = appColor,
     this.iconWidget,
-    
   });
 
   /// title
