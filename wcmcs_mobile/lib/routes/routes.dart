@@ -29,10 +29,10 @@ final goRouterProvider = Provider<GoRouter>((ref) {
 
     redirect: (_, state) {
      //! ** this app user is repeated here, and therefore don't delete it
-        // final appUser = FirebaseAuth.instance.currentUser;
+        final appUser = FirebaseAuth.instance.currentUser;
 
-        /// set the user logged in variable
-        // final loggedIn = (appUser != null);
+        // set the user logged in variable
+        final loggedIn = (appUser != null);
 
         /// is authenticating
         final isAuthenticating = (state.matchedLocation == authPath);
@@ -41,11 +41,11 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         final loggingIn = isAuthenticating;
 
         /// if the user is not logged in, then ...
-        // if (!loggedIn) {
-        //   /// if user is on auth or welcome page then we redirect to the welcome page
-        //   /// else don't redirect to any page since the user is on the login page
-        //   return loggingIn ? null : welcomePath;
-        // }
+        if (!loggedIn) {
+          /// if user is on auth or welcome page then we redirect to the welcome page
+          /// else don't redirect to any page since the user is on the login page
+          return loggingIn ? null : authPath;
+        }
 
         /// if the user is logged in but still on the login page, send them to
         /// the home page
