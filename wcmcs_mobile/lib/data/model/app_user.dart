@@ -11,6 +11,19 @@ class AppUser {
     this.profilePicUrl = defaultProfilePic,
   });
 
+  /// get app user from firebase user
+  factory AppUser.fromFirebaseUser() {
+    final user = FirebaseAuth.instance.currentUser!;
+
+    return AppUser(
+      userId: user.uid,
+      email: user.email ?? '',
+      displayName: user.displayName ?? '',
+      joinedOn: Timestamp.now(),
+      profilePicUrl: user.photoURL ?? defaultProfilePic,
+    );
+  }
+
   /// from firestore
   factory AppUser.fromFirestore(Map<String, dynamic> map) {
     return AppUser(
@@ -56,4 +69,12 @@ class AppUser {
     displayName: '',
     joinedOn: Timestamp.now(),
   );
+
+  /// Get the first name of the app user
+  String get firstName => displayName.split(' ')[0];
+
+  @override
+  String toString() {
+    return 'AppUser(userId: $userId, email: $email, displayName: $displayName, joinedOn: $joinedOn, profilePicUrl: $profilePicUrl)';
+  }
 }

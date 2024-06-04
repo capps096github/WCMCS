@@ -1,5 +1,5 @@
 ///
- class Section {
+ class SectionTable {
   ///
   String name='';
   ///

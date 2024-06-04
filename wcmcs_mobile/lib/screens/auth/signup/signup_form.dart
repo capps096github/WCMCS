@@ -1,5 +1,4 @@
 import '../../../app_exporter.dart';
-import '../gender/gender_selector.dart';
 import '../google_auth/google_auth_button.dart';
 import '../pages/or_text.dart';
 import '../pages/to_sign_in_button.dart';
@@ -18,7 +17,6 @@ class SignUpForm extends ConsumerWidget {
     final signUpFormKey = ref.watch(signUpFormKeyProvider);
 
     const backColor = appColor;
-    const textColor = appWhite;
 
     return AutofillGroup(
       key: const ValueKey('SignUp'),
@@ -30,16 +28,8 @@ class SignUpForm extends ConsumerWidget {
             NameField(fieldColor: backColor),
             Spacing(of: spacing16),
 
-            ///Gender
-            GenderSelector(
-              backgroundColor: backColor,
-              textColor: textColor,
-              isPartOfRegister: true,
-            ),
-            Spacing(of: spacing16),
-
             ///Email
-            EmailField(fieldColor: backColor),
+            EmailField(fieldColor: backColor, isSignUpScreen:true),
             Spacing(of: spacing16),
 
             ///Password

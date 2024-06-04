@@ -45,11 +45,11 @@ class CustomChart extends StatelessWidget {
         ),
         LineSeries<ChartData, String>(
           dataSource: chartData,
-          color: wcmcsGreen,
+          color: appGreen,
           xValueMapper: (ChartData data, _) => data.x,
           yValueMapper: (ChartData data, _) => data.y1,
           dataLabelSettings:
-              const DataLabelSettings(isVisible: true, color: wcmcsGreen),
+              const DataLabelSettings(isVisible: true, color: appGreen),
         ),
       ],
     );

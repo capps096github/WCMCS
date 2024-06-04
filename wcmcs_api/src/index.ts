@@ -50,6 +50,9 @@ app.get('/test-upload', (request: express.Request, response: express.Response) =
     console.log('Test upload endpoint');
 
     uploadWaterData(20, response);
+    uploadWaterData(25, response);
+    uploadWaterData(30, response);
+    uploadWaterData(22.6, response);
 });
 
 // post endpoint for uploading water flow data

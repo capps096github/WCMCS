@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import '../../../app_exporter.dart';
 
-import '../functions/forgot_calcut_password.dart';
+import '../functions/forgot_password.dart';
 import '../textfields/textfields_riverpod.dart';
 import 'forgot_screen.dart';
 

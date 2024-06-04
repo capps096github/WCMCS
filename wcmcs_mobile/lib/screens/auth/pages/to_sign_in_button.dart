@@ -13,7 +13,6 @@ class ToSignInButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const textColor = appColor;
 
     return Material(
       borderRadius: BorderRadius.circular(8),
@@ -44,7 +43,7 @@ class ToSignInButton extends ConsumerWidget {
                   textAlign: TextAlign.right,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: textColor,
+                    color: appNavy,
                   ),
                 ),
                 const Spacing(of: 10),

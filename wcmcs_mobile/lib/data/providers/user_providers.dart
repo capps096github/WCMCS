@@ -36,6 +36,6 @@ final appUserProvider = StateProvider<AppUser>((ref) {
   /// print this calcut user as string
   /// ignore: avoid_print
   print('Current Calcut User is: $appUser');
-
-  return appUser ?? AppUser.defaultUser;
+  
+  return appUser ?? AppUser.fromFirebaseUser();
 });

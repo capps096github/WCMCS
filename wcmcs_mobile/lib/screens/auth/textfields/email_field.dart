@@ -13,16 +13,21 @@ class EmailField extends ConsumerWidget {
   /// [EmailField] constructor
   const EmailField({
     required this.fieldColor,
+    this.isSignUpScreen = false,
     super.key,
   });
 
   /// [fieldColor] is the color of the field
   final Color fieldColor;
 
+  
+  /// check whether we are on Sign In Screen
+  final bool isSignUpScreen;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return CustomTextField(
-      restorationId: 'email',
+      restorationId:isSignUpScreen? 'email_signup' : 'email_signin',
       onChanged: (email) {
         if (emailExp.hasMatch(email)) {
           ref.read(emailProvider.notifier).state = email;

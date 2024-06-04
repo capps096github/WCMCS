@@ -18,7 +18,23 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const AuthScreen(),
       ),
 
+      // * tips
+      GoRoute(
+        path: tipsPath,
+        builder: (context, state) => const TipsScreen(),
+      ),
+
+      // * manage
+      GoRoute(
+        path: managePath,
+        builder: (context, state) => const ManageScreen(),
+      ),
+
       //* user
+      GoRoute(
+        path: userProfilePath,
+        builder: (context, state) => const UserProfile(),
+      ),
 
       // * settings
       GoRoute(

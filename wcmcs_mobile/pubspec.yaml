@@ -23,6 +23,10 @@ dependencies:
   flutter_riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
   flutter_svg: ^2.0.10+1
+
+  # dotted
+  dotted_border: ^2.0.0+3
+
   #for charts
   syncfusion_flutter_charts: ^25.2.6
   # for scrolling rows and columns
@@ -32,9 +36,9 @@ dependencies:
   responsive_sizer: ^3.3.1
   
   # Firebase
-  firebase_auth: ^4.20.0
-  firebase_core: ^2.32.0
-  cloud_firestore: ^4.17.5
+  firebase_auth: ^5.0.0
+  firebase_core: ^3.0.0
+  cloud_firestore: ^5.0.0
   google_sign_in: ^6.2.1
 
 

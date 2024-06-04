@@ -25,6 +25,9 @@ class _SignInButtonState extends ConsumerState<SignInButton> {
     return CircularProgressAppButton(
       isTapped: isButtonTapped,
       onTap: () async {
+        // reset error
+        ref.read(authErrorTextProvider.notifier).state = '';
+        
         /// Unfocus Keyboard
         final currentFocus = FocusScope.of(context);
         if (!currentFocus.hasPrimaryFocus) {
@@ -36,7 +39,7 @@ class _SignInButtonState extends ConsumerState<SignInButton> {
             isButtonTapped = true;
           });
 
-          await signInToCalcut(email: email, password: password, ref: ref).then(
+          await signInToApp(email: email, password: password, ref: ref).then(
             (value) {
               /// ignore: avoid_print
               /// print("User Signed In");

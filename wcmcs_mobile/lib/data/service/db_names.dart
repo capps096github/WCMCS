@@ -1,7 +1,7 @@
 import '../../app_exporter.dart';
 
 /// ? ---- Users Database ----
-const usersDatabasePath = 'appUsers';
+const usersDatabasePath = 'users';
 
 /// Links to [usersDatabasePath] database in cloud firestore
 /// final usersDatabase = FirebaseFirestore.instance.collection('appUsers');

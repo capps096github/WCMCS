@@ -30,10 +30,10 @@ class WcmcsTheme {
         centerTitle: true,
         elevation: 0,
         scrolledUnderElevation: 0,
+        foregroundColor: appWhite,
         titleTextStyle: GoogleFonts.montserrat(
-          fontSize: 25,
+          fontSize: 20,
           fontWeight: FontWeight.w700,
-          color: appWhite,
         ),
       ),
 
@@ -41,7 +41,7 @@ class WcmcsTheme {
       tooltipTheme: const TooltipThemeData(
         textStyle: TextStyle(color: appColor),
         decoration: BoxDecoration(
-          color: wcmcsSecondaryColor,
+          color: appNavy,
           borderRadius: borderRadius4,
         ),
       ),

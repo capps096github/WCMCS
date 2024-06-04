@@ -72,7 +72,7 @@ Future<void> uploadUserToCloud(UserCredential userCredential) async {
       //? wait for futures ...
       await Future.wait([
         /// Upload User
-        AppUsersDBService.uploadCalcutGoogleUser(appUser: calcutUser),
+        AppUsersDBService.uploadGoogleUser(appUser: calcutUser),
       ]);
     });
   }

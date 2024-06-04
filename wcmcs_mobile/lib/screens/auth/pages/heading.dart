@@ -21,7 +21,7 @@ class Heading extends ConsumerWidget {
   final double fontSize;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const textColor = appColor;
+    const textColor = appNavy;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),

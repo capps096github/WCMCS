@@ -9,20 +9,27 @@ class TipsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// a list view builder for the water tips
-    return ListView.builder(
-      padding: horizontalPadding16,
-      itemCount: waterTips.length,
-      itemBuilder: (context, index) {
-        // water tip
-        final waterTip = waterTips[index];
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: appColor,
+        scrolledUnderElevation: 0,
+        title: const Text('Tips'),
+      ),
+      body: ListView.builder(
+        padding: horizontalPadding16,
+        itemCount: waterTips.length,
+        itemBuilder: (context, index) {
+          // water tip
+          final waterTip = waterTips[index];
 
-        return HomeTile(
-          title: waterTip.title,
-          subtitle: waterTip.description,
-          tileColor: appWhite,
-          textColor: wcmcsBlack,
-        );
-      },
+          return HomeTile(
+            title: waterTip.title,
+            subtitle: waterTip.description,
+            tileColor: appWhite,
+            textColor: wcmcsBlack,
+          );
+        },
+      ),
     );
   }
 }

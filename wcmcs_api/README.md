@@ -13,3 +13,9 @@ Install body parser for requests
     ```bash 
     npm install body-parser
     ```
+
+## To run the server
+
+    ```bash
+    npm run start
+    ```

@@ -1,6 +1,5 @@
 import '../../../app_exporter.dart';
 import '../functions/exporter.dart';
-import '../gender/gender_provider.dart';
 import '../textfields/textfields_riverpod.dart';
 
 /// this makes api calls to sign in the user
@@ -24,25 +23,21 @@ class _SignUpButtonState extends ConsumerState<SignUpButton> {
     final email = ref.watch(emailProvider);
     final name = ref.watch(nameProvider);
     final password = ref.watch(passwordProvider);
-    final gender = ref.watch(genderNotifier).gender;
 
     return CircularProgressAppButton(
       isTapped: isButtonTapped,
       text: 'SIGN UP',
       onTap: () async {
+        // reset error
+        ref.read(authErrorTextProvider.notifier).state = '';
+        
         /// Unfocus Keyboard
         final currentFocus = FocusScope.of(context);
         if (!currentFocus.hasPrimaryFocus) {
           currentFocus.unfocus();
         }
 
-        /// Check Whether Gender is Empty
-        if (gender.isEmpty) {
-          /// update authErrorTextProvider
-          ref.read(authErrorTextProvider.notifier).state =
-              'Select Your Gender to continue';
-          return;
-        } else if (signUpFormKey.currentState!.validate()) {
+        if (signUpFormKey.currentState!.validate()) {
           setState(() {
             isButtonTapped = true;
           });

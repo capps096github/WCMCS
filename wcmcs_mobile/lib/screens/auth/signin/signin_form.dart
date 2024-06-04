@@ -50,8 +50,8 @@ class SignInForm extends ConsumerWidget {
             CreateAccountButton(),
             Spacing(of: spacing24 * 2),
 
-            Spacing(of: spacing24),
             AppDisclaimer(),
+            Spacing(of: spacing24),
           ],
         ),
       ),

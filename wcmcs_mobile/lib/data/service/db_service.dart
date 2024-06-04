@@ -21,7 +21,7 @@ class AppUsersDBService {
 
   /// ? ---- Users Database Service ----
   ///This function uploads the user to cloud under the [usersDatabaseRef]
-  static Future<void> uploadCalcutUser({required AppUser appUser}) async =>
+  static Future<void> uploadAppUser({required AppUser appUser}) async =>
       usersDatabaseRef
           .doc(appUser.userId)
           .set(
@@ -31,7 +31,7 @@ class AppUsersDBService {
           .then((_) => printer('User uploaded successfully'));
 
   /// upload user on sign in incase they are new and don't exist in our database yet
-  static Future<void> uploadCalcutUserOnSignIn({
+  static Future<void> uploadUserOnSignIn({
     required AppUser appUser,
   }) async =>
       usersDatabaseRef.doc(appUser.userId).get().then((user) async {
@@ -40,12 +40,12 @@ class AppUsersDBService {
           return;
         } else {
           //user doesn't exist - create and upload a new user in firestore
-          await uploadCalcutUser(appUser: appUser);
+          await uploadAppUser(appUser: appUser);
         }
       });
 
   ///This function uploads the google user to cloud under the [usersDatabaseRef]
-  static Future<void> uploadCalcutGoogleUser({
+  static Future<void> uploadGoogleUser({
     required AppUser appUser,
   }) async =>
       usersDatabaseRef.doc(appUser.userId).get().then((user) async {
@@ -54,33 +54,12 @@ class AppUsersDBService {
           return;
         } else {
           //user doesn't exist - create and upload a new user in firestore
-          await uploadCalcutUser(appUser: appUser);
+          await uploadAppUser(appUser: appUser);
         }
       });
 
   /// This function deletes the user from the cloud
   static Future<void> deleteCalcutUser({required String userId}) async =>
       usersDatabaseRef.doc(userId).delete();
-
-  /// This function gets all the users from the cloud
-  ///  who have their isTester value set to true
-  // static Future<List<AppUser>> getTesters() async {
-  static Future<void> getTesters() async {
-    final testers = <AppUser>[];
-    final querySnapshot = usersDatabaseRef
-        .where('isTester', isEqualTo: true)
-        .snapshots()
-        .listen((event) {
-      // final testers = [];
-      for (final doc in event.docs) {
-        testers.add(doc.data());
-      }
-      printer("Testers: ${testers.join(", ")}");
-    });
-
-    await querySnapshot.cancel();
-    // print the snapshot
-    printer('Query Snapshot: $querySnapshot');
-  }
 
 }

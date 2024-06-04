@@ -8,7 +8,7 @@ class AppDisclaimer extends StatelessWidget {
   const AppDisclaimer({
     super.key,
     this.continuingColor = appColor,
-    this.termsPrivacycolor = wcmcsSecondaryColor,
+    this.termsPrivacycolor = appNavy,
   });
 
   /// color for the continuing text
@@ -22,8 +22,8 @@ class AppDisclaimer extends StatelessWidget {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-        text: 'By continuing, you declare that you accept The wcmcs\n',
-        style: TextStyle(color: continuingColor),
+        text: 'By continuing, you declare that you accept The WCMCS ',
+        style: GoogleFonts.montserrat(color: continuingColor, fontSize: 10),
         children: <TextSpan>[
           TextSpan(
             text: 'Terms of Service',

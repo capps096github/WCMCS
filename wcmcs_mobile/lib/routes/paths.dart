@@ -13,11 +13,16 @@ const authPath = '/auth';
 
 /// * ------------------------------
 /// user path
-const userPath = '/user';
+const userProfilePath = '/profile';
 
 /// * ------------------------------
 /// settings path
 const settingsPath = '/settings';
 
 /// tips path
-const tipsPath = '/tips';
+const tipsPath = '/tips'; 
+
+/// manage path
+const managePath = '/manage';
+
+

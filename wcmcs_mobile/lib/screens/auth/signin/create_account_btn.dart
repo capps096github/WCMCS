@@ -9,7 +9,6 @@ class CreateAccountButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const textColor = appColor;
 
     return Material(
       borderRadius: BorderRadius.circular(8),
@@ -39,7 +38,7 @@ class CreateAccountButton extends ConsumerWidget {
                   textAlign: TextAlign.right,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: textColor,
+                    color: appNavy,
                   ),
                 ),
                 Spacing(of: 10),

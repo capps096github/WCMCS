@@ -3,11 +3,6 @@ import 'package:flutter/cupertino.dart';
 import '../../../app_exporter.dart';
 import 'textfields_riverpod.dart';
 
-// /// password regex
-// final passwordRegex = RegExp(
-//   r'^(?=.*[a-zA-Z0-9])[a-zA-Z0-9!@#\$%\^&\*]+$',
-// );
-
 /// use to capture the password of the user from the form
 class PasswordField extends ConsumerStatefulWidget {
   /// [PasswordField] constructor
@@ -33,21 +28,15 @@ class _PasswordFieldState extends ConsumerState<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
-      restorationId: 'password',
+      restorationId:
+          widget.isSignUpScreen ? 'password_signup' : 'password_signin',
       onChanged: (password) {
         ref.read(passwordProvider.notifier).state = password;
       },
       validator: (password) {
         if (password == null || password.isEmpty || password.length < 6) {
-          return ' A Strong Password is required. ';
+          return ' A Strong Password upto 6 Characters is required. ';
         }
-
-        /// check if we are on Sign Up Screen
-        // if (widget.isSignUpScreen) {
-        //   if (!passwordRegex.hasMatch(password)) {
-        //     return r'Choose a Stronger Password with at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character. e.g #@!\$%^&*';
-        //   }
-        // }
 
         return null;
       },

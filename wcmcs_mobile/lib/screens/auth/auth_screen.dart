@@ -18,7 +18,7 @@ class AuthScreen extends ConsumerWidget {
           automaticallyImplyLeading: false,
           title: const Padding(
             padding: padding8,
-            child: AppLogo(),
+            child: AppLogo(logoColor: appWhite),
           ),
         ),
         body: const AuthBody(),

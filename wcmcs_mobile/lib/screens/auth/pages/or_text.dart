@@ -6,7 +6,7 @@ class ORText extends ConsumerWidget {
   const ORText({
     super.key,
     this.textColor = appWhite,
-    this.backgroundColor = appColor,
+    this.backgroundColor = appNavy,
   });
 
   /// Text Color
@@ -29,7 +29,7 @@ class ORText extends ConsumerWidget {
       ),
       child: Center(
         child: Text(
-          'or',
+          'OR',
           style: TextStyle(color: orTextColor),
         ),
       ),

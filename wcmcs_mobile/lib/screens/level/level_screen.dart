@@ -13,14 +13,7 @@ class LevelScreen extends StatelessWidget {
       padding: horizontalPadding16,
       children: [
         const Spacing(of: spacing2),
-        const BoldTileWithDescription(
-          boldTitle: BoldTitle(
-            text: 'Hey Cephas',
-            color: appColor,
-            fontSize: 30,
-          ),
-          description: 'Welcome back to Water Warden',
-        ),
+        const UserGreeting(),
         const Spacing(of: spacing32),
         const BoldTileWithDescription(
           boldTitle: BoldTitle(
@@ -130,7 +123,7 @@ class LevelScreen extends StatelessWidget {
         ),
         const HomeTile(
           title: 'Open Tap',
-          tileColor: wcmcsGreen,
+          tileColor: appGreen,
           icon: Icons.lock,
         ),
         //boxes for the water consumed per section

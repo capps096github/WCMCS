@@ -52,7 +52,7 @@ class _GoogleAuthButtonState extends ConsumerState<GoogleAuthButton> {
         });
       },
       iconWidget: SvgPicture.asset(
-        'images/google.svg',
+        'assets/icons/google.svg',
         height: 20,
         width: 20,
       ),

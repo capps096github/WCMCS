@@ -1,8 +1,5 @@
 import '../../app_exporter.dart';
-import '../../global/functions/sample_future.dart';
-import 'home_screens.dart';
-import 'navbar/navbar.dart';
-import 'navbar/water_fab.dart';
+import 'app_home.dart';
 
 /// home page of the WCMS app
 class WcmcsHome extends ConsumerWidget {
@@ -11,7 +8,7 @@ class WcmcsHome extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userStream = ref.watch(sampleFutureProvider);
+    final userStream = ref.watch(allUserStreamProvider);
 
     /// * Listen to the user stream so that the app user updates automatically
     return userStream.when(
@@ -26,17 +23,23 @@ class WcmcsHome extends ConsumerWidget {
 }
 
 /// Home body of the WCMS app
-class AppHomeBody extends StatelessWidget {
+class AppHomeBody extends ConsumerWidget {
   /// [AppHomeBody] constructor
   const AppHomeBody({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    /// responsiveness
+    final calcutResponsive = ref.watch(appResponsiveProvider(context));
+
+    final isMobile = calcutResponsive.isMobileScreen;
+
     return Scaffold(
       backgroundColor: appBackground,
       appBar: AppBar(
         backgroundColor: appBackground,
         scrolledUnderElevation: 0,
+        leading: isMobile ? const UserProfilePic() : null,
         title: const Hero(
           tag: 'appLogo',
           child: AppLogo(
@@ -46,11 +49,8 @@ class AppHomeBody extends StatelessWidget {
       ),
       body: const ColoredBox(
         color: appBackground,
-        child: HomeScreens(),
+        child: AppHome(),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: const WaterFAB(),
-      bottomNavigationBar: const HomeNavbar(),
     );
   }
 }
