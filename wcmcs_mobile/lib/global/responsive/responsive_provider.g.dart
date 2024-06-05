@@ -29,16 +29,24 @@ class _SystemHash {
   }
 }
 
-/// See also [appResponsive].
+/// This is the App Responsive Provider
+///
+/// Copied from [appResponsive].
 @ProviderFor(appResponsive)
 const appResponsiveProvider = AppResponsiveFamily();
 
-/// See also [appResponsive].
+/// This is the App Responsive Provider
+///
+/// Copied from [appResponsive].
 class AppResponsiveFamily extends Family<AppResponsive> {
-  /// See also [appResponsive].
+  /// This is the App Responsive Provider
+  ///
+  /// Copied from [appResponsive].
   const AppResponsiveFamily();
 
-  /// See also [appResponsive].
+  /// This is the App Responsive Provider
+  ///
+  /// Copied from [appResponsive].
   AppResponsiveProvider call(
     BuildContext context,
   ) {
@@ -71,9 +79,13 @@ class AppResponsiveFamily extends Family<AppResponsive> {
   String? get name => r'appResponsiveProvider';
 }
 
-/// See also [appResponsive].
+/// This is the App Responsive Provider
+///
+/// Copied from [appResponsive].
 class AppResponsiveProvider extends AutoDisposeProvider<AppResponsive> {
-  /// See also [appResponsive].
+  /// This is the App Responsive Provider
+  ///
+  /// Copied from [appResponsive].
   AppResponsiveProvider(
     BuildContext context,
   ) : this._internal(

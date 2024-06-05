@@ -1,7 +1,8 @@
 // * All paths are defined here for app navigation
 
 /// initial path
-const initialPath = homePath;
+const initialPath = managePath;
+// const initialPath = homePath;
 
 /// * ------------------------------
 /// home path
@@ -20,9 +21,7 @@ const userProfilePath = '/profile';
 const settingsPath = '/settings';
 
 /// tips path
-const tipsPath = '/tips'; 
+const tipsPath = '/tips';
 
 /// manage path
 const managePath = '/manage';
-
-

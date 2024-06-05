@@ -7,6 +7,7 @@ class Section {
   Section({
     required this.label,
     required this.icon,
+    required this.litres,
   });
 
   /// label
@@ -20,4 +21,7 @@ class Section {
 
   /// icon
   final IconData icon;
+
+  /// litres
+  final double litres;
 }

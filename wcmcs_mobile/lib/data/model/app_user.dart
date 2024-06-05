@@ -73,6 +73,9 @@ class AppUser {
   /// Get the first name of the app user
   String get firstName => displayName.split(' ')[0];
 
+  /// unit price per litre of water
+  double get pricePerLitre => 500;
+
   @override
   String toString() {
     return 'AppUser(userId: $userId, email: $email, displayName: $displayName, joinedOn: $joinedOn, profilePicUrl: $profilePicUrl)';

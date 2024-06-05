@@ -27,7 +27,7 @@ class CustomChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
-      borderColor: Colors.blue,
+      borderColor: appColor,
       borderWidth: 2,
       legend:
           Legend(isVisible: showLegend, title: LegendTitle(text: legendTitle)),

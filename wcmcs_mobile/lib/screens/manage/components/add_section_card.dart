@@ -1,5 +1,4 @@
 import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/material.dart';
 
 import '../../../app_exporter.dart';
 import 'tap_to_add.dart';

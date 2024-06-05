@@ -29,7 +29,7 @@ class AppDisclaimer extends StatelessWidget {
             text: 'Terms of Service',
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                //TODO go to the Terms Page
+                //go to the Terms Page
                 // context.push(termsPath);
               },
             style: TextStyle(
@@ -43,7 +43,7 @@ class AppDisclaimer extends StatelessWidget {
             text: 'Privacy Policy',
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                // TODO go to the Policies Page
+                //  go to the Policies Page
                 // context.push(policiesPath);
               },
             style: TextStyle(

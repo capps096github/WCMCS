@@ -1,0 +1,28 @@
+import '../../../app_exporter.dart';
+import 'detail_card.dart';
+
+/// shows the litres of a section
+class LitresCard extends StatelessWidget {
+  /// [LitresCard] constructor
+  const LitresCard({
+    required this.section,
+    required this.cardColor,
+    super.key,
+  });
+
+  /// section
+  final Section section;
+
+  /// color
+  final Color cardColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return DetailCard(
+      cardColor: cardColor,
+      textColor: cardColor,
+      value: section.litres,
+      label: 'Litres',
+    );
+  }
+}

@@ -33,6 +33,7 @@ class SectionCard extends StatelessWidget {
       child: OpenRoute(
         to: SectionDetail(
           section: section,
+          color: tileColor,
         ),
         closedShape: const RoundedRectangleBorder(
           borderRadius: borderRadius16,

@@ -13,7 +13,3 @@ const String defaultProfilePic =
 
 /// user profile tag for hero animations
 const userProfileTag = 'userProfileTag';
-
-
-
-
