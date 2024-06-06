@@ -10,6 +10,7 @@ class ErrorDisplay extends StatelessWidget {
   const ErrorDisplay({
     required this.stackTrace,
     required this.error,
+    this.showAppBar = true,
     super.key,
   });
 
@@ -19,6 +20,9 @@ class ErrorDisplay extends StatelessWidget {
   /// the error that occurred
   final Object error;
 
+  /// show app bar
+  final bool showAppBar;
+
   @override
   Widget build(BuildContext context) {
     printer('Error: $error');
@@ -27,18 +31,20 @@ class ErrorDisplay extends StatelessWidget {
     //
     return Scaffold(
       backgroundColor: errorColor,
-      appBar: AppBar(
-        backgroundColor: errorColor,
-        leading: Consumer(
-          builder: (_, ref, __) {
-            return CloseButton(
-              color: appWhite,
-              onPressed: () => go(ref, to: homePath),
-            );
-          },
-        ),
-        title: const AppLogo(logoSize: 32),
-      ),
+      appBar: showAppBar
+          ? AppBar(
+              backgroundColor: errorColor,
+              leading: Consumer(
+                builder: (_, ref, __) {
+                  return CloseButton(
+                    color: appWhite,
+                    onPressed: () => go(ref, to: homePath),
+                  );
+                },
+              ),
+              title: const AppLogo(logoSize: 32, logoColor: appWhite),
+            )
+          : null,
       body: Padding(
         padding: horizontalPadding16,
         child: ExpandedScrollingColumn(
@@ -81,8 +87,8 @@ class ErrorDisplay extends StatelessWidget {
             AppButton(
               text: 'Go to Safety',
               buttonColor: appWhite,
-              textColor: appColor,
-              iconWidget: const AppLogo(logoSize: 24),
+              textColor: errorColor,
+              iconWidget: const AppLogo(logoSize: 24, logoColor: errorColor),
               onTap: () {
                 Restart.restartApp(webOrigin: homePath);
               },

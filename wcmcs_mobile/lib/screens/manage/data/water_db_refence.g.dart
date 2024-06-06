@@ -6,7 +6,7 @@ part of 'water_db_refence.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$waterFlowStreamHash() => r'c0840508a9ea7be7df7897c13c2a21e246f3a0b6';
+String _$sectionStreamHash() => r'7adc4f6e4053854277dc4f336468f11a7e571cb7';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,40 +29,36 @@ class _SystemHash {
   }
 }
 
-/// returns a query snapshot
-/// and also if possible takes in a date
+/// this gets us the stream of sections
 ///
-/// Copied from [waterFlowStream].
-@ProviderFor(waterFlowStream)
-const waterFlowStreamProvider = WaterFlowStreamFamily();
+/// Copied from [sectionStream].
+@ProviderFor(sectionStream)
+const sectionStreamProvider = SectionStreamFamily();
 
-/// returns a query snapshot
-/// and also if possible takes in a date
+/// this gets us the stream of sections
 ///
-/// Copied from [waterFlowStream].
-class WaterFlowStreamFamily
-    extends Family<AsyncValue<QuerySnapshot<WaterFlow>>> {
-  /// returns a query snapshot
-  /// and also if possible takes in a date
+/// Copied from [sectionStream].
+class SectionStreamFamily
+    extends Family<AsyncValue<DocumentSnapshot<Map<String, dynamic>>>> {
+  /// this gets us the stream of sections
   ///
-  /// Copied from [waterFlowStream].
-  const WaterFlowStreamFamily();
+  /// Copied from [sectionStream].
+  const SectionStreamFamily();
 
-  /// returns a query snapshot
-  /// and also if possible takes in a date
+  /// this gets us the stream of sections
   ///
-  /// Copied from [waterFlowStream].
-  WaterFlowStreamProvider call({
+  /// Copied from [sectionStream].
+  SectionStreamProvider call({
     required String collection,
   }) {
-    return WaterFlowStreamProvider(
+    return SectionStreamProvider(
       collection: collection,
     );
   }
 
   @override
-  WaterFlowStreamProvider getProviderOverride(
-    covariant WaterFlowStreamProvider provider,
+  SectionStreamProvider getProviderOverride(
+    covariant SectionStreamProvider provider,
   ) {
     return call(
       collection: provider.collection,
@@ -81,38 +77,37 @@ class WaterFlowStreamFamily
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'waterFlowStreamProvider';
+  String? get name => r'sectionStreamProvider';
 }
 
-/// returns a query snapshot
-/// and also if possible takes in a date
+/// this gets us the stream of sections
 ///
-/// Copied from [waterFlowStream].
-class WaterFlowStreamProvider extends StreamProvider<QuerySnapshot<WaterFlow>> {
-  /// returns a query snapshot
-  /// and also if possible takes in a date
+/// Copied from [sectionStream].
+class SectionStreamProvider
+    extends StreamProvider<DocumentSnapshot<Map<String, dynamic>>> {
+  /// this gets us the stream of sections
   ///
-  /// Copied from [waterFlowStream].
-  WaterFlowStreamProvider({
+  /// Copied from [sectionStream].
+  SectionStreamProvider({
     required String collection,
   }) : this._internal(
-          (ref) => waterFlowStream(
-            ref as WaterFlowStreamRef,
+          (ref) => sectionStream(
+            ref as SectionStreamRef,
             collection: collection,
           ),
-          from: waterFlowStreamProvider,
-          name: r'waterFlowStreamProvider',
+          from: sectionStreamProvider,
+          name: r'sectionStreamProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$waterFlowStreamHash,
-          dependencies: WaterFlowStreamFamily._dependencies,
+                  : _$sectionStreamHash,
+          dependencies: SectionStreamFamily._dependencies,
           allTransitiveDependencies:
-              WaterFlowStreamFamily._allTransitiveDependencies,
+              SectionStreamFamily._allTransitiveDependencies,
           collection: collection,
         );
 
-  WaterFlowStreamProvider._internal(
+  SectionStreamProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -126,13 +121,14 @@ class WaterFlowStreamProvider extends StreamProvider<QuerySnapshot<WaterFlow>> {
 
   @override
   Override overrideWith(
-    Stream<QuerySnapshot<WaterFlow>> Function(WaterFlowStreamRef provider)
+    Stream<DocumentSnapshot<Map<String, dynamic>>> Function(
+            SectionStreamRef provider)
         create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: WaterFlowStreamProvider._internal(
-        (ref) => create(ref as WaterFlowStreamRef),
+      override: SectionStreamProvider._internal(
+        (ref) => create(ref as SectionStreamRef),
         from: from,
         name: null,
         dependencies: null,
@@ -144,13 +140,14 @@ class WaterFlowStreamProvider extends StreamProvider<QuerySnapshot<WaterFlow>> {
   }
 
   @override
-  StreamProviderElement<QuerySnapshot<WaterFlow>> createElement() {
-    return _WaterFlowStreamProviderElement(this);
+  StreamProviderElement<DocumentSnapshot<Map<String, dynamic>>>
+      createElement() {
+    return _SectionStreamProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is WaterFlowStreamProvider && other.collection == collection;
+    return other is SectionStreamProvider && other.collection == collection;
   }
 
   @override
@@ -162,54 +159,56 @@ class WaterFlowStreamProvider extends StreamProvider<QuerySnapshot<WaterFlow>> {
   }
 }
 
-mixin WaterFlowStreamRef on StreamProviderRef<QuerySnapshot<WaterFlow>> {
+mixin SectionStreamRef
+    on StreamProviderRef<DocumentSnapshot<Map<String, dynamic>>> {
   /// The parameter `collection` of this provider.
   String get collection;
 }
 
-class _WaterFlowStreamProviderElement
-    extends StreamProviderElement<QuerySnapshot<WaterFlow>>
-    with WaterFlowStreamRef {
-  _WaterFlowStreamProviderElement(super.provider);
+class _SectionStreamProviderElement
+    extends StreamProviderElement<DocumentSnapshot<Map<String, dynamic>>>
+    with SectionStreamRef {
+  _SectionStreamProviderElement(super.provider);
 
   @override
-  String get collection => (origin as WaterFlowStreamProvider).collection;
+  String get collection => (origin as SectionStreamProvider).collection;
 }
 
-String _$dashDateHash() => r'a15f586380050f5a049605e7025ada88f2ddc9b7';
+String _$dailyWaterFlowStreamHash() =>
+    r'5fc5c67c724a84321bf41df480cdf5cb3196cb4d';
 
-/// this returns the date in dashed format of 3-4-2024
+/// this returns the water flow stream of a given date
 ///
-/// Copied from [dashDate].
-@ProviderFor(dashDate)
-const dashDateProvider = DashDateFamily();
+/// Copied from [dailyWaterFlowStream].
+@ProviderFor(dailyWaterFlowStream)
+const dailyWaterFlowStreamProvider = DailyWaterFlowStreamFamily();
 
-/// this returns the date in dashed format of 3-4-2024
+/// this returns the water flow stream of a given date
 ///
-/// Copied from [dashDate].
-class DashDateFamily extends Family<String> {
-  /// this returns the date in dashed format of 3-4-2024
+/// Copied from [dailyWaterFlowStream].
+class DailyWaterFlowStreamFamily extends Family<AsyncValue<List<WaterFlow>>> {
+  /// this returns the water flow stream of a given date
   ///
-  /// Copied from [dashDate].
-  const DashDateFamily();
+  /// Copied from [dailyWaterFlowStream].
+  const DailyWaterFlowStreamFamily();
 
-  /// this returns the date in dashed format of 3-4-2024
+  /// this returns the water flow stream of a given date
   ///
-  /// Copied from [dashDate].
-  DashDateProvider call({
-    DateTime? dateTime,
+  /// Copied from [dailyWaterFlowStream].
+  DailyWaterFlowStreamProvider call({
+    required String collection,
   }) {
-    return DashDateProvider(
-      dateTime: dateTime,
+    return DailyWaterFlowStreamProvider(
+      collection: collection,
     );
   }
 
   @override
-  DashDateProvider getProviderOverride(
-    covariant DashDateProvider provider,
+  DailyWaterFlowStreamProvider getProviderOverride(
+    covariant DailyWaterFlowStreamProvider provider,
   ) {
     return call(
-      dateTime: provider.dateTime,
+      collection: provider.collection,
     );
   }
 
@@ -225,94 +224,98 @@ class DashDateFamily extends Family<String> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'dashDateProvider';
+  String? get name => r'dailyWaterFlowStreamProvider';
 }
 
-/// this returns the date in dashed format of 3-4-2024
+/// this returns the water flow stream of a given date
 ///
-/// Copied from [dashDate].
-class DashDateProvider extends Provider<String> {
-  /// this returns the date in dashed format of 3-4-2024
+/// Copied from [dailyWaterFlowStream].
+class DailyWaterFlowStreamProvider
+    extends AutoDisposeStreamProvider<List<WaterFlow>> {
+  /// this returns the water flow stream of a given date
   ///
-  /// Copied from [dashDate].
-  DashDateProvider({
-    DateTime? dateTime,
+  /// Copied from [dailyWaterFlowStream].
+  DailyWaterFlowStreamProvider({
+    required String collection,
   }) : this._internal(
-          (ref) => dashDate(
-            ref as DashDateRef,
-            dateTime: dateTime,
+          (ref) => dailyWaterFlowStream(
+            ref as DailyWaterFlowStreamRef,
+            collection: collection,
           ),
-          from: dashDateProvider,
-          name: r'dashDateProvider',
+          from: dailyWaterFlowStreamProvider,
+          name: r'dailyWaterFlowStreamProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$dashDateHash,
-          dependencies: DashDateFamily._dependencies,
-          allTransitiveDependencies: DashDateFamily._allTransitiveDependencies,
-          dateTime: dateTime,
+                  : _$dailyWaterFlowStreamHash,
+          dependencies: DailyWaterFlowStreamFamily._dependencies,
+          allTransitiveDependencies:
+              DailyWaterFlowStreamFamily._allTransitiveDependencies,
+          collection: collection,
         );
 
-  DashDateProvider._internal(
+  DailyWaterFlowStreamProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.dateTime,
+    required this.collection,
   }) : super.internal();
 
-  final DateTime? dateTime;
+  final String collection;
 
   @override
   Override overrideWith(
-    String Function(DashDateRef provider) create,
+    Stream<List<WaterFlow>> Function(DailyWaterFlowStreamRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: DashDateProvider._internal(
-        (ref) => create(ref as DashDateRef),
+      override: DailyWaterFlowStreamProvider._internal(
+        (ref) => create(ref as DailyWaterFlowStreamRef),
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        dateTime: dateTime,
+        collection: collection,
       ),
     );
   }
 
   @override
-  ProviderElement<String> createElement() {
-    return _DashDateProviderElement(this);
+  AutoDisposeStreamProviderElement<List<WaterFlow>> createElement() {
+    return _DailyWaterFlowStreamProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is DashDateProvider && other.dateTime == dateTime;
+    return other is DailyWaterFlowStreamProvider &&
+        other.collection == collection;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, dateTime.hashCode);
+    hash = _SystemHash.combine(hash, collection.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
-mixin DashDateRef on ProviderRef<String> {
-  /// The parameter `dateTime` of this provider.
-  DateTime? get dateTime;
+mixin DailyWaterFlowStreamRef on AutoDisposeStreamProviderRef<List<WaterFlow>> {
+  /// The parameter `collection` of this provider.
+  String get collection;
 }
 
-class _DashDateProviderElement extends ProviderElement<String>
-    with DashDateRef {
-  _DashDateProviderElement(super.provider);
+class _DailyWaterFlowStreamProviderElement
+    extends AutoDisposeStreamProviderElement<List<WaterFlow>>
+    with DailyWaterFlowStreamRef {
+  _DailyWaterFlowStreamProviderElement(super.provider);
 
   @override
-  DateTime? get dateTime => (origin as DashDateProvider).dateTime;
+  String get collection => (origin as DailyWaterFlowStreamProvider).collection;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

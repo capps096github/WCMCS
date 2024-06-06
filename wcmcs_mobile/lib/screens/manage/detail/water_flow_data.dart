@@ -53,7 +53,7 @@ class WaterFlowData extends StatelessWidget {
                   ),
                   dense: true,
                   title: Text(
-                    'Uploaded on: ${waterFlow.date}',
+                    'Uploaded at: ${waterFlow.time}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: color,

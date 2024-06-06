@@ -9,6 +9,9 @@ final ugxFormatter = NumberFormat.simpleCurrency(
 ///Formats the date to a string
 final dateFormatter = DateFormat('EEEE, dd MMMM yyyy');
 
+/// Formats the time to a string
+final timeFormatter = DateFormat.Hms();
+
 /// a number formatter that formats the number to a string
 /// if the number is greater than 1000, it will be formatted to 1k
 /// if the number is greater than 1000000, it will be formatted to 1m etc

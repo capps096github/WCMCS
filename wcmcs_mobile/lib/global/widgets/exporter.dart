@@ -8,6 +8,7 @@ export 'dot.dart';
 export 'entrance_fader.dart';
 export 'home_tile.dart';
 export 'keyboard_unfocus.dart';
+export 'loading_container.dart';
 export 'logo.dart';
 export 'placeholder.dart';
 export 'spacing.dart';

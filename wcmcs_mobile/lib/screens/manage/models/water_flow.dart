@@ -30,4 +30,6 @@ class WaterFlow {
 
   /// getter for date
   String get date => dateFormatter.format(timestamp.toDate());
+  /// get only the time from the timestamp
+  String get time => timeFormatter.format(timestamp.toDate());
 }

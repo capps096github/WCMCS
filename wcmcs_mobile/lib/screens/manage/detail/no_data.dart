@@ -4,31 +4,44 @@ import '../../../app_exporter.dart';
 class NoData extends StatelessWidget {
   /// [NoData] constructor
   const NoData({
-    required this.section,
+    required this.label,
     required this.color,
     super.key,
   });
 
   /// section
-  final Section section;
+  final String label;
 
   /// color
   final Color color;
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: padding16,
-        child: BoldTileWithDescription(
-          boldTitle: BoldTitle(
-            text: 'No Water Data Available for your ${section.label}',
-            color: color,
-            fontSize: 30,
+    return Padding(
+      padding: padding16,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AppLogo(
+            logoSize: 80,
+            logoColor: color,
           ),
-          description:
-              'Check your pipe connection on the water tank and make sure that the pipe is connected to wifi through the water flow sensor.',
-        ),
+          const Spacing(of: spacing16),
+          Center(
+            child: Padding(
+              padding: padding16,
+              child: BoldTileWithDescription(
+                boldTitle: BoldTitle(
+                  text: label,
+                  color: color,
+                  fontSize: 25,
+                ),
+                description:
+                    'Check your pipe connection on the water tank and make sure that the pipe is connected to wifi through the water flow sensor.',
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

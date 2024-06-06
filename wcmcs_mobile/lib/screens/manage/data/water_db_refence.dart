@@ -2,37 +2,37 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../app_exporter.dart';
 import '../models/water_flow.dart';
+import 'selected_date_provider.dart';
 
 part 'water_db_refence.g.dart';
 
-/// return the water flow of a given section
-List<WaterFlow> getWaterFlows(QuerySnapshot<WaterFlow> querySnapshot) {
-  // * get waterflows from stream
-  final waterFlowList = querySnapshot.docs
-      .map(
-        (QueryDocumentSnapshot<WaterFlow> flavorDocSnapshot) =>
-            flavorDocSnapshot.data(),
-      )
-      .toList();
-
-  // print
-  printer(waterFlowList);
-
-  return waterFlowList;
-}
-
-/// returns a query snapshot
-/// and also if possible takes in a date
-// Non autoDispose provider
+/// this gets us the stream of sections
 @Riverpod(keepAlive: true)
-Stream<QuerySnapshot<WaterFlow>> waterFlowStream(
-  WaterFlowStreamRef ref, {
+Stream<DocumentSnapshot<Map<String, dynamic>>> sectionStream(
+  SectionStreamRef ref, {
   required String collection,
 }) {
-  final date = ref.watch(dashDateProvider());
+  // * collection
+  const sectionWaterCollection = 'sections';
+
+  // this document has subcollections in it, so get the document ids for those documents
+  // listen to the document snapshots
+  return FirebaseFirestore.instance
+      .collection(sectionWaterCollection)
+      .doc(collection)
+      .snapshots();
+}
+
+/// this returns the water flow stream of a given date
+@riverpod
+Stream<List<WaterFlow>> dailyWaterFlowStream(
+  DailyWaterFlowStreamRef ref, {
+  required String collection,
+}) {
+  final dashedDate = ref.watch(selectedDateProvider);
 
   // * collection
-  final waterFlowCollection = 'sections/$collection/$date';
+  final waterFlowCollection = 'sections/$collection/$dashedDate';
 
   // * collection reference
   final waterFlowDatabaseRef = FirebaseFirestore.instance
@@ -48,15 +48,17 @@ Stream<QuerySnapshot<WaterFlow>> waterFlowStream(
   final waterFlowStream =
       waterFlowDatabaseRef.orderBy('uploaded_on').snapshots();
 
-  return waterFlowStream;
-}
+// * get waterflows from stream
+  final waterFlowList = waterFlowStream.map(
+    (querySnapshot) => querySnapshot.docs
+        .map(
+          (docSnapshot) => docSnapshot.data(),
+        )
+        .toList(),
+  );
 
-/// this returns the date in dashed format of 3-4-2024
-// Non autoDispose provider
-@Riverpod(keepAlive: true)
-String dashDate(DashDateRef ref, {DateTime? dateTime}) {
-  final now = dateTime ?? DateTime.now();
+  // print
+  printer(waterFlowList);
 
-  final date = '${now.day}-${now.month}-${now.year}';
-  return date;
+  return waterFlowList;
 }

@@ -24,7 +24,7 @@ class PriceCard extends ConsumerWidget {
       cardColor: appColor,
       textColor: appColor,
       value: price,
-      label: 'Price',
+      label: 'Price in UGX',
     );
   }
 }

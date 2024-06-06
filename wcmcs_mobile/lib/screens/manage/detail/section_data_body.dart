@@ -1,14 +1,14 @@
+
 import '../../../app_exporter.dart';
 import '../models/water_flow.dart';
 import 'litres_card.dart';
 import 'price_card.dart';
-import 'water_flow_chart.dart';
-import 'water_flow_data.dart';
+import 'section_chart.dart';
 
 /// this displays the section information from cloud
-class SectionData extends StatelessWidget {
-  /// [SectionData] constructor
-  const SectionData({
+class SectionDataBody extends StatelessWidget {
+  /// [SectionDataBody] constructor
+  const SectionDataBody({
     required this.section,
     required this.color,
     required this.waterFlows,
@@ -58,27 +58,13 @@ class SectionData extends StatelessWidget {
 
         // *
         BoldTitle(
-          text: 'Water Flow Overview',
+          text: 'Daily Water Flow Overview',
           color: color,
           fontSize: 30,
         ),
-        const Spacing(of: spacing8),
-        // water flow chart
-        const WaterFlowChart(),
-        // spacing
-        const Spacing(of: spacing32),
-        BoldTitle(
-          text: 'Details',
-          color: color,
-          fontSize: 30,
-        ),
-        const Spacing(of: spacing8),
-        // water flow chart
-        WaterFlowData(
-          color: color,
-          waterFlows: waterFlows,
-        ),
-        const Spacing(of: spacing32),
+        
+        // section chart
+        SectionChart(color: color, waterFlows: waterFlows ),
       ],
     );
   }
