@@ -19,9 +19,6 @@ class SectionCard extends StatelessWidget {
     // tile color
     final tileColor = allCardColors[Random().nextInt(allCardColors.length)];
 
-    // icon
-    final icon = section.icon;
-
     // label
     final label = section.label;
 
@@ -61,13 +58,12 @@ class SectionCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Icon(
-                          icon,
-                          color: textColor,
-                          size: 150,
+                        padding: EdgeInsets.all(20),
+                        child: AppLogo(
+                          logoColor: textColor,
+                          logoSize: 150,
                         ),
                       ),
                     ),

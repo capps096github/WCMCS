@@ -74,7 +74,6 @@ class AppUser {
     userId: '',
     email: '',
     joinedOn: Timestamp.now(),
-    pricePerLitre: 10,
     displayName: '',
   );
 

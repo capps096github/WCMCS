@@ -1,5 +1,6 @@
 import '../../../app_exporter.dart';
 import '../data/water_db_refence.dart';
+import '../models/water_collected.dart';
 import 'empty_section.dart';
 import 'section_data_body.dart';
 import 'water_flow_calendar.dart';
@@ -45,7 +46,7 @@ class SectionDataView extends ConsumerWidget {
                   : SectionDataBody(
                       section: section,
                       color: color,
-                      waterFlows: waterFlows,
+                      waterCollected: WaterCollected(waterFlows: waterFlows),
                     );
             },
             error: (error, stackTrace) => ErrorDisplay(

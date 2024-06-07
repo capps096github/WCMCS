@@ -22,8 +22,8 @@ class SectionDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final flowCollections =
+        // ref.watch(sectionStreamProvider(collection: 'kitchen'));
         ref.watch(sectionStreamProvider(collection: section.collection));
-    // ref.watch(sectionStreamProvider(collection: section.collection));
 
     return Scaffold(
       appBar: AppBar(
@@ -32,6 +32,15 @@ class SectionDetail extends ConsumerWidget {
       ),
       body: flowCollections.when(
         data: (docSnaphot) {
+          // print if doc exists
+          printer('Doc Exists: ${docSnaphot.exists}');
+
+          // For the doc snapshot to exist,
+          // then the section should have some variables
+          // in it defioned in cloud
+          // e.g name, label, collection, icon, etc
+
+
           return docSnaphot.exists
               ? SectionDataView(
                   section: section,

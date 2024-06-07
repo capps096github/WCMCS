@@ -1,5 +1,5 @@
 import '../../../app_exporter.dart';
-import '../models/water_flow.dart';
+import '../models/water_collected.dart';
 import 'water_flow_chart.dart';
 import 'water_flow_data.dart';
 
@@ -9,12 +9,12 @@ class SectionChart extends StatelessWidget {
   /// [SectionChart] constructor
   const SectionChart({
     required this.color,
-    required this.waterFlows,
+    required this.waterCollected,
     super.key,
   });
 
-  /// water flows
-  final List<WaterFlow> waterFlows;
+  /// waterFlows
+  final WaterCollected waterCollected;
 
   /// color
   final Color color;
@@ -25,7 +25,10 @@ class SectionChart extends StatelessWidget {
       children: [
         const Spacing(of: spacing8),
         // water flow chart
-        const WaterFlowChart(),
+        WaterFlowChart(
+          waterCollected: waterCollected,
+          color: color,
+        ),
 
         // spacing
         const Spacing(of: spacing32),
@@ -38,7 +41,7 @@ class SectionChart extends StatelessWidget {
         // water flow data
         WaterFlowData(
           color: color,
-          waterFlows: waterFlows,
+          waterFlows: waterCollected.reversedWaterFlows,
         ),
         const Spacing(of: spacing32),
       ],

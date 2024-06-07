@@ -6,7 +6,7 @@ part of 'water_db_refence.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$sectionStreamHash() => r'7adc4f6e4053854277dc4f336468f11a7e571cb7';
+String _$sectionStreamHash() => r'a29f8c992445d66a0d627dcb949c7c2e44519b47';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -317,5 +317,22 @@ class _DailyWaterFlowStreamProviderElement
   @override
   String get collection => (origin as DailyWaterFlowStreamProvider).collection;
 }
+
+String _$sectionsHash() => r'b3197a02037d5825229416d17d4524738e5258e2';
+
+/// read sections
+///
+/// Copied from [sections].
+@ProviderFor(sections)
+final sectionsProvider = AutoDisposeStreamProvider<List<Section>>.internal(
+  sections,
+  name: r'sectionsProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$sectionsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef SectionsRef = AutoDisposeStreamProviderRef<List<Section>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

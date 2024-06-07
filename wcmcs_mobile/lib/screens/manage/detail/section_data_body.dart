@@ -1,6 +1,5 @@
-
 import '../../../app_exporter.dart';
-import '../models/water_flow.dart';
+import '../models/water_collected.dart';
 import 'litres_card.dart';
 import 'price_card.dart';
 import 'section_chart.dart';
@@ -11,12 +10,12 @@ class SectionDataBody extends StatelessWidget {
   const SectionDataBody({
     required this.section,
     required this.color,
-    required this.waterFlows,
+    required this.waterCollected,
     super.key,
   });
 
   /// waterFlows
-  final List<WaterFlow> waterFlows;
+  final WaterCollected waterCollected;
 
   /// section
   final Section section;
@@ -36,21 +35,16 @@ class SectionDataBody extends StatelessWidget {
         ),
         const Spacing(of: spacing8),
         //  litres and price cards in a row
-        Row(
-          children: [
-            // litres card
-            Expanded(
-              child: LitresCard(
-                section: section,
-                cardColor: color,
-              ),
-            ),
-            const Spacing(of: spacing16),
-            // price card
-            Expanded(
-              child: PriceCard(section: section),
-            ),
-          ],
+        LitresCard(
+          section: section,
+          cardColor: color,
+          waterCollected: waterCollected,
+        ),
+        const Spacing(of: spacing8),
+
+        PriceCard(
+          section: section,
+          waterCollected: waterCollected,
         ),
 
         // spacing
@@ -62,9 +56,9 @@ class SectionDataBody extends StatelessWidget {
           color: color,
           fontSize: 30,
         ),
-        
+
         // section chart
-        SectionChart(color: color, waterFlows: waterFlows ),
+        SectionChart(color: color, waterCollected: waterCollected),
       ],
     );
   }

@@ -8,4 +8,6 @@ class WcmcsTODO {
 // TODO add ability for different users to see different info, this will be based on user IDs
 
 // TODO add ability for user to update their profile and update the price per litre
+
+// Add a section reflect everywhere
 }

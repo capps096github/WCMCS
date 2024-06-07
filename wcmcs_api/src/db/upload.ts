@@ -54,11 +54,11 @@ export const uploadWaterFlowData =
             // Write data to Firestore
             const upload = await db.collection(waterFlowCollection).add(waterFlowData).then(() => {
                 console.info(
-                    `Water uploaded: ${value} at ${date} to ${waterFlowCollection}f`,
+                    `Water uploaded: ${value} at ${date} to ${waterFlowCollection}`,
                     { structuredData: true });
             });
 
-            response.status(201).send('Water flow data uploaded successfully');
+            response.status(200).send('Water flow data uploaded successfully');
 
             // return the upload
             return upload;

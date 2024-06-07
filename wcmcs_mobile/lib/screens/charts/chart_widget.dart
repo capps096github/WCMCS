@@ -1,56 +1,61 @@
-// ignore_for_file: public_member_api_docs, duplicate_ignore
-
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../global/exporter.dart';
-import 'chart_data.dart';
+import '../manage/models/water_collected.dart';
 
-// ignore: public_member_api_docs
+/// shows bar chart of all water values collected
 class CustomChart extends StatelessWidget {
+  /// [CustomChart] constructor
   const CustomChart({
-    required this.chartData,
+    required this.waterChartData,
+    required this.xAxisTitle,
+    required this.yAxisTitle,
+    required this.color,
     super.key,
-    this.titleText = '',
-    this.xAxisTitle = '',
-    this.yAxisTitle = '',
-    this.showLegend = false,
-    this.legendTitle = '',
   });
-  final List<ChartData> chartData;
-  final String titleText;
+
+  /// chart data
+  final List<WaterChartData> waterChartData;
+
+  ///x-axis title text
   final String xAxisTitle;
+
+  /// y-axis title text
   final String yAxisTitle;
-  final bool showLegend;
-  final String legendTitle;
+
+  /// color
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
-      borderColor: appColor,
-      borderWidth: 2,
-      legend:
-          Legend(isVisible: showLegend, title: LegendTitle(text: legendTitle)),
-      title: ChartTitle(text: titleText),
       primaryXAxis: CategoryAxis(title: AxisTitle(text: xAxisTitle)),
       primaryYAxis: NumericAxis(title: AxisTitle(text: yAxisTitle)),
       // ignore: strict_raw_type
       series: <CartesianSeries>[
-        ColumnSeries<ChartData, String>(
-          dataSource: chartData,
-          xValueMapper: (ChartData data, _) => data.x,
-          yValueMapper: (ChartData data, _) => data.y,
-          dataLabelSettings:
-              const DataLabelSettings(isVisible: true, color: appColor),
+        ColumnSeries<WaterChartData, String>(
+          dataSource: waterChartData,
+          color: color,
+          xValueMapper: (WaterChartData data, _) => data.x,
+          yValueMapper: (WaterChartData data, _) => data.y,
+          // dataLabelSettings: const DataLabelSettings(
+          //   isVisible: true,
+          //   color: appBlack,
+          //   textStyle: TextStyle(
+          //     fontSize: 12,
+          //     color: appWhite,
+          //     fontWeight: FontWeight.bold,
+          //   ),
+          // ),
         ),
-        LineSeries<ChartData, String>(
-          dataSource: chartData,
-          color: appGreen,
-          xValueMapper: (ChartData data, _) => data.x,
-          yValueMapper: (ChartData data, _) => data.y1,
-          dataLabelSettings:
-              const DataLabelSettings(isVisible: true, color: appGreen),
-        ),
+        // LineSeries<ChartData, String>(
+        //   dataSource: chartData,
+        //   color: appGreen,
+        //   xValueMapper: (ChartData data, _) => data.x,
+        //   yValueMapper: (ChartData data, _) => data.y1,
+        //   dataLabelSettings:
+        //       const DataLabelSettings(isVisible: true, color: appGreen),
+        // ),
       ],
     );
   }

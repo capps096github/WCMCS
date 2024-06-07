@@ -8,7 +8,7 @@ class WcmcsHome extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userStream = ref.watch(allUserStreamProvider);
+    final userStream = ref.watch(appUserStreamProvider);
 
     /// * Listen to the user stream so that the app user updates automatically
     return userStream.when(

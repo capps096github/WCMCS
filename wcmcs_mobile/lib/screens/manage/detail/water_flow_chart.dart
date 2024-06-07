@@ -1,32 +1,40 @@
-import 'package:flutter/material.dart';
-
-import '../../charts/chart_data.dart';
+import '../../../app_exporter.dart';
 import '../../charts/chart_widget.dart';
+import '../models/water_collected.dart';
 
 /// this displays the water flow chart
 class WaterFlowChart extends StatelessWidget {
   /// [WaterFlowChart] constructor
-  const WaterFlowChart({super.key});
+  const WaterFlowChart({
+    required this.waterCollected,
+    required this.color,
+    super.key,
+  });
+
+  /// water collected
+  final WaterCollected waterCollected;
+
+  /// color
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    final chartData = <ChartData>[
-      ChartData('Jan', 35, 20),
-      ChartData('Feb', 28, 32),
-      ChartData('Mar', 34, 15),
-      ChartData('Apr', 32, 25),
-      ChartData('May', 40, 38),
-    ];
-
-    return SizedBox(
+    return Container(
       height: 400,
       width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: borderRadius8,
+        border: Border.all(
+          color: color,
+          width: 2,
+        ),
+      ),
       child: CustomChart(
-        chartData: chartData,
-        xAxisTitle: 'Months',
-        yAxisTitle: 'Values in Liters',
-        showLegend: true,
-        legendTitle: 'Current Consumption: Series 0, Prediction: Series 1',
+        waterChartData: waterCollected.chartData,
+        xAxisTitle: 'Time',
+        yAxisTitle: 'Litres',
+        color: color,
       ),
     );
   }

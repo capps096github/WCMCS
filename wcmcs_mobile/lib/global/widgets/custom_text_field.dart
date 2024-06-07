@@ -128,7 +128,7 @@ class CustomTextField extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        if (showLabel) ...[
+        if (showLabel && !hasUnderlinedDecoration) ...[
           /// label
           Align(
             alignment: Alignment.centerLeft,

@@ -1,4 +1,5 @@
 import '../../../app_exporter.dart';
+import '../models/water_collected.dart';
 import 'detail_card.dart';
 
 /// shows the litres of a section
@@ -7,6 +8,7 @@ class LitresCard extends StatelessWidget {
   const LitresCard({
     required this.section,
     required this.cardColor,
+    required this.waterCollected,
     super.key,
   });
 
@@ -16,13 +18,19 @@ class LitresCard extends StatelessWidget {
   /// color
   final Color cardColor;
 
+
+  /// waterFlows
+  final WaterCollected waterCollected;
+
+
   @override
   Widget build(BuildContext context) {
     return DetailCard(
       cardColor: cardColor,
       textColor: cardColor,
-      value: section.litres,
+      value: waterCollected.totalLitres,
       label: 'Litres',
+      description: '* Estimated',
     );
   }
 }

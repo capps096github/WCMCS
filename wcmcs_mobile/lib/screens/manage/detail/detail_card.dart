@@ -8,6 +8,7 @@ class DetailCard extends StatelessWidget {
     required this.textColor,
     required this.value,
     required this.label,
+    required this.description,
     super.key,
   });
 
@@ -23,6 +24,9 @@ class DetailCard extends StatelessWidget {
   /// label
   final String label;
 
+  /// description
+  final String description;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,11 +40,44 @@ class DetailCard extends StatelessWidget {
           width: 2,
         ),
       ),
-      padding: padding8,
+      // padding: padding8,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          Container(
+            width: double.infinity,
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(
+              color: cardColor,
+              borderRadius: const BorderRadius.only(
+                topLeft: circularRadius6,
+                topRight: circularRadius6,
+              ),
+            ),
+            child: Padding(
+              padding: padding8,
+              child: Column(
+                children: [
+                  const ThickHorizontalDivider(
+                    dividerColor: appWhite,
+                    margin: margin2,
+                    dividerWidth: 50,
+                  ),
+                  const Spacing(of: spacing16),
+                  Text(
+                    label,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: appWhite,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           const Spacing(of: spacing8),
           // text
           Column(
@@ -48,6 +85,7 @@ class DetailCard extends StatelessWidget {
             children: [
               Text(
                 numberFormatter.format(value),
+                // value.toStringAsFixed(2),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 40,
@@ -55,18 +93,16 @@ class DetailCard extends StatelessWidget {
                   color: textColor,
                 ),
               ),
+              const Spacing(of: spacing4),
               Text(
-                label,
+                description,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 10,
                   color: textColor.withOpacity(.7),
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              ThickHorizontalDivider(
-                dividerColor: textColor,
-                margin: margin8,
-              ),
+              const Spacing(of: spacing8),
             ],
           ),
         ],
