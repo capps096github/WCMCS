@@ -1,5 +1,5 @@
 import '../../../app_exporter.dart';
-import '../data/section_service.dart';
+import '../service/section_service.dart';
 import '../data/water_db_refence.dart';
 import 'empty_section.dart';
 import 'no_data.dart';

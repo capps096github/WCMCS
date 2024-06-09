@@ -5,6 +5,9 @@
 #include <string>
 #include <sstream>
 
+// * Credits:
+// https://randomnerdtutorials.com/esp8266-nodemcu-http-get-post-arduino/#more-95691
+
 // * Wifi Credentials
 /// this has the wifi name
 const char* ssid = "X3PH45  Galaxy";
@@ -22,8 +25,9 @@ String getServerUrl() {
   String ipAddress = (ssid == "X3PH4S") ? "10.150.33.140" : "192.168.43.63";
 
   String port = ":3500";
+  // * to upload water
+  String endpoint = "/upload";
   // String endpoint = "/hello";
-  String endpoint = "/test";
 
   String localServer = String(protocol + ipAddress + port + endpoint);
 

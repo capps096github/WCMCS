@@ -40,7 +40,7 @@ app.use(cors(corsOptions));
 app.use(express.json({ type: "application/json" }));
 
 // ! ------------------ Routes ------------------
-app.post("/hello", async (request, response) => {
+app.get("/hello", async (request, response) => {
   // get value from the request body
   // as a double value
   // const value: number = request.body.value as number;
@@ -50,28 +50,18 @@ app.post("/hello", async (request, response) => {
   response.status(200).send(`Yoo World ${value}`);
 });
 
+// 
+app.post("/test", uploadWaterFlowData);
+
+
 // This takes in a JSON
 // {
 //     "value": 20,
-//     "sectionName": "kitchen"
+//     "email": "email"
 //     "userId": "user_id"
 // }
-app.post("/test", uploadWaterFlowData);
+// * Uploads Values to Cloud
 app.post("/upload", uploadWaterFlowData);
-
-// * Add the express app to the onRequest function
-/**
-Docs: https://firebase.google.com/docs/functions/http-events?gen=2nd#using_existing_express_or_flask_apps
-Expose Express API as a single Cloud Function:
-*/
-// export const waterAPI = onRequest(app);
-
-// API served on Function URL (waterAPI(us-central1)): https://waterapi-i6mmg3netq-uc.a.run.app
-
-// Test Credentials
-// cephas@test.com
-// CephasTest
-
 
 // Start Express server
 app.listen(port, () => {

@@ -2,7 +2,7 @@ import '../../app_exporter.dart';
 import 'db_names.dart';
 
 /// A provider for the [AppUsersDBService]
-final calcutDBServiceProvider = Provider<AppUsersDBService>((ref) {
+final calcutDBServiceProvider = Provider.autoDispose<AppUsersDBService>((ref) {
   final appUser = ref.watch(appUserProvider);
 
   //

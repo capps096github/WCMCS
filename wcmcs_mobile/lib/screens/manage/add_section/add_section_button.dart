@@ -1,5 +1,5 @@
 import '../../../app_exporter.dart';
-import '../data/section_service.dart';
+import '../service/section_service.dart';
 import 'section_name_field.dart';
 
 /// On tap of this, it take the user to a screen showing courses we've suggested for them
