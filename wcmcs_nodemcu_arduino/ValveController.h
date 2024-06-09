@@ -18,11 +18,15 @@ const int ledPin = 13;
 // Pin for solenoid valve
 const int valvePin = 3;  // Adjust according to your setup
 
-void getTapStatus() {
+void getTapStatus(String section) {
+
+// http://192.168.43.63:3500/tap_status?section=house
+  String serverUrl = String(apiEndpoint + "?section=" + section);
+
   if (WiFi.status() == WL_CONNECTED) {
     WiFiClient client;
     HTTPClient http;
-    http.begin(client, getServerUrl(apiEndpoint).c_str());
+    http.begin(client, getServerUrl(serverUrl).c_str());
     int httpCode = http.GET();
 
     if (httpCode > 0) {
@@ -49,7 +53,7 @@ void controlValve() {
     // light up the led
     digitalWrite(ledPin, HIGH);
 
-    Serial.print("Valve opened: value = ");
+    Serial.print("VALVE OPENED: value = ");
     Serial.println(String(tapStatus));
   } else {
     // Close the valve
@@ -57,8 +61,9 @@ void controlValve() {
     // turn off the LED
     digitalWrite(ledPin, LOW);
 
-    Serial.print("Valve closed: value = ");
+    Serial.print("VALVE CLOSED: value = ");
     Serial.println(String(tapStatus));
+    Serial.println("\n");
   }
 }
 
@@ -67,16 +72,14 @@ void initValve() {
   // mark the led and solenoid pins as outputs
   pinMode(ledPin, OUTPUT);
   pinMode(valvePin, OUTPUT);
-
-  // Initial request to set the state
-  getTapStatus();
-  controlValve();
 }
 
-void fetchValveStatus() {
+bool fetchValveStatus(String section) {
   // Periodically update the switch value and control the valve
-  getTapStatus();
+  getTapStatus(section);
   controlValve();
-  delay(1000);  // Delay between updates, adjust as needed
-}
+   // Delay between updates, adjust as needed
+  delay(1000); 
 
+  return (tapStatus == 1);
+}

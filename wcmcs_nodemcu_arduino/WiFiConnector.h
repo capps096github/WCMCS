@@ -38,7 +38,6 @@ String getServerUrl(String endpoint) {
 }
 
 void connectToWiFi() {
-  Serial.begin(115200);
   WiFi.begin(ssid, password);
   Serial.print("Connecting to ");
   Serial.print(ssid);

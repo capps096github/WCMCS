@@ -50,4 +50,6 @@ void uploadToCloud(double amountOfWaterFlown, String email, String section) {
   } else {
     Serial.println("Error in WiFi connection");
   }
+
+  Serial.println("\n");
 }

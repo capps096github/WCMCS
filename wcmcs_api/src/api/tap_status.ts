@@ -54,11 +54,14 @@ export async function
 
                 // handle success
                 if (responseBody.status === "success") {
+                    // get controller value
+                    const controllerValue = responseBody.controller;
+
                     // log that the request was successful
-                    console.info(`Success! Tap Status: ${responseBody}`);
+                    console.info(`Success! Tap Status: ${controllerValue}`);
 
                     // send back a json as response to this endpoint
-                    response.status(200).send(responseBody);
+                    response.status(200).send(`${controllerValue}`);
                 } else {
                     // Inform the customer their payment was unsuccessful
                     // and then log the error
