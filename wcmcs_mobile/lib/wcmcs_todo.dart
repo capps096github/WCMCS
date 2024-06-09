@@ -10,4 +10,10 @@ class WcmcsTODO {
 // TODO Notification add
 
 // TODO simulate water usage, coz average is 52.8 litres
+
+// Limitations
+// - support for only one tank
+// - no support for multiple tanks
+// - no support for multiple users
+// - 
 }

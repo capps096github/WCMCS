@@ -6,8 +6,7 @@ import '../service/db_names.dart';
 part 'app_user_provider.g.dart';
 
 /// currenty logggen in user streamProvider
-// @Riverpod(keepAlive: true)
-@riverpod
+@Riverpod(keepAlive: true)
 Stream<DocumentSnapshot<AppUser>> appUserStream(AppUserStreamRef ref) {
   final user = FirebaseAuth.instance.currentUser;
 
@@ -17,8 +16,7 @@ Stream<DocumentSnapshot<AppUser>> appUserStream(AppUserStreamRef ref) {
 }
 
 /// returns the current user
-// @Riverpod(keepAlive: true)
-@riverpod
+@Riverpod(keepAlive: true)
 AppUser appUser(AppUserRef ref) {
   /// listen to the user stream
   final userStream = ref.watch(appUserStreamProvider);

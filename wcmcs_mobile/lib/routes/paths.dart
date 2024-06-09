@@ -1,8 +1,8 @@
 // * All paths are defined here for app navigation
 
 /// initial path
-const initialPath = managePath;
-// const initialPath = homePath;
+// const initialPath = managePath;
+const initialPath = homePath;
 
 /// * ------------------------------
 /// home path
@@ -25,3 +25,6 @@ const tipsPath = '/tips';
 
 /// manage path
 const managePath = '/manage';
+
+/// tankPath
+const tankPath = '/tank';

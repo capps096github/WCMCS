@@ -6,14 +6,14 @@ part of 'app_user_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appUserStreamHash() => r'7e144fb8027e6ae6fed839e35cdcfbde073f9483';
+String _$appUserStreamHash() => r'600bb406c3aa5fba1e9817a414122616ae332531';
 
 /// currenty logggen in user streamProvider
 ///
 /// Copied from [appUserStream].
 @ProviderFor(appUserStream)
 final appUserStreamProvider =
-    AutoDisposeStreamProvider<DocumentSnapshot<AppUser>>.internal(
+    StreamProvider<DocumentSnapshot<AppUser>>.internal(
   appUserStream,
   name: r'appUserStreamProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -23,15 +23,14 @@ final appUserStreamProvider =
   allTransitiveDependencies: null,
 );
 
-typedef AppUserStreamRef
-    = AutoDisposeStreamProviderRef<DocumentSnapshot<AppUser>>;
-String _$appUserHash() => r'69bbb055c4b67ddc27cc0cefc6b4f0ab617b7a54';
+typedef AppUserStreamRef = StreamProviderRef<DocumentSnapshot<AppUser>>;
+String _$appUserHash() => r'3aaa53533590dae5f0f1752de3c7d5a471190256';
 
 /// returns the current user
 ///
 /// Copied from [appUser].
 @ProviderFor(appUser)
-final appUserProvider = AutoDisposeProvider<AppUser>.internal(
+final appUserProvider = Provider<AppUser>.internal(
   appUser,
   name: r'appUserProvider',
   debugGetCreateSourceHash:
@@ -40,6 +39,6 @@ final appUserProvider = AutoDisposeProvider<AppUser>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef AppUserRef = AutoDisposeProviderRef<AppUser>;
+typedef AppUserRef = ProviderRef<AppUser>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

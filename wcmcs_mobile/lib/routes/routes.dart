@@ -30,6 +30,12 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const ManageScreen(),
       ),
 
+      // * manage
+      GoRoute(
+        path: tankPath,
+        builder: (context, state) => const TankScreen(),
+      ),
+
       //* user
       GoRoute(
         path: userProfilePath,
