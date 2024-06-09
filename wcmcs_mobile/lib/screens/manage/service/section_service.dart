@@ -31,7 +31,27 @@ class SectionService {
     return message;
   }
 
-  
+  /// update the controller value of a section
+  /// this updates the controller value of a section
+  /// to open or close the section
+  /// 1 for open and 0 for closed
+  static Future<void> updateControllerValue({
+    required Section section,
+    required int newValue,
+  }) async {
+    // if section is open, close it
+    // if section is closed, open it
+    // final controller = section.isOpen ? 0 : 1;
+
+    // print the controller value
+    printer('Controller Value: $newValue');
+
+    await sectionDatabaseRef.doc(section.collection).update({
+      'controller': newValue,
+    }).then(
+      (_) => printer('Section controller updated successfully'),
+    );
+  }
 
   /// delete a scetion
   static Future<void> deleteSection(Section section) async {

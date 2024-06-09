@@ -1,4 +1,4 @@
-import '../../../app_exporter.dart';
+import '../../../../app_exporter.dart';
 
 /// this displays the water flow chart
 class DetailCard extends StatelessWidget {

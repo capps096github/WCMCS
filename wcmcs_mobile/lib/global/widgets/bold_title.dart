@@ -45,6 +45,10 @@ class BoldTileWithDescription extends StatelessWidget {
     required this.boldTitle,
     required this.description,
     super.key,
+    this.color,
+    this.descFontSize,
+    this.textAlign,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
   });
 
   /// [BoldTitle] tile
@@ -53,10 +57,23 @@ class BoldTileWithDescription extends StatelessWidget {
   /// description
   final String description;
 
+  /// text align
+  final TextAlign? textAlign;
+
+  /// text color
+  final Color? color;
+
+  /// description font size
+  final double? descFontSize;
+
+  /// cross alignment font size
+  final CrossAxisAlignment crossAxisAlignment;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: crossAxisAlignment,
       children: [
         boldTitle,
         const Spacing(of: spacing2),
@@ -64,7 +81,9 @@ class BoldTileWithDescription extends StatelessWidget {
         Text(
           description,
           textAlign: TextAlign.center,
-          style: const TextStyle(
+          style: TextStyle(
+            color: color,
+            fontSize: descFontSize,
             fontWeight: FontWeight.bold,
           ),
         ),

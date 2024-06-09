@@ -1,8 +1,9 @@
 import '../../../app_exporter.dart';
 import '../models/water_collected.dart';
-import 'litres_card.dart';
-import 'price_card.dart';
-import 'section_chart.dart';
+import 'components/litres_card.dart';
+import 'components/price_card.dart';
+import 'components/section_chart.dart';
+import 'components/tap_switch.dart';
 
 /// this displays the section information from cloud
 class SectionDataBody extends StatelessWidget {
@@ -28,6 +29,17 @@ class SectionDataBody extends StatelessWidget {
     return ListView(
       padding: padding16,
       children: [
+        BoldTitle(
+          text: 'Tap Status',
+          color: color,
+          fontSize: 30,
+        ),
+        const Spacing(of: spacing16),
+        // switch
+        SectionTapSwitch(section: section),
+        const Spacing(of: spacing16),
+
+        //
         BoldTitle(
           text: 'Summary',
           color: color,

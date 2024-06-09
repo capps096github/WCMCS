@@ -12,6 +12,12 @@ const appNavy = Color(0xFF000525);
 /// app black
 const appBlack = Color(0xFF000000);
 
+/// tap open color
+const tapOpenColor = Color(0xFF028002);
+
+/// tap closed color
+const tapClosedColor = Color(0xFFFF0000);
+
 /// wcmcs background
 // const wcmcsBackground = Color(0xFF200E32);
 const appBackground = Color(0xFFEDF1F4);

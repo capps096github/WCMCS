@@ -1,6 +1,6 @@
-import '../../../app_exporter.dart';
-import '../../charts/chart_widget.dart';
-import '../models/water_collected.dart';
+import '../../../../app_exporter.dart';
+import '../../../charts/chart_widget.dart';
+import '../../models/water_collected.dart';
 
 /// this displays the water flow chart
 class WaterFlowChart extends StatelessWidget {

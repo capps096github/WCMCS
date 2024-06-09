@@ -1,5 +1,5 @@
-import '../../../app_exporter.dart';
-import '../models/water_collected.dart';
+import '../../../../app_exporter.dart';
+import '../../models/water_collected.dart';
 import 'detail_card.dart';
 
 /// shows the litres of a section

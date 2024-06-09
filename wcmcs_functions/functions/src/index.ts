@@ -12,6 +12,7 @@ import {currentDate} from "./db/current_date";
 import {uploadWaterFlowData} from "./db/upload";
 import {uploadTestWaterFlowData} from "./db/water_upload_test";
 import {deleteSection} from "./db/delete_collection";
+import {getTapStatus} from "./db/tap_status";
 
 // Create an express app
 export const app = express();
@@ -49,18 +50,20 @@ app.use(express.json({type: "application/json"}));
 // Define Express routes
 app.get("/date", currentDate);
 
+// * tap_status
+// This takes in a query parameter as the section name
+// and returns the controller value for that section
+// in the response
+app.get("/tap_status", getTapStatus);
 
-// in this endpoint, you pass in a parameter as the section name
+
+//* delete
+//  in this endpoint, you pass in a parameter as the section name
 // and it deletes it with all its subcollections
 app.get("/delete", deleteSection);
 
-// * a get endpoint for getting the user id currently logged in user
-// app.get("/user", getUserId);
 
-app.post("/hello", async (request, response) => {
-  response.status(200).send("Hello World");
-});
-
+// * upload
 // This takes in a JSON
 // {
 //     "value": 20,
@@ -70,7 +73,19 @@ app.post("/hello", async (request, response) => {
 // post endpoint for uploading water flow data
 app.post("/upload", uploadWaterFlowData);
 
+
+// ? ---------------------- Test Routes ----------------------
 app.post("/upload_test", uploadTestWaterFlowData);
+
+// * a get endpoint for getting the user id currently logged in user
+// app.get("/user", getUserId);
+
+app.post("/hello", async (request, response) => {
+  response.status(200).send("Hello World");
+});
+
+
+// * ----------------- Export the Express app -----------------
 
 // * Add the express app to the onRequest function
 /**
@@ -78,7 +93,6 @@ Docs: https://firebase.google.com/docs/functions/http-events?gen=2nd#using_exist
 Expose Express API as a single Cloud Function:
 */
 export const waterAPI = onRequest(app);
-
 // API served on Function URL (waterAPI(us-central1)): https://waterapi-i6mmg3netq-uc.a.run.app
 
 // Test Credentials

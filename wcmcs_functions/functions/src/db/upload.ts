@@ -1,15 +1,16 @@
 
 // get firestore
 // The Firebase Admin SDK to access Firestore.
-import {initializeApp} from "firebase-admin/app";
-import {getFirestore, Timestamp} from "firebase-admin/firestore";
+import { initializeApp } from "firebase-admin/app";
+import { getFirestore, Timestamp } from "firebase-admin/firestore";
 import * as logger from "firebase-functions/logger";
-import {currentDate} from "./current_date";
+import { currentDate } from "./current_date";
 
 
 import express = require("express");
-import {RequestBody} from "../models/request_body";
-import {getUserId} from "../auth/user";
+import { RequestBody } from "../models/request_body";
+import { getUserId } from "../auth/user";
+import { Section, sectionConverter } from "../models/section";
 
 
 // Initialize the app with a service account, granting admin privileges
@@ -34,7 +35,7 @@ export const uploadWaterFlowData =
 
       // log the request body
       logger.info(`Request body: ${JSON.stringify(requestBody)}`,
-        {structuredData: true});
+        { structuredData: true });
 
       // Validation (optional)
       if (!body) {
@@ -75,16 +76,17 @@ export const uploadWaterFlowData =
  * @param {express.Response} response - express response
  */
 export async function
-uploadWaterData(value: number,
-  sectionName: string,
-  userId: string,
-  response: express.Response,
-)
+  uploadWaterData(value: number,
+    sectionName: string,
+    userId: string,
+    response: express.Response,
+  )
   : Promise<void> {
   // Prepare data for Firestore
-  const newSection = {
+  const newSection: Section = {
     label: sectionName,
     userId: userId,
+    controller: 1,
     uploaded_on: Timestamp.now(),
   };
 
@@ -94,14 +96,20 @@ uploadWaterData(value: number,
   //  if not, return an error
   //  if it does, proceed to upload the data
   //  if the section does not exist, create it with the newSection
-  const section = await db.collection("sections").doc(sectionName).get();
+  const sectionDocSnapshot = await db
+    .collection("sections")
+    .doc(sectionName)
+    .withConverter(sectionConverter)
+    .get();
 
 
   // * if this section exists
-  if (section.exists) {
+  if (sectionDocSnapshot.exists) {
+    const section: Section = sectionDocSnapshot.data() as Section;
+
     // ! check if the user id is the same as the user id passed
     //  in the request
-    if (section.get("userId") !== userId) {
+    if (section.userId !== userId) {
       // send a response json to the client
       const responseBody = {
         status: "failed",
@@ -111,7 +119,7 @@ uploadWaterData(value: number,
 
       // log the response
       logger.error(`Response: ${JSON.stringify(responseBody)}`,
-        {structuredData: true});
+        { structuredData: true });
 
       response.status(400).send(responseBody);
     } else {
@@ -136,16 +144,15 @@ uploadWaterData(value: number,
  * @param {express.Response} response - express response
  */
 export async function
-uploadWaterDataToFirestore(value: number,
-  sectionName: string,
-  response: express.Response,
-)
+  uploadWaterDataToFirestore(value: number,
+    sectionName: string,
+    response: express.Response,
+  )
   : Promise<void> {
   // Prepare data for Firestore
   const waterFlowData = {
     value,
     uploaded_on: Timestamp.now(),
-    // userId: userId,
   };
 
   // get section name
@@ -158,7 +165,7 @@ uploadWaterDataToFirestore(value: number,
       logger.info(
         `Water uploaded: ${value} at
          ${date} to ${waterFlowCollection}`,
-        {structuredData: true});
+        { structuredData: true });
     }).then(() => {
       // send a response json to the client
       const responseBody = {
@@ -169,7 +176,7 @@ uploadWaterDataToFirestore(value: number,
 
       // log the response
       logger.info(`Response: ${JSON.stringify(responseBody)}`,
-        {structuredData: true});
+        { structuredData: true });
 
       response.status(200)
         .send(responseBody);

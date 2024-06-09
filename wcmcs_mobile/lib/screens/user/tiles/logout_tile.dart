@@ -3,8 +3,6 @@ import '../../manage/data/water_db_refence.dart';
 import 'about_item.dart';
 import 'about_tile.dart';
 
-import 'package:restart_app/restart_app.dart';
-
 /// This is the logout tile that logs out the user from the app
 class LogoutTile extends ConsumerWidget {
   /// [LogoutTile] constructor

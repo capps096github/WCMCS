@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../app_exporter.dart';
-import '../models/water_flow.dart';
+import '../../../../app_exporter.dart';
+import '../../models/water_flow.dart';
 
 /// this displays the water flow chart
 class WaterFlowData extends StatelessWidget {

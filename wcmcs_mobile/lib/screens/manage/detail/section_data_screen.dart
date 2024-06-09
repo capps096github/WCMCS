@@ -1,14 +1,14 @@
 import '../../../app_exporter.dart';
 import '../data/water_db_refence.dart';
 import '../models/water_collected.dart';
+import 'components/water_flow_calendar.dart';
 import 'empty_section.dart';
 import 'section_data_body.dart';
-import 'water_flow_calendar.dart';
 
 /// this shows the details of a given section including its water flow and other details
-class SectionDataView extends ConsumerWidget {
-  /// [SectionDataView] constructor
-  const SectionDataView({
+class SectionDataScreen extends ConsumerWidget {
+  /// [SectionDataScreen] constructor
+  const SectionDataScreen({
     required this.section,
     required this.color,
     super.key,

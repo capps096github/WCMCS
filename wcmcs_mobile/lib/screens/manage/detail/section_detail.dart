@@ -1,5 +1,4 @@
 import '../../../app_exporter.dart';
-import '../service/section_service.dart';
 import '../data/water_db_refence.dart';
 import 'empty_section.dart';
 import 'no_data.dart';
@@ -53,9 +52,8 @@ class SectionDetail extends ConsumerWidget {
           // in it defioned in cloud
           // e.g name, label, collection, icon, etc
 
-
           return docSnaphot.exists
-              ? SectionDataView(
+              ? SectionDataScreen(
                   section: section,
                   color: color,
                 )

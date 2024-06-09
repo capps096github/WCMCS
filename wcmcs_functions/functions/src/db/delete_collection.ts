@@ -25,23 +25,6 @@ export const deleteSection =
         // Create a reference to the collection
         const sectionReference = db.collection("sections").doc(section);
 
-        /*
-                // get all the subcollections of the section
-                const collections = await sectionReference.listCollections();
-
-                // https://cloud.google.com/nodejs/docs/reference/firestore/latest/firestore/firestore#_google_cloud_firestore_Firestore_recursiveDelete_member_1_
-                     // loop through the subcollections and delete them
-                collections.forEach((collection) => {
-                  console.log("Found subcollection with id:", collection.id);
-                  collection.doc().delete();
-                });
-
-                // * delete the section
-                sectionReference.delete().then(() => {
-                  response.status(200).send("Section deleted successfully");
-                });
-         */
-
         // Recursively delete a reference and log the references of failures.
         const MAX_RETRY_ATTEMPTS = 5; // Replace 3 with the desired value
 

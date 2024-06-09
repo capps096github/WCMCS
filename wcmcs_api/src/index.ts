@@ -6,6 +6,7 @@ import express = require("express");
 // https://expressjs.com/en/resources/middleware/cors.html
 import cors = require("cors");
 import { uploadWaterFlowData } from "./api/water_upload";
+import { getTapStatus } from "./api/tap_status";
 
 // Create an express app
 export const app = express();
@@ -40,6 +41,24 @@ app.use(cors(corsOptions));
 app.use(express.json({ type: "application/json" }));
 
 // ! ------------------ Routes ------------------
+// * upload
+// This takes in a JSON
+// {
+//     "value": 20,
+//     "email": "email"
+//     "userId": "user_id"
+// }
+// * Uploads Values to Cloud
+app.post("/upload", uploadWaterFlowData);
+
+// * tap_status
+// This takes in a query parameter as the section name
+// and returns the controller value for that section
+// in the response
+app.get("/tap_status", getTapStatus);
+
+
+// ? ------------ Test Routes ------------
 app.get("/hello", async (request, response) => {
   // get value from the request body
   // as a double value
@@ -50,18 +69,9 @@ app.get("/hello", async (request, response) => {
   response.status(200).send(`Yoo World ${value}`);
 });
 
-// 
+//  for testing
 app.post("/test", uploadWaterFlowData);
 
-
-// This takes in a JSON
-// {
-//     "value": 20,
-//     "email": "email"
-//     "userId": "user_id"
-// }
-// * Uploads Values to Cloud
-app.post("/upload", uploadWaterFlowData);
 
 // Start Express server
 app.listen(port, () => {
