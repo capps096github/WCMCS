@@ -14,5 +14,11 @@
         "npm --prefix \"$RESOURCE_DIR\" run build"
       ]
     }
-  ]
+  ],
+  "emulators": {
+    "functions": {
+      "host": "localhost",
+      "port": "4879" 
+    }
+  }
 }

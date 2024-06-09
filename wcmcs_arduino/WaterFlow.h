@@ -1,5 +1,3 @@
-#include <Arduino.h>
-
 ICACHE_RAM_ATTR void increase();
 
 int sensorPin = D2;

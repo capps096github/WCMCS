@@ -39,12 +39,10 @@ class _SaveButtonState extends ConsumerState<AddSectionButton> {
           });
 
           /// wait for futures
-          await Future.wait([
-            /// save results to cloud
-            SectionService.uploadSection(
-              Section.fromLabel(label: name, userId: appUser.userId),
-            ),
-          ]).then((_) {
+          /// save results to cloud
+          await SectionService.uploadSection(
+            Section.fromLabel(label: name, userId: appUser.userId),
+          ).then((message) {
             if (mounted) {
               setState(() {
                 isButtonTapped = false;
@@ -55,10 +53,17 @@ class _SaveButtonState extends ConsumerState<AddSectionButton> {
             ref.read(sectionNameProvider.notifier).state = '';
 
             /// show snackbar
-            ScaffoldMessenger.of(context).showSnackBar(savedSnackbar());
+            // if message contains the word successfully
+            if (message.contains('successfully')) {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(savedSnackbar(message));
 
-            /// save, show ad and pop
-            pop(ref);
+              /// save, show ad and pop
+              pop(ref);
+            } else {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(errorSnackbar(message));
+            }
           });
         },
         textColor: appWhite,
@@ -70,23 +75,49 @@ class _SaveButtonState extends ConsumerState<AddSectionButton> {
 }
 
 /// snackbar to show after saving results
-SnackBar savedSnackbar() {
+SnackBar savedSnackbar(String message) {
   return SnackBar(
     backgroundColor: appColor,
     margin: const EdgeInsets.all(4),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(8),
     ),
-    content: const Row(
+    content: Row(
       children: [
-        Icon(
+        const Icon(
           Icons.check_circle_rounded,
           color: appWhite,
         ),
-        Spacing(of: 10),
+        const Spacing(of: 10),
         Text(
-          'Section Saved Successfully',
-          style: TextStyle(color: appWhite),
+          message,
+          style: const TextStyle(color: appWhite),
+        ),
+      ],
+    ),
+    behavior: SnackBarBehavior.floating,
+    duration: oneSecond,
+  );
+}
+
+/// error snackbar shown when section is not saved or it exists
+SnackBar errorSnackbar(String message) {
+  return SnackBar(
+    backgroundColor: errorColor,
+    margin: const EdgeInsets.all(4),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8),
+    ),
+    content: Row(
+      children: [
+        const Icon(
+          Icons.error_outline_rounded,
+          color: appWhite,
+        ),
+        const Spacing(of: 10),
+        Text(
+          'Section Not Saved - $message',
+          style: const TextStyle(color: appWhite),
         ),
       ],
     ),

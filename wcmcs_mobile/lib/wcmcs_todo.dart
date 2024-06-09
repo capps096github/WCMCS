@@ -10,4 +10,8 @@ class WcmcsTODO {
 // TODO add ability for user to update their profile and update the price per litre
 
 // Add a section reflect everywhere
+
+// TODO Notification add
+
+// TODO simulate water usage, coz average is 52.8 litres
 }

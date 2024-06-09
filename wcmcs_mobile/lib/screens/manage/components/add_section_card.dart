@@ -18,8 +18,9 @@ class AddSectionCard extends StatelessWidget {
       ),
       closedBuilder: (ctx, openSection) => DottedBorder(
         dashPattern: const [8, 4],
-        radius: const Radius.circular(8),
+        radius: circularRadius8,
         borderType: BorderType.RRect,
+        strokeWidth: 2.5,
         color: appColor,
         child: Material(
           color: appWhite.withOpacity(.6),

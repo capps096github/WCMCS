@@ -10,7 +10,7 @@ Future<void> calcutGoogleAuth() async {
   final auth = FirebaseAuth.instance;
 
   /// * WEB
-  if (isWcmcsWeb) {
+  if (isAppWeb) {
     final authProvider = GoogleAuthProvider();
 
     try {

@@ -1,21 +1,16 @@
-# In package.json
+# Commands run
 
-We set `main` to be `build/index.js` so that when we publish the package, it will be the entry point for the package. This is the file that will be executed when the package is imported.
+- npm init
+- npm install express
+- npm install cors
+- npm install body-parser
+- npm install axios
 
-Scripts under `scripts` are used to run commands. For example, `start` is used to run the server, `build` is used to build the project, and `test` is used to run tests. We can run these scripts using `npm run <script-name>`. For example, to run the server, we can use `npm run start`.
+## Build it
 
-Sample Docs can be found on:
+- npm run build:watch
+- npm run start
 
-- [https://mahmoud-kassem.medium.com/how-to-build-an-api-with-node-js-express-and-typescript-2024-extended-part-1-6-f65df183dbc5](https://mahmoud-kassem.medium.com/how-to-build-an-api-with-node-js-express-and-typescript-2024-extended-part-1-6-f65df183dbc5)
+## Changes
 
-Install body parser for requests
-
-    ```bash 
-    npm install body-parser
-    ```
-
-## To run the server
-
-    ```bash
-    npm run start
-    ```
+For every change, restart the server by running `npm run start` in the terminal.

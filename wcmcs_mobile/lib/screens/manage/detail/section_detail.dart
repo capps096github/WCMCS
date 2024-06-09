@@ -1,4 +1,5 @@
 import '../../../app_exporter.dart';
+import '../data/section_service.dart';
 import '../data/water_db_refence.dart';
 import 'empty_section.dart';
 import 'no_data.dart';
@@ -29,6 +30,18 @@ class SectionDetail extends ConsumerWidget {
       appBar: AppBar(
         backgroundColor: color,
         title: Text(section.label),
+        actions: [
+          // delete section
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: () {
+              // pop the screen
+              pop(ref);
+              // delete section
+              SectionService.deleteSection(section);
+            },
+          ),
+        ],
       ),
       body: flowCollections.when(
         data: (docSnaphot) {

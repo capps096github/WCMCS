@@ -5,6 +5,10 @@ export 'package:animations/animations.dart';
 export 'package:cloud_firestore/cloud_firestore.dart';
 // cupertino_icons
 export 'package:cupertino_icons/cupertino_icons.dart';
+
+// dio for APIs
+export 'package:dio/dio.dart';
+
 // Friebase Auth
 export 'package:firebase_auth/firebase_auth.dart';
 // Firebase
