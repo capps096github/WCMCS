@@ -9,7 +9,7 @@ class Section {
     required this.label,
     required this.userId,
     required this.uploadedOn,
-    this.controller = 1,
+    this.controller = 0,
   });
 
 

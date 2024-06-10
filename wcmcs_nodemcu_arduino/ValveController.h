@@ -4,19 +4,12 @@
 #include <string>
 #include <sstream>
 
-
 // API endpoint
 const String apiEndpoint = "/tap_status";
 
 // Global variables for switch values
 int tapStatus = 0;
 
-
-// set pins for the solenoid and Arduino LED
-const int ledPin = 13;
-
-// Pin for solenoid valve
-const int valvePin = 3;  // Adjust according to your setup
 
 void getTapStatus(String section) {
 
@@ -46,40 +39,9 @@ void getTapStatus(String section) {
   }
 }
 
-void controlValve() {
-  if (tapStatus == 1) {
-    // Open the valve
-    digitalWrite(valvePin, HIGH);
-    // light up the led
-    digitalWrite(ledPin, HIGH);
-
-    Serial.print("VALVE OPENED: value = ");
-    Serial.println(String(tapStatus));
-  } else {
-    // Close the valve
-    digitalWrite(valvePin, LOW);
-    // turn off the LED
-    digitalWrite(ledPin, LOW);
-
-    Serial.print("VALVE CLOSED: value = ");
-    Serial.println(String(tapStatus));
-    Serial.println("\n");
-  }
-}
-
-
-void initValve() {
-  // mark the led and solenoid pins as outputs
-  pinMode(ledPin, OUTPUT);
-  pinMode(valvePin, OUTPUT);
-}
-
 bool fetchValveStatus(String section) {
   // Periodically update the switch value and control the valve
   getTapStatus(section);
-  controlValve();
-   // Delay between updates, adjust as needed
-  delay(1000); 
 
   return (tapStatus == 1);
 }

@@ -2,6 +2,9 @@
 #include "ValveController.h"
 #include "Upload.h"
 #include "WaterFlowSensor.h"
+#include "Ultrasonic.h"
+
+#include <SoftwareSerial.h>
 
 // water flown
 double amountOfWaterFlown = 0;
@@ -14,56 +17,56 @@ double amountOfWaterFlown = 0;
 // kitchen
 // String section = "";
 
-  String email = "cephas@test.com";
-  String section = "house";
+String email = "cephas@test.com";
+String section = "test";
 
 
 bool hasCapturedValues = false;
 
+SoftwareSerial espSerial(4, 0);  // (D2 = 4) RX, (D3 = 0) TX pins for ESP8266 (you can use any available pins)
 
 void setup() {
   Serial.begin(115200);
+  espSerial.begin(115200);  // Initialize the ESP8266 serial port
 
   // connect to wifi
   connectToWiFi();
 
-  // initialize valve
-  initValve();
-
   // initialize water
   initializeWaterSensor();
 
-  //* get user details
-  // capture user email and section
-  Serial.println("Enter your Email Adress to Continue e.g test@wcmcs.com ");
+  // initialize ultrasonic
+  initUltrasonicSensor();
 }
 
 void loop() {
-  
-    // get the valve status
-    bool isValveOpen = fetchValveStatus(section);
 
-    // upload
-    if (isValveOpen) {
+  // get the valve status
+  bool isValveOpen = fetchValveStatus(section);
 
-      // double amount = waterVolume();
-      double amount = 21.4;
+  // upload
+  if (isValveOpen) {
+    espSerial.print(1);
 
-      // if amount is greater than 0
-      if (amount > 0) {
-        amountOfWaterFlown += amount;
+    measureDistance();
 
-        Serial.print("Water Flow: ");
-        Serial.print(amountOfWaterFlown);
-        Serial.println(" L");
+    double amount = waterVolume();
 
-        // upload water values
-        uploadToCloud(amountOfWaterFlown, email, section);
-        amountOfWaterFlown = 0;
+    // if amount is greater than 0
+    if (amount > 0) {
+      amountOfWaterFlown += amount;
+
+      Serial.print("Water Flow: ");
+      Serial.print(amountOfWaterFlown);
+      Serial.println(" L");
+
+      // upload water values
+      uploadToCloud(amountOfWaterFlown, email, section);
+      amountOfWaterFlown = 0;
     }
-
-    // wait for a minute before uploading other values
-    // delay(60000);
-    delay(30000);
+  } else {
+    // turn off valve
+    espSerial.print(0);
   }
+    delay(1000);
 }

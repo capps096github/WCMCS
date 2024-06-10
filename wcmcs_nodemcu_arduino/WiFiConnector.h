@@ -14,14 +14,14 @@ const char* ssid = "X3PH45  Galaxy";
 //NOTE: When the Wifi Name changes, Ip Address of server url also changes
 
 /// this has the wifi password
-const char* password = "xephas096";
+const char* password = "xephas096x";
 
 // returns the server url for API calls
 String getServerUrl(String endpoint) {
  const String protocol = "http://";
 
   // String ipAddress = (ssid == "X3PH4S")? "10.150.33.140" : "192.168.43.63";
-  String ipAddress = (ssid == "X3PH4S") ? "10.150.33.140" : "192.168.43.63";
+  String ipAddress = (ssid == "X3PH4S") ? "10.150.32.161" : "192.168.43.63";
 
  const String port = ":3500";
   // * to upload water

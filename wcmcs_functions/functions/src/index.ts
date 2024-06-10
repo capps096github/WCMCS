@@ -13,7 +13,7 @@ import {uploadWaterFlowData} from "./db/upload";
 import {uploadTestWaterFlowData} from "./db/water_upload_test";
 import {deleteSection} from "./db/delete_collection";
 import {getTapStatus} from "./db/tap_status";
-import { updateWaterLevel } from "./db/water_level";
+import {updateWaterLevel} from "./db/water_level";
 
 // Create an express app
 export const app = express();

@@ -1,16 +1,16 @@
 
 // get firestore
 // The Firebase Admin SDK to access Firestore.
-import { initializeApp } from "firebase-admin/app";
-import { getFirestore, Timestamp } from "firebase-admin/firestore";
+import {initializeApp} from "firebase-admin/app";
+import {getFirestore, Timestamp} from "firebase-admin/firestore";
 import * as logger from "firebase-functions/logger";
-import { currentDate } from "./current_date";
+import {currentDate} from "./current_date";
 
 
 import express = require("express");
-import { RequestBody } from "../models/request_body";
-import { getUserId } from "../auth/user";
-import { Section, sectionConverter } from "../models/section";
+import {RequestBody} from "../models/request_body";
+import {getUserId} from "../auth/user";
+import {Section, sectionConverter} from "../models/section";
 
 
 // Initialize the app with a service account, granting admin privileges
@@ -35,7 +35,7 @@ export const uploadWaterFlowData =
 
       // log the request body
       logger.info(`Request body: ${JSON.stringify(requestBody)}`,
-        { structuredData: true });
+        {structuredData: true});
 
       // Validation (optional)
       if (!body) {
@@ -76,11 +76,11 @@ export const uploadWaterFlowData =
  * @param {express.Response} response - express response
  */
 export async function
-  uploadWaterData(value: number,
-    sectionName: string,
-    userId: string,
-    response: express.Response,
-  )
+uploadWaterData(value: number,
+  sectionName: string,
+  userId: string,
+  response: express.Response,
+)
   : Promise<void> {
   // Prepare data for Firestore
   const newSection: Section = {
@@ -119,7 +119,7 @@ export async function
 
       // log the response
       logger.error(`Response: ${JSON.stringify(responseBody)}`,
-        { structuredData: true });
+        {structuredData: true});
 
       response.status(400).send(responseBody);
     } else {
@@ -144,10 +144,10 @@ export async function
  * @param {express.Response} response - express response
  */
 export async function
-  uploadWaterDataToFirestore(value: number,
-    sectionName: string,
-    response: express.Response,
-  )
+uploadWaterDataToFirestore(value: number,
+  sectionName: string,
+  response: express.Response,
+)
   : Promise<void> {
   // Prepare data for Firestore
   const waterFlowData = {
@@ -165,7 +165,7 @@ export async function
       logger.info(
         `Water uploaded: ${value} at
          ${date} to ${waterFlowCollection}`,
-        { structuredData: true });
+        {structuredData: true});
     }).then(() => {
       // send a response json to the client
       const responseBody = {
@@ -176,7 +176,7 @@ export async function
 
       // log the response
       logger.info(`Response: ${JSON.stringify(responseBody)}`,
-        { structuredData: true });
+        {structuredData: true});
 
       response.status(200)
         .send(responseBody);

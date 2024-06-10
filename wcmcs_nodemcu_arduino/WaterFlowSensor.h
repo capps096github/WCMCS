@@ -1,6 +1,7 @@
 ICACHE_RAM_ATTR void increase();
 
-int sensorPin = D2;
+int sensorPin = D7;
+// 
 volatile long pulse;
 unsigned long lastTime;
 float volume;
@@ -13,7 +14,7 @@ void initializeWaterSensor() {
 //
 double waterVolume() {
   volume = 2.663 * pulse / 1000 * 30;
-  if (millis() - lastTime > 2000) {
+  if (millis() - lastTime > 1000) {
     pulse = 0;
     lastTime = millis();
   }
