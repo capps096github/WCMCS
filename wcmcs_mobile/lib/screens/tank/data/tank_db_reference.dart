@@ -19,7 +19,8 @@ final tankDatabaseRef =
         );
 
 /// this gets us the stream of sections
-@Riverpod(keepAlive: true)
+// @Riverpod(keepAlive: true)
+@riverpod
 Stream<DocumentSnapshot<Tank>> tankStream(
   TankStreamRef ref,
 ) {
@@ -36,7 +37,8 @@ Stream<DocumentSnapshot<Tank>> tankStream(
 }
 
 /// returns the current user
-@Riverpod(keepAlive: true)
+// @Riverpod(keepAlive: true)
+@riverpod
 Tank userTank(UserTankRef ref) {
   /// listen to the user stream
   final tankStream = ref.watch(tankStreamProvider);

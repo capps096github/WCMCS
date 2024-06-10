@@ -1,6 +1,6 @@
 import '../../../app_exporter.dart';
 import '../data/water_db_refence.dart';
-import 'empty_section.dart';
+import '../../../global/widgets/empty_section.dart';
 import 'no_data.dart';
 import 'section_data_screen.dart';
 

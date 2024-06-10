@@ -23,34 +23,40 @@ class ManageScreen extends ConsumerWidget {
         padding: padding16,
         children: [
           // stream
-          sectionStream.when(
-            data: (sections) {
-              return Column(
-                children: [
-                  // default section cards
-                  ...sections.map(
-                    (section) => SectionCard(section: section),
-                  ),
-                ],
-              );
-            },
-            error: (error, stackTrace) => ErrorDisplay(
-              error: error,
-              stackTrace: stackTrace,
-            ),
+          AnimatedSwitcher(
+            duration: oneSecond,
+            child: sectionStream.when(
+              data: (sections) {
+                return Column(
+                  children: [
+                    // default section cards
+                    ...sections.map(
+                      (section) => SectionCard(section: section),
+                    ),
+                  ],
+                );
+              },
+              error: (error, stackTrace) => ErrorDisplay(
+                error: error,
+                stackTrace: stackTrace,
+              ),
 
-            // loading
-            loading: () => Column(
-              children: [
-                // list
-                ...List.generate(
-                  5,
-                  (index) => const LoadingContainer(
-                    height: 350,
-                    margin: marginV4,
-                  ),
+              // loading
+              loading: () => ShimmerAnimation(
+                color: appColor.withOpacity(.5),
+                child: Column(
+                  children: [
+                    // list
+                    ...List.generate(
+                      5,
+                      (index) => const LoadingContainer(
+                        height: 350,
+                        margin: marginV4,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
 

@@ -16,3 +16,9 @@ export interface RequestBody {
 export interface TestRequestBody {
     value: number;
 }
+
+
+export interface WaterLevelRequestBody {
+    email: string;
+    height: number;
+}

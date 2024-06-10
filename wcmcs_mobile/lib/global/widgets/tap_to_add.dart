@@ -1,24 +1,28 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../app_exporter.dart';
+import '../../app_exporter.dart';
 
 /// used to add a new section when tapped
-class TapToAddSection extends StatelessWidget {
-  /// [TapToAddSection] constructor
-  const TapToAddSection({
+class TapToAddContents extends StatelessWidget {
+  /// [TapToAddContents] constructor
+  const TapToAddContents({
     super.key,
+    this.label = 'Tap to Add a New Section',
   });
+
+  /// label
+  final String label;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: padding16,
       width: double.infinity,
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Spacing(of: spacing24),
-          Icon(
+          const Spacing(of: spacing24),
+          const Icon(
             CupertinoIcons.add_circled_solid,
             size: 120,
             color: appColor,
@@ -26,15 +30,15 @@ class TapToAddSection extends StatelessWidget {
           Padding(
             padding: padding8,
             child: Text(
-              'Tap to Add a New Section',
+              label,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: appColor,
                 fontSize: fontSize14,
               ),
             ),
           ),
-          Spacing(of: spacing8),
+          const Spacing(of: spacing8),
         ],
       ),
     );

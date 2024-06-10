@@ -2,7 +2,7 @@ import '../../../app_exporter.dart';
 import '../data/water_db_refence.dart';
 import '../models/water_collected.dart';
 import 'components/water_flow_calendar.dart';
-import 'empty_section.dart';
+import '../../../global/widgets/empty_section.dart';
 import 'section_data_body.dart';
 
 /// this shows the details of a given section including its water flow and other details
@@ -26,7 +26,7 @@ class SectionDataScreen extends ConsumerWidget {
     final dailyWaterFlows =
         ref.watch(dailyWaterFlowStreamProvider(collection: section.collection));
 
-    return Column(
+    return ListView(
       children: [
         // calendar horizontal
         WaterFlowCalendar(activeColor: color),
@@ -35,10 +35,11 @@ class SectionDataScreen extends ConsumerWidget {
         const Spacing(of: spacing16),
 
         // show the data
-        Expanded(
-          child: dailyWaterFlows.when(
-            data: (waterFlows) {
-              return waterFlows.isEmpty
+        dailyWaterFlows.when(
+          data: (waterFlows) {
+            return AnimatedSwitcher(
+              duration: oneSecond,
+              child: waterFlows.isEmpty
                   ? EmptySection(
                       label: 'No Water Collected Today in the ${section.label}',
                       color: color,
@@ -47,14 +48,14 @@ class SectionDataScreen extends ConsumerWidget {
                       section: section,
                       color: color,
                       waterCollected: WaterCollected(waterFlows: waterFlows),
-                    );
-            },
-            error: (error, stackTrace) => ErrorDisplay(
-              error: error,
-              stackTrace: stackTrace,
-            ),
-            loading: () => EmptySection(color: color),
+                    ),
+            );
+          },
+          error: (error, stackTrace) => ErrorDisplay(
+            error: error,
+            stackTrace: stackTrace,
           ),
+          loading: () => EmptySection(color: color),
         ),
       ],
     );

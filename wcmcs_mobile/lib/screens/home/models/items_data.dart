@@ -32,9 +32,13 @@ final List<HomeCardItem> homeCardItems = [
     label: 'Get in touch with us',
     description: 'Need help? Contact us for support',
     imageUrl:
-        'https://imazges.unsplash.com/photo-1582586483389-d0ee8d81a800?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1582586483389-d0ee8d81a800?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     onTap: () async {
-      await linkLauncher('tel:+256 758294212');
+      final launchUri = Uri(
+        scheme: 'tel',
+        path: '+256 758294212',
+      );
+      await launchUrl(launchUri);
     },
   ),
 ];

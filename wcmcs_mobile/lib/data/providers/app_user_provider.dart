@@ -5,18 +5,30 @@ import '../service/db_names.dart';
 
 part 'app_user_provider.g.dart';
 
+/// stream provider for the user
 /// currenty logggen in user streamProvider
-@Riverpod(keepAlive: true)
+@riverpod
+Stream<User?> firebaseUserStream(FirebaseUserStreamRef ref) {
+  return FirebaseAuth.instance.authStateChanges();
+}
+
+/// currenty loggged in user streamProvider
+// @Riverpod(keepAlive: true)
+@riverpod
 Stream<DocumentSnapshot<AppUser>> appUserStream(AppUserStreamRef ref) {
-  final user = FirebaseAuth.instance.currentUser;
+  // get the user from the stream
+  final userStream = ref.watch(firebaseUserStreamProvider);
+  // get the user from the stream
+  final user = userStream.whenData((user) => user).value;
 
   return usersDatabaseRef
-      .doc(user!.uid)
+      .doc(user?.uid)
       .snapshots(includeMetadataChanges: true);
 }
 
 /// returns the current user
-@Riverpod(keepAlive: true)
+// @Riverpod(keepAlive: true)
+@riverpod
 AppUser appUser(AppUserRef ref) {
   /// listen to the user stream
   final userStream = ref.watch(appUserStreamProvider);

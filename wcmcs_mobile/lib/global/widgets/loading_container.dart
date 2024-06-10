@@ -1,5 +1,6 @@
-import '../../app_exporter.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../../app_exporter.dart';
 
 /// this is used for simulation of loading data
 class LoadingContainer extends StatelessWidget {
@@ -34,20 +35,37 @@ class LoadingContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: height,
+      margin: margin,
+      decoration: decoration ??
+          BoxDecoration(
+            color: loadingColor.withOpacity(.1),
+            borderRadius: borderRadius ?? borderRadius8,
+          ),
+    );
+  }
+}
+
+/// shimmers any child widget it has
+class ShimmerAnimation extends StatelessWidget {
+  /// [ShimmerAnimation] constructor
+  const ShimmerAnimation({required this.color, required this.child, super.key});
+
+  /// color
+  final Color color;
+
+  /// child
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: loadingColor,
+      baseColor: color,
       highlightColor: appWhite,
       period: quarterSeconds,
-      child: Container(
-        width: width,
-        height: height,
-        margin: margin,
-        decoration: decoration ??
-            BoxDecoration(
-              color: loadingColor.withOpacity(.1),
-              borderRadius: borderRadius ?? borderRadius8,
-            ),
-      ),
+      child: child,
     );
   }
 }

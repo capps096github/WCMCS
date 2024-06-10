@@ -1,6 +1,7 @@
 import '../../app_exporter.dart';
 import 'app_home.dart';
 
+
 /// home page of the WCMS app
 class WcmcsHome extends ConsumerWidget {
   /// [WcmcsHome] constructor
@@ -12,7 +13,7 @@ class WcmcsHome extends ConsumerWidget {
 
     /// * Listen to the user stream so that the app user updates automatically
     return userStream.when(
-      loading: () => const WcmcsSplash(),
+      loading: () => const Scaffold(body: EmptySection(color: appColor)),
       error: (error, stackTrace) => ErrorDisplay(
         error: error,
         stackTrace: stackTrace,

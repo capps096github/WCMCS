@@ -13,6 +13,12 @@ export interface RequestBody {
     section: string;
 }
 
+
+export interface WaterLevelRequestBody {
+    email: string;
+    height: number;
+}
+
 export interface TestRequestBody {
     value: number;
 }

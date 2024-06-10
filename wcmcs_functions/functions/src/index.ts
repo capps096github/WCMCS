@@ -13,6 +13,7 @@ import {uploadWaterFlowData} from "./db/upload";
 import {uploadTestWaterFlowData} from "./db/water_upload_test";
 import {deleteSection} from "./db/delete_collection";
 import {getTapStatus} from "./db/tap_status";
+import { updateWaterLevel } from "./db/water_level";
 
 // Create an express app
 export const app = express();
@@ -72,6 +73,12 @@ app.get("/delete", deleteSection);
 // }
 // post endpoint for uploading water flow data
 app.post("/upload", uploadWaterFlowData);
+
+// * update_water_level
+// This takes in query parameters as email and height
+// and updates the water level in the tank
+// for the user with that email
+app.post("/update_level", updateWaterLevel);
 
 
 // ? ---------------------- Test Routes ----------------------

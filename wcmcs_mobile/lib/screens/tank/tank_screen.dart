@@ -1,6 +1,6 @@
-import 'package:liquid_progress_indicator_v2/liquid_progress_indicator.dart';
-
 import '../../app_exporter.dart';
+import 'add_tank/add_tank_card.dart';
+import 'tank_body.dart';
 
 /// this shows the amount of water in the tanks
 class TankScreen extends ConsumerWidget {
@@ -9,48 +9,52 @@ class TankScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // get the height of the screen
-    final screenHeight = MediaQuery.of(context).size.height;
+    /// listen to the user stream
+    final tankStream = ref.watch(tankStreamProvider);
 
     //
     return Scaffold(
       appBar: AppBar(
         foregroundColor: appColor,
+        backgroundColor: appWhite,
         scrolledUnderElevation: 0,
         title: const AppLogo(),
       ),
       body: SafeArea(
         child: Padding(
           padding: padding8,
-          child: Column(
-            children: [
-              const BoldTileWithDescription(
-                boldTitle: BoldTitle(text: 'Water Level', color: appColor),
-                description: 'The amount of water in your tank at the moment.',
-              ),
-
-              const Spacing(of: spacing16),
-
-              //
-              Expanded(
-                child: SizedBox(
-                  height: screenHeight * .8,
-                  child: LiquidLinearProgressIndicator(
-                    // Defaults to 0.5.
-                    value: .75,
-                    valueColor: const AlwaysStoppedAnimation(
-                      appColor,
+          child: tankStream.when(
+            loading: () => const Scaffold(body: EmptySection(color: appColor)),
+            error: (error, stackTrace) => ErrorDisplay(
+              error: error,
+              stackTrace: stackTrace,
+            ),
+            data: (snapshot) {
+              // check if the snapshot is empty
+              if (snapshot.exists) {
+                return TankBody(tank: Tank.fromSnapshot(snapshot));
+              } else {
+                return const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    BoldTileWithDescription(
+                      textAlign: TextAlign.left,
+                      boldTitle: BoldTitle(
+                        textAlign: TextAlign.left,
+                        text: 'No Tank Found',
+                        color: appColor,
+                        fontSize: 25,
+                      ),
+                      descFontSize: 14,
+                      description:
+                          'Enter the details of your tank to get started with the tank measurements',
                     ),
-                    backgroundColor: appWhite,
-                    borderColor: appColor,
-                    borderWidth: 3,
-                    borderRadius: 12,
-                    direction: Axis.vertical,
-                    center: const BoldTitle(text: '500 Litres'),
-                  ),
-                ),
-              ),
-            ],
+                    Spacing(of: spacing32),
+                    AddTankCard(),
+                  ],
+                );
+              }
+            },
           ),
         ),
       ),

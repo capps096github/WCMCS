@@ -1,5 +1,4 @@
 import '../../../app_exporter.dart';
-import '../data/tank_db_reference.dart';
 import '../model/tank.dart';
 
 /// A service for interacting with the Tank on the Cloud Database

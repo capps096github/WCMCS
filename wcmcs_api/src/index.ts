@@ -7,6 +7,7 @@ import express = require("express");
 import cors = require("cors");
 import { uploadWaterFlowData } from "./api/water_upload";
 import { getTapStatus } from "./api/tap_status";
+import { updateTankWaterLevel } from "./api/update_level";
 
 // Create an express app
 export const app = express();
@@ -50,6 +51,15 @@ app.use(express.json({ type: "application/json" }));
 // }
 // * Uploads Values to Cloud
 app.post("/upload", uploadWaterFlowData);
+
+// * update_level
+// This takes in a JSON
+// {
+//     "height": 20,
+//     "email": "email"
+// }
+// * Uploads Values to Cloud
+app.post("/update_level", updateTankWaterLevel);
 
 // * tap_status
 // This takes in a query parameter as the section name

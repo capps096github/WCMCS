@@ -55,7 +55,7 @@ class _SaveButtonState extends ConsumerState<AddSectionButton> {
             // if message contains the word successfully
             if (message.contains('successfully')) {
               ScaffoldMessenger.of(context)
-                  .showSnackBar(savedSnackbar(message));
+                  .showSnackBar(successSnackbar(message));
 
               /// save, show ad and pop
               pop(ref);
@@ -71,56 +71,4 @@ class _SaveButtonState extends ConsumerState<AddSectionButton> {
       ),
     );
   }
-}
-
-/// snackbar to show after saving results
-SnackBar savedSnackbar(String message) {
-  return SnackBar(
-    backgroundColor: appColor,
-    margin: const EdgeInsets.all(4),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8),
-    ),
-    content: Row(
-      children: [
-        const Icon(
-          Icons.check_circle_rounded,
-          color: appWhite,
-        ),
-        const Spacing(of: 10),
-        Text(
-          message,
-          style: const TextStyle(color: appWhite),
-        ),
-      ],
-    ),
-    behavior: SnackBarBehavior.floating,
-    duration: oneSecond,
-  );
-}
-
-/// error snackbar shown when section is not saved or it exists
-SnackBar errorSnackbar(String message) {
-  return SnackBar(
-    backgroundColor: errorColor,
-    margin: const EdgeInsets.all(4),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8),
-    ),
-    content: Row(
-      children: [
-        const Icon(
-          Icons.error_outline_rounded,
-          color: appWhite,
-        ),
-        const Spacing(of: 10),
-        Text(
-          'Section Not Saved - $message',
-          style: const TextStyle(color: appWhite),
-        ),
-      ],
-    ),
-    behavior: SnackBarBehavior.floating,
-    duration: oneSecond,
-  );
 }

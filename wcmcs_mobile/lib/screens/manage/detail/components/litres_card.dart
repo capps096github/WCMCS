@@ -29,7 +29,7 @@ class LitresCard extends StatelessWidget {
       cardColor: cardColor,
       textColor: cardColor,
       value: waterCollected.totalLitres,
-      label: 'Litres',
+      label: 'Litres Used Today',
       description: '* Estimated',
     );
   }

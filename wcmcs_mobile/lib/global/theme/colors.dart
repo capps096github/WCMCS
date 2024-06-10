@@ -9,6 +9,9 @@ const appColor = Color(0xFF007BFF);
 const appNavy = Color(0xFF000525);
 // const wcmcsSecondaryColor = Color(0xFFE2E2E2);
 
+/// tank color blac
+const tankColor = appBlack;
+
 /// app black
 const appBlack = Color(0xFF000000);
 

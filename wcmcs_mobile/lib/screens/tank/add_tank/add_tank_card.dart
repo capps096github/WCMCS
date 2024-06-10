@@ -1,18 +1,17 @@
 import 'package:dotted_border/dotted_border.dart';
 
 import '../../../app_exporter.dart';
-import '../add_section/add_section_screen.dart';
-import '../../../global/widgets/tap_to_add.dart';
+import 'add_tank_screen.dart';
 
 /// this is used to add a new section to the app
-class AddSectionCard extends StatelessWidget {
-  /// [AddSectionCard] constructor
-  const AddSectionCard({super.key});
+class AddTankCard extends StatelessWidget {
+  /// [AddTankCard] constructor
+  const AddTankCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return OpenRoute(
-      to: const AddSectionScreen(),
+      to: const AddTankScreen(),
       closedShape: const RoundedRectangleBorder(
         borderRadius: borderRadius16,
       ),
@@ -22,7 +21,7 @@ class AddSectionCard extends StatelessWidget {
         borderType: BorderType.RRect,
         strokeWidth: 2.5,
         color: appColor,
-        child: const TapToAddContents(),
+        child: const TapToAddContents(label: 'Add Your Tank Details'),
       ),
     );
   }

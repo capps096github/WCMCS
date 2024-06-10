@@ -15,22 +15,15 @@ export const uploadWaterFlowData =
       const requestBody: RequestBody = JSON.parse(JSON.stringify(body));
 
       // log the request body
-      console.info(`Request body: ${JSON.stringify(requestBody)}`);
+      console.info(`Flow Request body: ${JSON.stringify(requestBody)}`);
 
       // Validation (optional)
       if (!body) {
         response.status(400)
           .send("Missing required fields: value and timestamp");
       } else {
-        // get value
-        const value = requestBody.value;
 
-        //* check if user id is not empty
-        if (!value) {
-          response.status(400).send("User not found");
-        } else {
-          uploadWaterData(requestBody, response);
-        }
+        uploadWaterData(requestBody, response);
       }
     } catch (error) {
       console.error(error);

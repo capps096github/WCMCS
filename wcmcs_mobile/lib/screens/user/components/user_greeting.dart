@@ -22,7 +22,8 @@ class UserGreeting extends StatelessWidget {
             color: appColor,
             fontSize: 30,
           ),
-          description: 'Welcome back to Water Warden',
+          description:
+              'Welcome back to the Water Consumption Monitoring and Control System (WCMCS) App',
         );
       },
     );
