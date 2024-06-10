@@ -42,8 +42,6 @@ void receiveData() {
   }
 
   Serial.println("Waiting ...\n");
-  // delay(5000);
-  delay(1000);
 }
 
 

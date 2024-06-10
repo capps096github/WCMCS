@@ -9,6 +9,9 @@
 // water flown
 double amountOfWaterFlown = 0;
 
+// height of water
+double heightOfWaterFlown = 0;
+
 // email
 // Test: cephas@test.com
 // String email = "";
@@ -40,7 +43,6 @@ void setup() {
 }
 
 void loop() {
-
   // get the valve status
   bool isValveOpen = fetchValveStatus(section);
 
@@ -48,12 +50,14 @@ void loop() {
   if (isValveOpen) {
     espSerial.print(1);
 
-    measureDistance();
+    double heightOfWater = measureHeightOfWaterFlown();
 
     double amount = waterVolume();
 
     // if amount is greater than 0
     if (amount > 0) {
+      // espSerial.print(1);
+
       amountOfWaterFlown += amount;
 
       Serial.print("Water Flow: ");
@@ -64,9 +68,27 @@ void loop() {
       uploadToCloud(amountOfWaterFlown, email, section);
       amountOfWaterFlown = 0;
     }
+
+    // if height of water flown is greater than 0
+    if (heightOfWater > 0) {
+      // espSerial.print(1);
+
+      heightOfWaterFlown += heightOfWater;
+
+      Serial.print("Height of Flow: ");
+      Serial.println(heightOfWaterFlown);
+
+      // upload water values
+      uploadWaterLevel(heightOfWaterFlown, email);
+      heightOfWaterFlown = 0;
+    }
+
+    //
   } else {
     // turn off valve
     espSerial.print(0);
   }
-    delay(1000);
+
+
+  delay(1000);
 }

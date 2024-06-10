@@ -9,7 +9,7 @@ class Tank {
     required this.height,
     required this.userId,
     this.tankType = 'cylindrical',
-     this.radius = 1,
+    this.radius = 1,
     this.length = 1,
     this.width = 1,
     this.heightOfWaterFlown = 0,
@@ -89,9 +89,12 @@ class Tank {
   /// internal method to calculate volume and
   ///takes in height of water flown as parameter
   double volume(num heightOfWaterFlown) {
-    return isCylindrical
+    final volume = isCylindrical
         ? (pi * radius * radius * heightOfWaterFlown)
         : (length * width * heightOfWaterFlown).toDouble();
+
+    // divide volume by 1000 to get litres
+    return volume / 1000;
   }
 
   /// getter for tank percentage

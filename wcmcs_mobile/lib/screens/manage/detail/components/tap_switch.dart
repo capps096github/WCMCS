@@ -51,6 +51,7 @@ class _SwitchBodyState extends ConsumerState<SwitchBody> {
 
     return SizedBox(
       height: 100,
+      key: ValueKey(isOpen),
       child: Material(
         color: appTransparent,
         shadowColor: textColor,

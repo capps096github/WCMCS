@@ -21,6 +21,6 @@ final timeFormatter = DateFormat('HH:mm:ss');
 /// if the number is greater than 1000000, it will be formatted to 1m etc
 /// it will also have commas in the number
 final numberFormatter = NumberFormat.simpleCurrency(
-  decimalDigits: 2,
+  decimalDigits: 3,
   name: '',
 );

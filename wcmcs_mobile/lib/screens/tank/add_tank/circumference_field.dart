@@ -40,7 +40,7 @@ class NumberField extends ConsumerWidget {
       },
       keyboardType: TextInputType.number,
       prefixIcon: CupertinoIcons.number,
-      hintText: '$fieldLabel of your Tank (in m)',
+      hintText: '$fieldLabel of your Tank (in cm)',
     );
   }
 }

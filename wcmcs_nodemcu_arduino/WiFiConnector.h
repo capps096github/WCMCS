@@ -32,7 +32,7 @@ String getServerUrl(String endpoint) {
 
   String serverUrl = localServer;
 
-  Serial.println(serverUrl);
+  // Serial.println(serverUrl);
 
   return serverUrl;
 }
