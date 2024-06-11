@@ -24,7 +24,7 @@ void getTapStatus(String section) {
 
     if (httpCode > 0) {
       String payload = http.getString();
-      Serial.println("HTTP Response code: " + String(httpCode));
+      // Serial.println("HTTP Response code: " + String(httpCode));
       Serial.println("Tap Status: " + payload);
 
       // Parse the response (assuming it's a plain integer)

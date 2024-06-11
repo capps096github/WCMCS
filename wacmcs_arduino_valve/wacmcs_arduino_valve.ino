@@ -9,10 +9,11 @@ const int valvePin = 3;  // Adjust according to your setup
 
 String str;
 
-int strInput = 0;
+int strInput;
 
 void setup() {
   Serial.begin(115200);  // Initialize serial communication
+  // Serial.begin(9600);  // Initialize serial communication
 
   // mark the led and solenoid pins as outputs
   pinMode(ledPin, OUTPUT);
@@ -28,19 +29,17 @@ void loop() {
 void receiveData() {
   // loop to capture inputs
   // while (Serial.available() == 0) {}
-
+  // Serial.write(Serial.read());
   //Checking is any data is coming from Esp8266
   if (Serial.available()) {
     // str = Serial.readString();
     strInput = Serial.parseInt();
     Serial.print("Arduino String Input: ");
     Serial.println(strInput);
-    // controlValve(str.toInt());
-    controlValve(strInput);
-
     Serial.flush();  //Clearing all Serial print
   }
 
+  controlValve(strInput);
   Serial.println("Waiting ...\n");
 }
 

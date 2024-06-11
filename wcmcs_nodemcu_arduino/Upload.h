@@ -55,7 +55,7 @@ void uploadToCloud(double amountOfWaterFlown, String email, String section) {
 }
 
 
-void uploadWaterLevel(double heightOfWater, String email) {
+void updateWaterLevel(double heightOfWater, String email) {
   if (WiFi.status() == WL_CONNECTED) {
     // Create a WiFiClient object
     WiFiClient client;

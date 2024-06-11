@@ -2,7 +2,7 @@
 #include "ValveController.h"
 #include "Upload.h"
 #include "WaterFlowSensor.h"
-#include "Ultrasonic.h"
+// #include "Ultrasonic.h"
 
 #include <SoftwareSerial.h>
 
@@ -22,15 +22,14 @@ double heightOfWaterFlown = 0;
 
 String email = "cephas@test.com";
 String section = "test";
+// String section = "home";
 
 
 bool hasCapturedValues = false;
 
-SoftwareSerial espSerial(4, 0);  // (D2 = 4) RX, (D3 = 0) TX pins for ESP8266 (you can use any available pins)
-
 void setup() {
   Serial.begin(115200);
-  espSerial.begin(115200);  // Initialize the ESP8266 serial port
+  Serial1.begin(115200);  // Initialize the ESP8266 serial port
 
   // connect to wifi
   connectToWiFi();
@@ -38,8 +37,6 @@ void setup() {
   // initialize water
   initializeWaterSensor();
 
-  // initialize ultrasonic
-  initUltrasonicSensor();
 }
 
 void loop() {
@@ -48,45 +45,39 @@ void loop() {
 
   // upload
   if (isValveOpen) {
-    espSerial.print(1);
-
-    double heightOfWater = measureHeightOfWaterFlown();
+    // espSerial.print(1);
+    Serial1.print(1);
 
     double amount = waterVolume();
+    double heightOfWater = calculateWaterHeight(amount);
 
     // if amount is greater than 0
     if (amount > 0) {
-      // espSerial.print(1);
-
       amountOfWaterFlown += amount;
+      heightOfWaterFlown += heightOfWater;
 
       Serial.print("Water Flow: ");
       Serial.print(amountOfWaterFlown);
       Serial.println(" L");
 
-      // upload water values
-      uploadToCloud(amountOfWaterFlown, email, section);
-      amountOfWaterFlown = 0;
-    }
-
-    // if height of water flown is greater than 0
-    if (heightOfWater > 0) {
-      // espSerial.print(1);
-
-      heightOfWaterFlown += heightOfWater;
-
       Serial.print("Height of Flow: ");
       Serial.println(heightOfWaterFlown);
+      Serial.println("cm");
 
       // upload water values
-      uploadWaterLevel(heightOfWaterFlown, email);
+      uploadToCloud(amountOfWaterFlown, email, section);
+
+      // upload water values
+      updateWaterLevel(heightOfWaterFlown, email);
+
+      amountOfWaterFlown = 0;
       heightOfWaterFlown = 0;
     }
 
     //
   } else {
     // turn off valve
-    espSerial.print(0);
+    Serial1.print(0);
   }
 
 
