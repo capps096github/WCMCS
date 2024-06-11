@@ -1,7 +1,6 @@
 import '../../app_exporter.dart';
 import 'app_home.dart';
 
-
 /// home page of the WCMS app
 class WcmcsHome extends ConsumerWidget {
   /// [WcmcsHome] constructor

@@ -116,3 +116,26 @@ Stream<List<Section>> sections(SectionsRef ref) {
 
   return sectionsList;
 }
+
+
+/// currenty loggged in user streamProvider
+// @Riverpod(keepAlive: true)
+@riverpod
+Stream<DocumentSnapshot<Section>> givenSectionStream(GivenSectionStreamRef ref, Section section) {
+    return sectionDatabaseRef
+      .doc(section.collection)
+      .snapshots(includeMetadataChanges: true);
+}
+
+/// tap state
+@riverpod
+Stream<bool> tapState (TapStateRef ref, Section section) {
+  /// listen to the user stream
+  final sectionStream = ref.watch(givenSectionStreamProvider(section));
+
+  final currentSection = sectionStream.whenData((DocumentSnapshot<Section> snapshot) {
+    return snapshot.data();
+  }).value ?? Section.empty;
+
+  return Stream.value(currentSection.isOpen);
+}

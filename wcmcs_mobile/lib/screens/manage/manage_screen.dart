@@ -16,55 +16,61 @@ class ManageScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: appColor,
+        foregroundColor: appWhite,
         scrolledUnderElevation: 0,
-        title: const Text('Manage Sections'),
+        title: const Text(
+          'Manage Sections',
+          style: TextStyle(color: appWhite),
+        ),
       ),
-      body: ListView(
-        padding: padding16,
-        children: [
-          // stream
-          AnimatedSwitcher(
-            duration: oneSecond,
-            child: sectionStream.when(
-              data: (sections) {
-                return Column(
-                  children: [
-                    // default section cards
-                    ...sections.map(
-                      (section) => SectionCard(section: section),
-                    ),
-                  ],
-                );
-              },
-              error: (error, stackTrace) => ErrorDisplay(
-                error: error,
-                stackTrace: stackTrace,
-              ),
-
-              // loading
-              loading: () => ShimmerAnimation(
-                color: appColor.withOpacity(.5),
-                child: Column(
-                  children: [
-                    // list
-                    ...List.generate(
-                      5,
-                      (index) => const LoadingContainer(
-                        height: 350,
-                        margin: marginV4,
+      body: BodyWidth(
+        body: ListView(
+          padding: padding16,
+          children: [
+            // stream
+            AnimatedSwitcher(
+              duration: oneSecond,
+              child: sectionStream.when(
+                data: (sections) {
+                  return Column(
+                    children: [
+                      // default section cards
+                      ...sections.map(
+                        (section) => SectionCard(section: section),
                       ),
-                    ),
-                  ],
+                    ],
+                  );
+                },
+                error: (error, stackTrace) => ErrorDisplay(
+                  error: error,
+                  stackTrace: stackTrace,
+                ),
+
+                // loading
+                loading: () => ShimmerAnimation(
+                  color: appColor.withOpacity(.5),
+                  child: Column(
+                    children: [
+                      // list
+                      ...List.generate(
+                        5,
+                        (index) => const LoadingContainer(
+                          height: 350,
+                          margin: marginV4,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
 
-          const Spacing(of: spacing16),
-          // add section button
-          const AddSectionCard(),
-          const Spacing(of: spacing16),
-        ],
+            const Spacing(of: spacing16),
+            // add section button
+            const AddSectionCard(),
+            const Spacing(of: spacing16),
+          ],
+        ),
       ),
     );
   }

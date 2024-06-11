@@ -7,7 +7,7 @@ class BodyWidth extends ConsumerWidget {
   const BodyWidth({
     required this.body,
     super.key,
-    this.maxWidth,
+    this.maxWidth = maxScreenWidth ,
   });
 
   /// body widget

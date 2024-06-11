@@ -3,7 +3,6 @@ import '../data/water_db_refence.dart';
 import '../models/water_collected.dart';
 import 'components/tap_switch.dart';
 import 'components/water_flow_calendar.dart';
-import '../../../global/widgets/empty_section.dart';
 import 'no_data.dart';
 import 'section_data_body.dart';
 
@@ -30,7 +29,8 @@ class SectionDataScreen extends ConsumerWidget {
 
     return ListView(
       children: [
-        // calendar horizontal
+        // spacing
+        if (isAppWeb) const Spacing(of: spacing32), // calendar horizontal
         WaterFlowCalendar(activeColor: color),
 
         // spacing
@@ -39,41 +39,46 @@ class SectionDataScreen extends ConsumerWidget {
         // show the data
         dailyWaterFlows.when(
           data: (waterFlows) {
-            return AnimatedSwitcher(
-              duration: oneSecond,
-              child: waterFlows.isEmpty
-                  ? Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Spacing(of: spacing16),
-                        BoldTitle(
-                          text: 'Tap Status',
-                          color: color,
-                          fontSize: 30,
+            return BodyWidth(
+              body: AnimatedSwitcher(
+                duration: oneSecond,
+                child: waterFlows.isEmpty
+                    ? Padding(
+                        padding: padding16,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Spacing(of: spacing16),
+                            BoldTitle(
+                              text: 'Tap Status',
+                              color: color,
+                              fontSize: 30,
+                            ),
+                            const Spacing(of: spacing16),
+                            SectionTapSwitch(section: section),
+                            // switch
+                            NoData(
+                              label:
+                                  'No Water Collected Today in the ${section.label}',
+                              color: color,
+                            ),
+                            const Spacing(of: spacing16),
+                          ],
                         ),
-                        const Spacing(of: spacing16),
-                        SectionTapSwitch(section: section),
-                        // switch
-                        NoData(
-                          label:
-                              'No Water Collected Today in the ${section.label}',
-                          color: color,
-                        ),
-                        const Spacing(of: spacing16),
-                      ],
-                    )
-                  : SectionDataBody(
-                      section: section,
-                      color: color,
-                      waterCollected: WaterCollected(waterFlows: waterFlows),
-                    ),
+                      )
+                    : SectionDataBody(
+                        section: section,
+                        color: color,
+                        waterCollected: WaterCollected(waterFlows: waterFlows),
+                      ),
+              ),
             );
           },
           error: (error, stackTrace) => ErrorDisplay(
             error: error,
             stackTrace: stackTrace,
           ),
-          loading: () => EmptySection(color: color),
+          loading: () => EmptySection(color: color, hasColumn:true),
         ),
       ],
     );

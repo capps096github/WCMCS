@@ -22,6 +22,9 @@ const double wcmcsButtonHeight = 44;
 /// max width for the app auth screens
 const double maxAuthWidth = 500;
 
+/// max width for the app auth screens
+const double maxScreenWidth = 800;
+
 /// maxCardHeight
 const double maxCardHeight = 360;
 

@@ -9,35 +9,37 @@ class AppHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: horizontalPadding16,
-      children: [
-        const UserGreeting(),
-        const Spacing(of: spacing32),
-        const Center(
-          child: ThickHorizontalDivider(
-            dividerColor: appNavy,
-            thickness: 10,
-            dividerWidth: 50,
-            margin: margin16,
+    return BodyWidth(
+      body: ListView(
+        padding: horizontalPadding16,
+        children: [
+          const UserGreeting(),
+          const Spacing(of: spacing32),
+          const Center(
+            child: ThickHorizontalDivider(
+              dividerColor: appNavy,
+              thickness: 10,
+              dividerWidth: 50,
+              margin: margin16,
+            ),
           ),
-        ),
-        const BoldTileWithDescription(
-          boldTitle: BoldTitle(
-            text: 'What would you like to do today?',
-            color: appColor,
-            fontSize: 30,
+          const BoldTileWithDescription(
+            boldTitle: BoldTitle(
+              text: 'What would you like to do today?',
+              color: appColor,
+              fontSize: 30,
+            ),
+            description: "Here's a quick guide to help you get started",
           ),
-          description: "Here's a quick guide to help you get started",
-        ),
-        const Spacing(of: spacing16),
-        ...homeCardItems.map((cardItem) {
-          return HomeCard(
-            cardItem: cardItem,
-          );
-        }),
-        const Spacing(of: spacing16),
-      ],
+          const Spacing(of: spacing16),
+          ...homeCardItems.map((cardItem) {
+            return HomeCard(
+              cardItem: cardItem,
+            );
+          }),
+          const Spacing(of: spacing16),
+        ],
+      ),
     );
   }
 }

@@ -88,4 +88,7 @@ class Section {
       uploadedOn: uploadedOn ?? this.uploadedOn,
     );
   }
+
+  // empty section
+  static Section empty = Section.fromLabel(label: '', userId: '');
 }

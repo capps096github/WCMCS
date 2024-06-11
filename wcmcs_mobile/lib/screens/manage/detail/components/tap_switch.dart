@@ -1,7 +1,8 @@
 import '../../../../app_exporter.dart';
+import '../../data/water_db_refence.dart';
 
 /// this displays the section tap switch resposible for opening and closing the tap of a section
-class SectionTapSwitch extends StatelessWidget {
+class SectionTapSwitch extends ConsumerWidget {
   /// [SectionTapSwitch] constructor
   const SectionTapSwitch({required this.section, super.key});
 
@@ -9,38 +10,44 @@ class SectionTapSwitch extends StatelessWidget {
   final Section section;
 
   @override
-  Widget build(BuildContext context) {
-    //
-    return SwitchBody(section: section);
+  Widget build(BuildContext context, WidgetRef ref) {
+    // get tap state stream
+    final tapStateStream = ref.watch(tapStateProvider(section));
+
+    return tapStateStream.when(
+      data: (tapState) {
+        printer('Tap State:: $tapState');
+        //
+        return SwitchBodyx(section: section, tapState: tapState);
+      },
+      error: (error, stackTrace) => const LoadingContainer(
+        loadingColor: errorColor,
+        height: 100,
+      ),
+      loading: () => const LoadingContainer(height: 100),
+    );
   }
 }
 
-/// this has the body of the tap switch
-class SwitchBody extends ConsumerStatefulWidget {
-  /// [SwitchBody] constructor
-  const SwitchBody({
+///
+class SwitchBodyx extends ConsumerWidget {
+  /// [SwitchBodyx] constructor
+  const SwitchBodyx({
     required this.section,
+    required this.tapState,
     super.key,
   });
 
   /// section
   final Section section;
 
-  @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _SwitchBodyState();
-}
-
-class _SwitchBodyState extends ConsumerState<SwitchBody> {
-  late bool isOpen;
+  /// tap state
+  final bool tapState;
 
   @override
-  void initState() {
-    super.initState();
-    isOpen = widget.section.isOpen;
-  }
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isOpen = tapState;
 
-  @override
-  Widget build(BuildContext context) {
     // tile color
     final tileColor = isOpen ? tapOpenColor : tapClosedColor;
 
@@ -49,9 +56,10 @@ class _SwitchBodyState extends ConsumerState<SwitchBody> {
 
     final newValue = isOpen ? 0 : 1;
 
+    printer('Open State:: $tapState');
+
     return SizedBox(
       height: 100,
-      key: ValueKey(isOpen),
       child: Material(
         color: appTransparent,
         shadowColor: textColor,
@@ -65,7 +73,6 @@ class _SwitchBodyState extends ConsumerState<SwitchBody> {
           ),
           onTap: () async => updateController(newValue),
           child: AnimatedContainer(
-            key: ValueKey(isOpen),
             duration: halfSeconds,
             padding: padding16,
             decoration: BoxDecoration(
@@ -73,6 +80,7 @@ class _SwitchBodyState extends ConsumerState<SwitchBody> {
               borderRadius: borderRadius16,
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 BoldTileWithDescription(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,18 +117,15 @@ class _SwitchBodyState extends ConsumerState<SwitchBody> {
     );
   }
 
+  ///
   Future<void> updateController(int newValue) async {
     // print new value
     printer('New Value: $newValue');
 
     // update the section
     await SectionService.updateControllerValue(
-      section: widget.section,
+      section: section,
       newValue: newValue,
-    ).then((_) {
-      setState(() {
-        isOpen = !isOpen;
-      });
-    });
+    );
   }
 }

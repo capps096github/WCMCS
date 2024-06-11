@@ -28,7 +28,10 @@ class SectionDetail extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: color,
-        title: Text(section.label),
+        title: Text(
+          section.label,
+          style: const TextStyle(color: appWhite),
+        ),
         actions: [
           // delete section
           IconButton(
