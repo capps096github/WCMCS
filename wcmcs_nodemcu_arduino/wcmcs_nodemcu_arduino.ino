@@ -22,7 +22,6 @@ double heightOfWaterFlown = 0;
 
 String email = "cephas@test.com";
 String section = "test";
-// String section = "home";
 
 
 bool hasCapturedValues = false;
@@ -41,14 +40,17 @@ void setup() {
 
 void loop() {
   // get the valve status
-  bool isValveOpen = fetchValveStatus(section);
+  int currentTapStatus = fetchValveStatus(section);
+  // int currentTapStatus = 1;
+  bool isValveOpen = (currentTapStatus == 1);
 
   // upload
   if (isValveOpen) {
-    // espSerial.print(1);
-    Serial1.print(1);
+  Serial.println("Tap is now Open: True" );
+  Serial1.print(1);
 
     double amount = waterVolume();
+
     double heightOfWater = calculateWaterHeight(amount);
 
     // if amount is greater than 0
@@ -72,12 +74,15 @@ void loop() {
 
       amountOfWaterFlown = 0;
       heightOfWaterFlown = 0;
+
+      delay(3000);
     }
 
     //
   } else {
-    // turn off valve
-    Serial1.print(0);
+  // Serial.println("Tap is now Open: false" );
+  // turn off valve
+  Serial1.print(0);
   }
 
 

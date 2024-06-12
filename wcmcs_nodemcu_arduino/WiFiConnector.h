@@ -9,8 +9,8 @@
 
 // * Wifi Credentials
 /// this has the wifi name
-const char* ssid = "X3PH45  Galaxy";
-// const char* ssid = "X3PH4S";
+// const char* ssid = "X3PH45  Galaxy";
+const char* ssid = "X3PH4S";
 //NOTE: When the Wifi Name changes, Ip Address of server url also changes
 
 /// this has the wifi password
@@ -21,13 +21,15 @@ String getServerUrl(String endpoint) {
  const String protocol = "http://";
 
   // String ipAddress = (ssid == "X3PH4S")? "10.150.33.140" : "192.168.43.63";
-  String ipAddress = (ssid == "X3PH4S") ? "10.150.32.161" : "192.168.43.63";
+  // String ipAddress = (ssid == "X3PH4S") ? "10.150.32.161" : "192.168.43.63";
+  String ipAddress = (ssid == "X3PH4S") ? "10.150.33.170" : "192.168.43.63";
 
  const String port = ":3500";
   // * to upload water
   // String endpoint = "/upload";
   // String endpoint = "/hello";
 
+  // when you call this in the print function it sends some rare values to the serial, so don't print it
   String localServer = String(protocol + ipAddress + port + endpoint);
 
   String serverUrl = localServer;

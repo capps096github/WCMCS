@@ -2,7 +2,7 @@
 import {getFirestore} from "firebase-admin/firestore";
 import * as logger from "firebase-functions/logger";
 import {getUserId} from "../auth/user";
-import {tankConverter} from "../models/tank";
+// import {tankConverter} from "../models/tank";
 
 import express = require("express");
 import {WaterLevelRequestBody} from "../models/request_body";
@@ -46,8 +46,8 @@ export const updateWaterLevel =
           // Create a reference to the collection
           const tankReference =
                     db.collection("tanks")
-                      .doc(userId)
-                      .withConverter(tankConverter);
+                      .doc(userId);
+                      // .withConverter(tankConverter);
 
           // get the controller value from this
           //    section and return it in the response
@@ -57,7 +57,7 @@ export const updateWaterLevel =
           if (tankDocSnapshot.exists) {
             // update the water level
             await tankReference.update(
-              {heightOfWaterFlown: heightOfWaterFlown}
+              {height: heightOfWaterFlown}
             ).then(() => {
               // response body
               const responseBody = {

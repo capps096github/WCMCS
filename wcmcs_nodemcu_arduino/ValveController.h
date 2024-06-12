@@ -30,7 +30,7 @@ void getTapStatus(String section) {
       // Parse the response (assuming it's a plain integer)
       tapStatus = payload.toInt();
     } else {
-      Serial.println("Error on HTTP request");
+      Serial.println("Error on HTTP request when getting tap status");
     }
 
     http.end();  // Free resources
@@ -43,5 +43,5 @@ bool fetchValveStatus(String section) {
   // Periodically update the switch value and control the valve
   getTapStatus(section);
 
-  return (tapStatus == 1);
+  return tapStatus;
 }

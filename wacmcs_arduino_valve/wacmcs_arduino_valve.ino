@@ -9,7 +9,7 @@ const int valvePin = 3;  // Adjust according to your setup
 
 String str;
 
-int strInput;
+int strInput = 0;
 
 void setup() {
   Serial.begin(115200);  // Initialize serial communication
@@ -20,9 +20,10 @@ void setup() {
   pinMode(valvePin, OUTPUT);
 }
 
-//
 void loop() {
-  receiveData();
+  if (Serial.available()) {
+    receiveData();
+  }
 }
 
 // Function to receive serial data and send a response
@@ -36,12 +37,22 @@ void receiveData() {
     strInput = Serial.parseInt();
     Serial.print("Arduino String Input: ");
     Serial.println(strInput);
+
+    // 
+    controlValve(strInput);
     Serial.flush();  //Clearing all Serial print
+    delay(2000);
   }
 
-  controlValve(strInput);
   Serial.println("Waiting ...\n");
 }
+// strInput = 1;
+// controlValve(strInput);
+// delay(5000);
+
+// strInput = 0;
+// controlValve(strInput);
+// delay(5000);
 
 
 //
@@ -62,5 +73,22 @@ void controlValve(int tapStatus) {
 
     Serial.print("VALVE CLOSED: value = ");
     Serial.println(String(tapStatus));
+  }
+}
+
+
+//
+void sample() {
+  // Reads the next byte from the serial buffer
+  int value = Serial.read();
+
+  if (value != -1) {
+    // Process the received value (e.g., convert to integer if needed)
+    int receivedInt = value;
+    controlValve(receivedInt);
+    Serial.print("Received value:");
+    Serial.println(receivedInt);
+  } else {
+    Serial.println("No data available");
   }
 }
